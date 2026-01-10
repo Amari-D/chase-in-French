@@ -42,13 +42,13 @@ export default function HubsPage() {
               className="max-w-4xl"
             >
               <p className="font-paragraph text-sm uppercase tracking-wider opacity-80 mb-4">
-                Bibliothèque Thématique
+                Thematic Library
               </p>
               <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
-                Explorez Nos Hubs Thématiques
+                Explore Our Thematic Hubs
               </h1>
               <p className="font-paragraph text-lg lg:text-xl opacity-90">
-                Chaque hub regroupe des leçons spécialisées pour approfondir un aspect spécifique de la langue française. Choisissez votre domaine d'intérêt et commencez votre apprentissage structuré.
+                Each hub groups specialized lessons to deepen a specific aspect of the French language. Choose your area of interest and begin your structured learning.
               </p>
             </motion.div>
           </div>
@@ -59,11 +59,11 @@ export default function HubsPage() {
           <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
             {loading ? (
               <div className="text-center py-20">
-                <p className="font-paragraph text-lg text-foreground">Chargement des hubs...</p>
+                <p className="font-paragraph text-lg text-foreground">Loading hubs...</p>
               </div>
             ) : hubs.length === 0 ? (
               <div className="text-center py-20">
-                <p className="font-paragraph text-lg text-foreground">Aucun hub disponible pour le moment.</p>
+                <p className="font-paragraph text-lg text-foreground">No hubs available at the moment.</p>
               </div>
             ) : (
               <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
@@ -100,7 +100,7 @@ export default function HubsPage() {
                           </div>
                           
                           <div className="flex items-center gap-2 text-primary font-paragraph font-semibold mt-6 group-hover:gap-4 transition-all">
-                            Explorer ce hub
+                            Explore this hub
                             <ArrowRight className="w-5 h-5" />
                           </div>
                         </div>
@@ -125,16 +125,16 @@ export default function HubsPage() {
                 className="space-y-6"
               >
                 <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary">
-                  Vous cherchez une leçon spécifique ?
+                  Looking for a specific lesson?
                 </h2>
                 <p className="font-paragraph text-lg text-secondary-foreground">
-                  Parcourez toutes nos leçons disponibles et filtrez par thématique pour trouver exactement ce dont vous avez besoin.
+                  Browse all our available lessons and filter by topic to find exactly what you need.
                 </p>
                 <Link 
                   to="/lecons"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded font-paragraph font-semibold hover:opacity-90 transition-opacity"
                 >
-                  Voir Toutes les Leçons
+                  View All Lessons
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </motion.div>

@@ -60,13 +60,13 @@ export default function LeconsPage() {
               className="max-w-4xl"
             >
               <p className="font-paragraph text-sm uppercase tracking-wider opacity-80 mb-4">
-                Bibliothèque Complète
+                Complete Library
               </p>
               <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
-                Toutes les Leçons
+                All Lessons
               </h1>
               <p className="font-paragraph text-lg lg:text-xl opacity-90">
-                Parcourez l'intégralité de nos leçons et filtrez par hub thématique pour trouver le contenu qui correspond à vos besoins d'apprentissage.
+                Browse all our lessons and filter by thematic hub to find the content that matches your learning needs.
               </p>
             </motion.div>
           </div>
@@ -79,7 +79,7 @@ export default function LeconsPage() {
               <div className="flex items-center gap-3">
                 <Filter className="w-5 h-5 text-primary" />
                 <span className="font-paragraph font-semibold text-secondary-foreground">
-                  Filtrer par hub :
+                  Filter by hub:
                 </span>
               </div>
               
@@ -92,7 +92,7 @@ export default function LeconsPage() {
                       : 'bg-background text-foreground hover:bg-primary/10'
                   }`}
                 >
-                  Tous ({lecons.length})
+                  All ({lecons.length})
                 </button>
                 
                 {hubs.map(hub => {
@@ -121,20 +121,20 @@ export default function LeconsPage() {
           <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
             {loading ? (
               <div className="text-center py-20">
-                <p className="font-paragraph text-lg text-foreground">Chargement des leçons...</p>
+                <p className="font-paragraph text-lg text-foreground">Loading lessons...</p>
               </div>
             ) : filteredLecons.length === 0 ? (
               <div className="text-center py-20">
                 <div className="bg-secondary p-12 max-w-2xl mx-auto">
                   <p className="font-paragraph text-lg text-secondary-foreground mb-4">
-                    Aucune leçon disponible {selectedHub !== 'all' ? 'dans ce hub' : ''}.
+                    No lessons available {selectedHub !== 'all' ? 'in this hub' : ''}.
                   </p>
                   {selectedHub !== 'all' && (
                     <button
                       onClick={() => setSelectedHub('all')}
                       className="text-primary font-paragraph font-semibold hover:opacity-80"
                     >
-                      Voir toutes les leçons
+                      View all lessons
                     </button>
                   )}
                 </div>
@@ -148,10 +148,10 @@ export default function LeconsPage() {
                   className="mb-12"
                 >
                   <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary mb-4">
-                    {selectedHub === 'all' ? 'Toutes les Leçons' : selectedHub}
+                    {selectedHub === 'all' ? 'All Lessons' : selectedHub}
                   </h2>
                   <p className="font-paragraph text-lg text-foreground">
-                    {filteredLecons.length} {filteredLecons.length === 1 ? 'leçon disponible' : 'leçons disponibles'}
+                    {filteredLecons.length} {filteredLecons.length === 1 ? 'lesson available' : 'lessons available'}
                   </p>
                 </motion.div>
 
@@ -189,7 +189,7 @@ export default function LeconsPage() {
                               </div>
                               
                               <div className="flex items-center gap-2 text-primary font-paragraph font-semibold group-hover:gap-4 transition-all whitespace-nowrap">
-                                Lire la leçon
+                                Read lesson
                                 <ArrowRight className="w-5 h-5" />
                               </div>
                             </div>
@@ -216,16 +216,16 @@ export default function LeconsPage() {
                 className="space-y-6"
               >
                 <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary">
-                  Explorez par thématique
+                  Explore by topic
                 </h2>
                 <p className="font-paragraph text-lg text-secondary-foreground">
-                  Découvrez nos hubs organisés pour une approche structurée de votre apprentissage.
+                  Discover our organized hubs for a structured approach to your learning.
                 </p>
                 <Link 
                   to="/hubs"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded font-paragraph font-semibold hover:opacity-90 transition-opacity"
                 >
-                  Voir les Hubs Thématiques
+                  View Thematic Hubs
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </motion.div>

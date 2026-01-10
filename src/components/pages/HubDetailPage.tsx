@@ -85,12 +85,12 @@ export default function HubDetailPage() {
                 className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground font-paragraph transition-colors"
               >
                 <ArrowLeft className="w-5 h-5" />
-                Retour aux hubs
+                Back to hubs
               </Link>
               
               <div className="max-w-4xl">
                 <p className="font-paragraph text-sm uppercase tracking-wider opacity-80 mb-4">
-                  Hub Thématique
+                  Thematic Hub
                 </p>
                 <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
                   {hub.name}
@@ -123,17 +123,17 @@ export default function HubDetailPage() {
               className="mb-12"
             >
               <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary mb-4">
-                Leçons Disponibles
+                Available Lessons
               </h2>
               <p className="font-paragraph text-lg text-foreground">
-                {lecons.length} {lecons.length === 1 ? 'leçon disponible' : 'leçons disponibles'} dans ce hub
+                {lecons.length} {lecons.length === 1 ? 'lesson available' : 'lessons available'} in this hub
               </p>
             </motion.div>
 
             {lecons.length === 0 ? (
               <div className="text-center py-12 bg-secondary p-12">
                 <p className="font-paragraph text-lg text-secondary-foreground">
-                  Aucune leçon disponible pour le moment dans ce hub.
+                  No lessons available at the moment in this hub.
                 </p>
               </div>
             ) : (
@@ -165,7 +165,7 @@ export default function HubDetailPage() {
                           </div>
                           
                           <div className="flex items-center gap-2 text-primary font-paragraph font-semibold group-hover:gap-4 transition-all whitespace-nowrap">
-                            Lire la leçon
+                            Read lesson
                             <ArrowRight className="w-5 h-5" />
                           </div>
                         </div>
@@ -190,16 +190,16 @@ export default function HubDetailPage() {
                 className="space-y-6"
               >
                 <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary">
-                  Explorez d'autres thématiques
+                  Explore other topics
                 </h2>
                 <p className="font-paragraph text-lg text-secondary-foreground">
-                  Découvrez nos autres hubs pour enrichir votre apprentissage du français.
+                  Discover our other hubs to enrich your learning of French.
                 </p>
                 <Link 
                   to="/hubs"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded font-paragraph font-semibold hover:opacity-90 transition-opacity"
                 >
-                  Voir Tous les Hubs
+                  View All Hubs
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </motion.div>

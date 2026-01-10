@@ -12,7 +12,7 @@ export default function Header() {
       <div className="max-w-[120rem] mx-auto px-6 lg:px-12 py-6">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <Link to="/" className="font-heading text-2xl lg:text-3xl font-bold text-primary hover:opacity-80 transition-opacity">
-            Prononciation Française
+            French Pronunciation
           </Link>
           
           <nav className="flex flex-wrap items-center gap-6 lg:gap-8">
@@ -22,7 +22,7 @@ export default function Header() {
                 isActive('/') ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
               }`}
             >
-              Accueil
+              Home
             </Link>
             <Link 
               to="/hubs" 
@@ -30,7 +30,7 @@ export default function Header() {
                 isActive('/hubs') ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
               }`}
             >
-              Hubs Thématiques
+              Thematic Hubs
             </Link>
             <Link 
               to="/lecons" 
@@ -38,7 +38,7 @@ export default function Header() {
                 isActive('/lecons') ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
               }`}
             >
-              Toutes les Leçons
+              All Lessons
             </Link>
             <Link 
               to="/a-propos" 
@@ -46,7 +46,7 @@ export default function Header() {
                 isActive('/a-propos') ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
               }`}
             >
-              À Propos
+              About
             </Link>
             <Link 
               to="/contact" 

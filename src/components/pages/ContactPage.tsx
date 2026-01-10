@@ -49,13 +49,13 @@ export default function ContactPage() {
               className="max-w-4xl"
             >
               <p className="font-paragraph text-sm uppercase tracking-wider opacity-80 mb-4">
-                Contactez-nous
+                Contact Us
               </p>
               <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
-                Nous Sommes à Votre Écoute
+                We're Here to Listen
               </h1>
               <p className="font-paragraph text-lg lg:text-xl opacity-90">
-                Une question, une suggestion, ou simplement envie d'échanger ? N'hésitez pas à nous contacter. Nous vous répondrons dans les plus brefs délais.
+                Have a question, suggestion, or just want to chat? Don't hesitate to reach out. We'll get back to you as soon as possible.
               </p>
             </motion.div>
           </div>
@@ -73,13 +73,13 @@ export default function ContactPage() {
                 transition={{ duration: 0.6 }}
               >
                 <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary mb-8">
-                  Envoyez-nous un Message
+                  Send us a Message
                 </h2>
 
                 {submitted && (
                   <div className="bg-primary/10 border border-primary p-6 mb-8 rounded">
                     <p className="font-paragraph text-base text-primary font-semibold">
-                      Merci pour votre message ! Nous vous répondrons très prochainement.
+                      Thank you for your message! We'll get back to you very soon.
                     </p>
                   </div>
                 )}
@@ -88,7 +88,7 @@ export default function ContactPage() {
                   <div className="space-y-2">
                     <Label htmlFor="name" className="font-paragraph font-semibold text-foreground flex items-center gap-2">
                       <User className="w-4 h-4" />
-                      Nom complet
+                      Full Name
                     </Label>
                     <Input
                       id="name"
@@ -98,14 +98,14 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="font-paragraph"
-                      placeholder="Votre nom"
+                      placeholder="Your name"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="email" className="font-paragraph font-semibold text-foreground flex items-center gap-2">
                       <Mail className="w-4 h-4" />
-                      Adresse email
+                      Email Address
                     </Label>
                     <Input
                       id="email"
@@ -115,14 +115,14 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="font-paragraph"
-                      placeholder="votre.email@exemple.com"
+                      placeholder="your.email@example.com"
                     />
                   </div>
 
                   <div className="space-y-2">
                     <Label htmlFor="subject" className="font-paragraph font-semibold text-foreground flex items-center gap-2">
                       <MessageSquare className="w-4 h-4" />
-                      Sujet
+                      Subject
                     </Label>
                     <Input
                       id="subject"
@@ -132,7 +132,7 @@ export default function ContactPage() {
                       onChange={handleChange}
                       required
                       className="font-paragraph"
-                      placeholder="Objet de votre message"
+                      placeholder="Subject of your message"
                     />
                   </div>
 
@@ -148,7 +148,7 @@ export default function ContactPage() {
                       required
                       rows={8}
                       className="font-paragraph resize-none"
-                      placeholder="Écrivez votre message ici..."
+                      placeholder="Write your message here..."
                     />
                   </div>
 
@@ -156,7 +156,7 @@ export default function ContactPage() {
                     type="submit"
                     className="w-full bg-primary text-primary-foreground hover:opacity-90 font-paragraph font-semibold py-6 text-base"
                   >
-                    Envoyer le Message
+                    Send Message
                   </Button>
                 </form>
               </motion.div>
@@ -171,11 +171,11 @@ export default function ContactPage() {
               >
                 <div>
                   <h3 className="font-heading text-2xl lg:text-3xl font-bold text-primary mb-6">
-                    Pourquoi Nous Contacter ?
+                    Why Contact Us?
                   </h3>
                   <div className="space-y-4 font-paragraph text-base lg:text-lg text-foreground">
                     <p>
-                      Nous sommes toujours ravis d'échanger avec notre communauté d'apprenants. Voici quelques raisons pour lesquelles vous pourriez vouloir nous contacter :
+                      We're always happy to connect with our community of learners. Here are some reasons you might want to reach out:
                     </p>
                   </div>
                 </div>
@@ -183,20 +183,20 @@ export default function ContactPage() {
                 <div className="space-y-6">
                   {[
                     {
-                      title: 'Questions sur les Leçons',
-                      description: 'Besoin de clarifications sur un point de prononciation ou de grammaire ? Nous sommes là pour vous aider.'
+                      title: 'Questions About Lessons',
+                      description: 'Need clarification on a pronunciation or grammar point? We\'re here to help.'
                     },
                     {
-                      title: 'Suggestions de Contenu',
-                      description: 'Vous aimeriez voir un sujet spécifique abordé ? Partagez vos idées avec nous.'
+                      title: 'Content Suggestions',
+                      description: 'Would you like to see a specific topic covered? Share your ideas with us.'
                     },
                     {
-                      title: 'Retours et Commentaires',
-                      description: 'Votre avis compte ! Dites-nous ce qui fonctionne bien et ce qui pourrait être amélioré.'
+                      title: 'Feedback and Comments',
+                      description: 'Your opinion matters! Tell us what\'s working well and what could be improved.'
                     },
                     {
                       title: 'Collaborations',
-                      description: 'Intéressé par une collaboration ou un partenariat ? Contactez-nous pour en discuter.'
+                      description: 'Interested in a collaboration or partnership? Get in touch to discuss.'
                     }
                   ].map((item, index) => (
                     <div key={index} className="bg-secondary p-6">
@@ -212,10 +212,10 @@ export default function ContactPage() {
 
                 <div className="bg-primary text-primary-foreground p-8">
                   <h4 className="font-heading text-xl font-bold mb-3">
-                    Temps de Réponse
+                    Response Time
                   </h4>
                   <p className="font-paragraph text-base opacity-90">
-                    Nous nous efforçons de répondre à tous les messages dans un délai de 48 heures. Pour les questions urgentes, n'hésitez pas à le mentionner dans votre message.
+                    We aim to respond to all messages within 48 hours. If your question is urgent, please mention it in your message.
                   </p>
                 </div>
               </motion.div>
@@ -234,26 +234,26 @@ export default function ContactPage() {
               className="max-w-4xl mx-auto"
             >
               <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary mb-12 text-center">
-                Questions Fréquentes
+                Frequently Asked Questions
               </h2>
 
               <div className="space-y-6">
                 {[
                   {
-                    question: 'Les ressources sont-elles gratuites ?',
-                    answer: 'Oui, toutes nos leçons et ressources sont accessibles gratuitement. Notre mission est de rendre l\'apprentissage de la prononciation française accessible à tous.'
+                    question: 'Are the resources free?',
+                    answer: 'Yes, all our lessons and resources are free to access. Our mission is to make learning French pronunciation accessible to everyone.'
                   },
                   {
-                    question: 'Puis-je suggérer de nouveaux sujets ?',
-                    answer: 'Absolument ! Nous encourageons vivement les suggestions de notre communauté. Utilisez le formulaire de contact pour nous faire part de vos idées.'
+                    question: 'Can I suggest new topics?',
+                    answer: 'Absolutely! We strongly encourage suggestions from our community. Use the contact form to share your ideas with us.'
                   },
                   {
-                    question: 'À quelle fréquence ajoutez-vous du nouveau contenu ?',
-                    answer: 'Nous enrichissons régulièrement notre bibliothèque avec de nouvelles leçons et ressources. Revenez souvent pour découvrir les dernières additions.'
+                    question: 'How often do you add new content?',
+                    answer: 'We regularly enrich our library with new lessons and resources. Check back often to discover the latest additions.'
                   },
                   {
-                    question: 'Proposez-vous des cours en direct ?',
-                    answer: 'Pour le moment, nous nous concentrons sur des ressources textuelles structurées. Contactez-nous si vous êtes intéressé par d\'autres formats d\'apprentissage.'
+                    question: 'Do you offer live classes?',
+                    answer: 'For now, we focus on structured textual resources. Contact us if you\'re interested in other learning formats.'
                   }
                 ].map((faq, index) => (
                   <div key={index} className="bg-background p-8">

@@ -20,13 +20,13 @@ export default function AProposPage() {
               className="max-w-4xl"
             >
               <p className="font-paragraph text-sm uppercase tracking-wider opacity-80 mb-4">
-                Notre Histoire
+                Our Story
               </p>
               <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
-                À Propos
+                About Us
               </h1>
               <p className="font-paragraph text-lg lg:text-xl opacity-90">
-                Découvrez notre mission et notre engagement envers l'excellence dans l'enseignement de la prononciation française.
+                Discover our mission and our commitment to excellence in teaching French pronunciation.
               </p>
             </motion.div>
           </div>
@@ -43,14 +43,14 @@ export default function AProposPage() {
                 transition={{ duration: 0.6 }}
               >
                 <h2 className="font-heading text-3xl lg:text-5xl font-bold text-primary mb-6">
-                  Notre Mission
+                  Our Mission
                 </h2>
                 <div className="space-y-4 font-paragraph text-base lg:text-lg text-foreground">
                   <p>
-                    Nous sommes dédiés à l'enseignement rigoureux et accessible de la prononciation française authentique. Notre approche repose sur une compréhension profonde des mécanismes phonétiques et des réalités du français contemporain.
+                    We are dedicated to rigorous and accessible teaching of authentic French pronunciation. Our approach is based on a deep understanding of phonetic mechanisms and the realities of contemporary French.
                   </p>
                   <p>
-                    Chaque ressource que nous créons est conçue pour vous offrir une perspective claire, structurée et pratique sur les subtilités de la langue française.
+                    Every resource we create is designed to give you a clear, structured, and practical perspective on the subtleties of the French language.
                   </p>
                 </div>
               </motion.div>
@@ -64,7 +64,7 @@ export default function AProposPage() {
               >
                 <blockquote className="space-y-4">
                   <p className="font-paragraph text-xl lg:text-2xl text-secondary-foreground italic">
-                    "La prononciation n'est pas un détail, c'est le fondement même de la communication authentique en français."
+                    "Pronunciation is not a detail, it's the foundation of authentic communication in French."
                   </p>
                 </blockquote>
               </motion.div>
@@ -83,38 +83,38 @@ export default function AProposPage() {
               className="text-center mb-16"
             >
               <h2 className="font-heading text-3xl lg:text-5xl font-bold text-primary mb-6">
-                Nos Valeurs
+                Our Values
               </h2>
               <p className="font-paragraph text-lg lg:text-xl text-secondary-foreground max-w-3xl mx-auto">
-                Les principes qui guident notre travail et notre engagement envers votre apprentissage.
+                The principles that guide our work and our commitment to your learning.
               </p>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  title: 'Rigueur Linguistique',
-                  description: 'Nous nous appuyons sur des bases phonétiques solides et des recherches linguistiques actuelles pour garantir la précision de nos contenus.'
+                  title: 'Linguistic Rigor',
+                  description: 'We rely on solid phonetic foundations and current linguistic research to ensure the accuracy of our content.'
                 },
                 {
-                  title: 'Accessibilité',
-                  description: 'Nos ressources sont conçues pour être compréhensibles et utilisables par tous, quel que soit votre niveau de départ.'
+                  title: 'Accessibility',
+                  description: 'Our resources are designed to be understandable and usable by everyone, regardless of your starting level.'
                 },
                 {
-                  title: 'Authenticité',
-                  description: 'Nous privilégions le français tel qu\'il est réellement parlé, en tenant compte des variations contemporaines et régionales.'
+                  title: 'Authenticity',
+                  description: 'We prioritize French as it is actually spoken, taking into account contemporary and regional variations.'
                 },
                 {
-                  title: 'Structure Pédagogique',
-                  description: 'Chaque leçon s\'inscrit dans une progression logique et cohérente, facilitant votre apprentissage étape par étape.'
+                  title: 'Pedagogical Structure',
+                  description: 'Each lesson is part of a logical and coherent progression, facilitating your learning step by step.'
                 },
                 {
-                  title: 'Clarté',
-                  description: 'Nous expliquons les concepts complexes de manière simple et directe, sans jargon inutile.'
+                  title: 'Clarity',
+                  description: 'We explain complex concepts in a simple and direct way, without unnecessary jargon.'
                 },
                 {
-                  title: 'Engagement',
-                  description: 'Nous nous engageons à enrichir continuellement nos ressources pour répondre à vos besoins évolutifs.'
+                  title: 'Commitment',
+                  description: 'We are committed to continuously enriching our resources to meet your evolving needs.'
                 }
               ].map((value, index) => (
                 <motion.div
@@ -150,27 +150,27 @@ export default function AProposPage() {
               >
                 <div>
                   <h2 className="font-heading text-3xl lg:text-5xl font-bold text-primary mb-6">
-                    Notre Approche
+                    Our Approach
                   </h2>
                   <div className="space-y-4 font-paragraph text-base lg:text-lg text-foreground">
                     <p>
-                      Nous avons structuré notre plateforme comme une bibliothèque thématique, où chaque hub représente un domaine spécifique de la langue française. Cette organisation vous permet de naviguer intuitivement selon vos intérêts et vos besoins.
+                      We have structured our platform as a thematic library, where each hub represents a specific area of the French language. This organization allows you to navigate intuitively according to your interests and needs.
                     </p>
                     <p>
-                      La prononciation constitue le pilier central de notre enseignement, car elle est la clé d'une communication fluide et naturelle. Nous l'abordons sous tous ses aspects : phonétique pure, variations régionales, français parlé moderne, et même son interaction avec la grammaire.
+                      Pronunciation is the central pillar of our teaching, as it is the key to fluid and natural communication. We approach it in all its aspects: pure phonetics, regional variations, modern spoken French, and even its interaction with grammar.
                     </p>
                     <p>
-                      Nos leçons sont conçues pour être à la fois complètes et concises, vous offrant l'essentiel sans superflu. Chaque contenu est rédigé avec soin pour maximiser votre compréhension et votre progression.
+                      Our lessons are designed to be both comprehensive and concise, giving you the essentials without excess. Each piece of content is carefully written to maximize your understanding and progress.
                     </p>
                   </div>
                 </div>
 
                 <div className="bg-primary text-primary-foreground p-10 lg:p-12">
                   <h3 className="font-heading text-2xl lg:text-3xl font-bold mb-4">
-                    Pourquoi la Prononciation ?
+                    Why Pronunciation?
                   </h3>
                   <p className="font-paragraph text-base lg:text-lg opacity-90">
-                    La prononciation n'est pas simplement une question d'accent. C'est le véhicule de votre pensée, l'outil qui vous permet d'être compris et de comprendre. Une prononciation maîtrisée ouvre les portes de la communication authentique, de la confiance en soi, et d'une immersion culturelle profonde. C'est pourquoi nous y consacrons toute notre expertise.
+                    Pronunciation is not simply a matter of accent. It is the vehicle of your thoughts, the tool that allows you to be understood and to understand. Mastered pronunciation opens the doors to authentic communication, self-confidence, and deep cultural immersion. This is why we dedicate all our expertise to it.
                   </p>
                 </div>
               </motion.div>
@@ -190,24 +190,24 @@ export default function AProposPage() {
                 className="space-y-6"
               >
                 <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary">
-                  Prêt à commencer votre parcours ?
+                  Ready to start your journey?
                 </h2>
                 <p className="font-paragraph text-lg text-secondary-foreground">
-                  Explorez nos hubs thématiques et découvrez les ressources qui transformeront votre maîtrise du français.
+                  Explore our thematic hubs and discover the resources that will transform your mastery of French.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                   <Link 
                     to="/hubs"
                     className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded font-paragraph font-semibold hover:opacity-90 transition-opacity"
                   >
-                    Découvrir les Hubs
+                    Discover the Hubs
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                   <Link 
                     to="/contact"
                     className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary px-8 py-4 rounded font-paragraph font-semibold hover:bg-primary/10 transition-colors"
                   >
-                    Nous Contacter
+                    Contact Us
                   </Link>
                 </div>
               </motion.div>

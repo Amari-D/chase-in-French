@@ -187,7 +187,7 @@ export default function HomePage() {
               <div className="relative z-10 mt-auto">
                  <AnimatedElement animation="fade-up" delay={400}>
                     <h2 className="font-heading text-6xl lg:text-8xl font-bold text-primary tracking-tighter leading-[0.9]">
-                      PHO<br/>NÉ<br/>TIQUE
+                      PHON<br/>E<br/>TICS
                     </h2>
                  </AnimatedElement>
               </div>
@@ -201,23 +201,23 @@ export default function HomePage() {
                <div className="relative z-10 max-w-2xl">
                   <AnimatedElement animation="fade-in" delay={300}>
                     <p className="font-paragraph text-sm font-medium tracking-[0.2em] uppercase text-secondary/80 mb-8">
-                      L'Art de la Parole
+                      The Art of Speech
                     </p>
                   </AnimatedElement>
 
                   <AnimatedElement animation="fade-up" delay={500}>
                     <h1 className="font-heading text-4xl lg:text-6xl font-bold leading-[1.1] mb-8 text-secondary">
-                      Notre voyage commence là où la conventionalité s'arrête.
+                      Our journey begins where convention ends.
                     </h1>
                   </AnimatedElement>
 
                   <AnimatedElement animation="fade-up" delay={700}>
                     <div className="space-y-6 text-lg lg:text-xl text-secondary/80 font-light leading-relaxed">
                       <p>
-                        La prononciation n'est pas un détail, c'est le fondement. Nous ne sommes pas habitués au mot "impossible" quand il s'agit de maîtriser l'accent français.
+                        Pronunciation is not a detail, it's the foundation. We don't accept the word "impossible" when it comes to mastering French accent.
                       </p>
                       <p>
-                        Ici, nous sommes exceptionnellement qualifiés dans notre métier. Les défis phonétiques sont nos étoiles guides, et la précision est notre boussole de confiance.
+                        Here, we are exceptionally skilled in our craft. Phonetic challenges are our guiding stars, and precision is our compass of confidence.
                       </p>
                     </div>
                   </AnimatedElement>
@@ -228,7 +228,7 @@ export default function HomePage() {
                         to="/hubs"
                         className="group inline-flex items-center gap-3 text-secondary font-heading font-semibold text-lg hover:text-white transition-colors"
                       >
-                        <span className="border-b border-secondary/30 pb-1 group-hover:border-white transition-colors">Explorer la Bibliothèque</span>
+                        <span className="border-b border-secondary/30 pb-1 group-hover:border-white transition-colors">Explore the Library</span>
                         <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </div>
@@ -244,27 +244,27 @@ export default function HomePage() {
             <div className="lg:col-span-4">
                <AnimatedElement>
                   <span className="font-paragraph text-xs font-bold tracking-[0.2em] uppercase text-primary/60 block mb-4">
-                    Notre Approche
+                    Our Approach
                   </span>
                   <h3 className="font-heading text-3xl lg:text-4xl font-bold text-primary leading-tight">
-                    Une structure d'autorité pour l'apprenant moderne.
+                    An authoritative structure for the modern learner.
                   </h3>
                </AnimatedElement>
             </div>
             <div className="lg:col-span-8 lg:pl-12 border-l border-primary/10">
                <AnimatedElement delay={200}>
                   <p className="font-heading text-4xl lg:text-6xl font-medium text-primary mb-8 leading-[1.1]">
-                    La Prononciation, <br/>
-                    <span className="text-primary/40">Le Français Parlé,</span> <br/>
-                    <span className="text-primary/40">La Culture.</span>
+                    Pronunciation, <br/>
+                    <span className="text-primary/40">Spoken French,</span> <br/>
+                    <span className="text-primary/40">Culture.</span>
                   </p>
                   <div className="flex flex-col sm:flex-row justify-between items-end gap-8 mt-16">
                     <p className="font-paragraph text-primary/70 max-w-md leading-relaxed">
-                      Partagez des informations sur un projet précédent ici pour attirer de nouveaux clients. Fournissez un bref résumé pour aider les visiteurs à comprendre le contexte et l'arrière-plan du travail.
+                      Share information about a previous project here to attract new clients. Provide a brief summary to help visitors understand the context and background of the work.
                     </p>
                     <Link to="/a-propos" className="inline-flex items-center gap-2 font-heading font-bold text-primary hover:opacity-70 transition-opacity">
                       <MoveRight className="w-4 h-4" />
-                      <span>En Savoir Plus</span>
+                      <span>Learn More</span>
                     </Link>
                   </div>
                </AnimatedElement>
@@ -283,10 +283,10 @@ export default function HomePage() {
               <AnimatedElement>
                 <div className="w-12 h-1 bg-primary mb-8"></div>
                 <h2 className="font-heading text-5xl lg:text-7xl font-bold text-primary mb-6 tracking-tight">
-                  Hubs<br/>Thématiques
+                  Thematic<br/>Hubs
                 </h2>
                 <p className="font-paragraph text-lg text-primary/60 max-w-xs leading-relaxed">
-                  Une collection organisée de ressources pour chaque aspect de votre voyage linguistique.
+                  An organized collection of resources for every aspect of your linguistic journey.
                 </p>
               </AnimatedElement>
             </div>
@@ -323,7 +323,7 @@ export default function HomePage() {
                         to={`/hubs`}
                         className="inline-flex items-center gap-3 text-primary font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
                       >
-                        <span>Explorer le Hub</span>
+                        <span>Explore Hub</span>
                         <ArrowRight className="w-4 h-4" />
                       </Link>
                     </div>
@@ -342,9 +342,9 @@ export default function HomePage() {
            <div className="max-w-[120rem] mx-auto px-6 lg:px-12 mb-16">
               <AnimatedElement>
                 <div className="flex items-center justify-between mb-12">
-                    <h2 className="font-heading text-3xl lg:text-4xl font-bold">Dernières Leçons</h2>
+                    <h2 className="font-heading text-3xl lg:text-4xl font-bold">Latest Lessons</h2>
                     <Link to="/lecons" className="hidden md:flex items-center gap-2 text-secondary/70 hover:text-secondary transition-colors">
-                        Voir tout <ArrowRight className="w-4 h-4" />
+                        View all <ArrowRight className="w-4 h-4" />
                     </Link>
                 </div>
               </AnimatedElement>
@@ -353,16 +353,16 @@ export default function HomePage() {
                  {[1, 2, 3].map((i) => (
                     <AnimatedElement key={i} delay={i * 150} className="group cursor-pointer">
                         <div className="border-t border-secondary/20 pt-6 hover:border-secondary transition-colors duration-300">
-                            <span className="font-paragraph text-xs font-bold tracking-widest text-secondary/50 mb-3 block">LEÇON 0{i}</span>
+                            <span className="font-paragraph text-xs font-bold tracking-widest text-secondary/50 mb-3 block">LESSON 0{i}</span>
                             <h3 className="font-heading text-2xl font-medium mb-4 group-hover:underline decoration-1 underline-offset-4">
-                                {i === 1 ? "Les voyelles nasales en détail" : i === 2 ? "L'élision interdite" : "Le rythme de la phrase"}
+                                {i === 1 ? "Nasal vowels in detail" : i === 2 ? "Forbidden elision" : "Sentence rhythm"}
                             </h3>
                             <p className="font-paragraph text-secondary/60 text-sm leading-relaxed mb-6">
-                                Une analyse approfondie des mécanismes phonétiques essentiels pour une élocution naturelle.
+                                An in-depth analysis of essential phonetic mechanisms for natural speech.
                             </p>
                             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-secondary/40 group-hover:text-secondary transition-colors">
                                 <Play className="w-3 h-3 fill-current" />
-                                <span>Commencer</span>
+                                <span>Start</span>
                             </div>
                         </div>
                     </AnimatedElement>
@@ -376,20 +376,20 @@ export default function HomePage() {
                 <div className="animate-marquee flex gap-16 items-center">
                     {[...Array(4)].map((_, i) => (
                         <React.Fragment key={i}>
-                            <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">PRONONCIATION</span>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">PRONUNCIATION</span>
                             <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">CULTURE</span>
-                            <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">GRAMMAIRE</span>
-                            <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">ARGOT</span>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">GRAMMAR</span>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">SLANG</span>
                         </React.Fragment>
                     ))}
                 </div>
                 <div className="animate-marquee flex gap-16 items-center ml-16" aria-hidden="true">
                     {[...Array(4)].map((_, i) => (
                         <React.Fragment key={i}>
-                            <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">PRONONCIATION</span>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">PRONUNCIATION</span>
                             <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">CULTURE</span>
-                            <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">GRAMMAIRE</span>
-                            <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">ARGOT</span>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">GRAMMAR</span>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">SLANG</span>
                         </React.Fragment>
                     ))}
                 </div>
@@ -404,23 +404,23 @@ export default function HomePage() {
             <div className="max-w-4xl mx-auto text-center relative z-10">
                 <AnimatedElement animation="fade-up">
                     <h2 className="font-heading text-5xl lg:text-7xl font-bold text-primary mb-8 tracking-tight">
-                        Prêt à perfectionner<br/>votre accent ?
+                        Ready to perfect<br/>your accent?
                     </h2>
                     <p className="font-paragraph text-xl text-primary/70 mb-12 max-w-2xl mx-auto">
-                        Rejoignez des milliers d'apprenants qui ont transformé leur façon de parler français grâce à notre méthode structurée.
+                        Join thousands of learners who have transformed the way they speak French through our structured method.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <Link 
                             to="/lecons" 
                             className="px-10 py-5 bg-primary text-secondary font-heading font-bold text-lg rounded-sm hover:bg-primary/90 transition-colors w-full sm:w-auto"
                         >
-                            Commencer l'apprentissage
+                            Start Learning
                         </Link>
                         <Link 
                             to="/contact" 
                             className="px-10 py-5 border border-primary text-primary font-heading font-bold text-lg rounded-sm hover:bg-primary hover:text-secondary transition-all w-full sm:w-auto"
                         >
-                            Nous Contacter
+                            Contact Us
                         </Link>
                     </div>
                 </AnimatedElement>

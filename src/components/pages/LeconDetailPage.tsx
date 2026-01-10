@@ -90,7 +90,7 @@ export default function LeconDetailPage() {
                   className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground font-paragraph transition-colors"
                 >
                   <ArrowLeft className="w-5 h-5" />
-                  Toutes les leçons
+                  All lessons
                 </Link>
                 
                 {hub && (
@@ -147,7 +147,7 @@ export default function LeconDetailPage() {
               ) : (
                 <div className="bg-secondary p-12 text-center">
                   <p className="font-paragraph text-lg text-secondary-foreground">
-                    Le contenu de cette leçon sera bientôt disponible.
+                    The content of this lesson will be available soon.
                   </p>
                 </div>
               )}
@@ -171,7 +171,7 @@ export default function LeconDetailPage() {
                 >
                   <div className="flex items-center gap-3 text-primary font-paragraph font-semibold group-hover:gap-5 transition-all">
                     <ArrowLeft className="w-5 h-5" />
-                    Voir toutes les leçons
+                    View all lessons
                   </div>
                 </Link>
               </motion.div>
@@ -189,7 +189,7 @@ export default function LeconDetailPage() {
                   >
                     <div className="space-y-2">
                       <p className="font-paragraph text-sm text-foreground/70">
-                        Plus de leçons dans
+                        More lessons in
                       </p>
                       <div className="flex items-center gap-3 text-primary font-paragraph font-semibold">
                         {hub.name}
