@@ -35,6 +35,8 @@ export interface Leons {
   _createdDate?: Date;
   _updatedDate?: Date;
   /** @wixFieldType text */
+  relatedLinks?: string;
+  /** @wixFieldType text */
   lessonTitle?: string;
   /** @wixFieldType text */
   hub?: string;
