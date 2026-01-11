@@ -15,7 +15,7 @@ export default function GrammarPage() {
     const fetchLecons = async () => {
       try {
         const { items } = await BaseCrudService.getAll<Leons>('lecons');
-        const filtered = items.filter(l => l.topic === 'Grammar');
+        const filtered = items.filter(l => l.hub === 'Grammar');
         setLecons(filtered);
       } catch (error) {
         console.error('Error fetching lessons:', error);

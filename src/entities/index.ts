@@ -37,6 +37,8 @@ export interface Leons {
   /** @wixFieldType text */
   lessonTitle?: string;
   /** @wixFieldType text */
+  hub?: string;
+  /** @wixFieldType text */
   shortDescription?: string;
   /** @wixFieldType text */
   lessonContent?: string;
@@ -60,6 +62,8 @@ export interface Podcasts {
   _createdDate?: Date;
   _updatedDate?: Date;
   /** @wixFieldType text */
+  hub?: string;
+  /** @wixFieldType text */
   title?: string;
   /** @wixFieldType text */
   description?: string;
@@ -71,8 +75,6 @@ export interface Podcasts {
   releaseDate?: Date | string;
   /** @wixFieldType image */
   thumbnail?: string;
-  /** @wixFieldType text */
-  hub?: string;
 }
 
 
@@ -84,6 +86,8 @@ export interface Songs {
   _id: string;
   _createdDate?: Date;
   _updatedDate?: Date;
+  /** @wixFieldType text */
+  hub?: string;
   /** @wixFieldType text */
   title?: string;
   /** @wixFieldType text */
@@ -98,6 +102,4 @@ export interface Songs {
   duration?: number;
   /** @wixFieldType number */
   releaseYear?: number;
-  /** @wixFieldType text */
-  hub?: string;
 }

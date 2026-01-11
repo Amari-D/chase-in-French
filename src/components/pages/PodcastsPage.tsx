@@ -15,7 +15,8 @@ export default function PodcastsPage() {
     const fetchPodcasts = async () => {
       try {
         const { items } = await BaseCrudService.getAll<Podcasts>('podcasts');
-        setPodcasts(items);
+        const filtered = items.filter(p => p.hub === 'Podcast');
+        setPodcasts(filtered);
       } catch (error) {
         console.error('Error fetching podcasts:', error);
       } finally {

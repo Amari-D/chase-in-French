@@ -15,7 +15,7 @@ export default function PronunciationPage() {
     const fetchLecons = async () => {
       try {
         const { items } = await BaseCrudService.getAll<Leons>('lecons');
-        const filtered = items.filter(l => l.topic === 'Pronunciation');
+        const filtered = items.filter(l => l.hub === 'Pronunciation');
         setLecons(filtered);
       } catch (error) {
         console.error('Error fetching lessons:', error);
