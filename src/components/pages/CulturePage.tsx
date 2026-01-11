@@ -15,11 +15,7 @@ export default function CulturePage() {
     const fetchLecons = async () => {
       try {
         const { items } = await BaseCrudService.getAll<Leons>('lecons');
-        console.log('Total lessons fetched:', items.length);
-        console.log('All lessons:', items.map(l => ({ title: l.lessonTitle, hub: l.hub })));
         const filtered = items.filter(l => l.hub === 'Culture');
-        console.log('Filtered Culture lessons:', filtered.length);
-        console.log('Filtered lessons:', filtered.map(l => ({ title: l.lessonTitle, hub: l.hub })));
         setLecons(filtered);
       } catch (error) {
         console.error('Error fetching lessons:', error);
