@@ -4,27 +4,27 @@ import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { BaseCrudService } from '@/integrations';
-import { HubsThmatiques } from '@/entities';
-import { ArrowRight } from 'lucide-react';
+import { Leons } from '@/entities';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 
-export default function HubsPage() {
-  const [hubs, setHubs] = useState<HubsThmatiques[]>([]);
+export default function SlangPage() {
+  const [lecons, setLecons] = useState<Leons[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchHubs = async () => {
+    const fetchLecons = async () => {
       try {
-        const { items } = await BaseCrudService.getAll<HubsThmatiques>('hubs');
-        const sortedHubs = items.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
-        setHubs(sortedHubs);
+        const { items } = await BaseCrudService.getAll<Leons>('lecons');
+        const filtered = items.filter(l => l.topic === 'Slang');
+        setLecons(filtered);
       } catch (error) {
-        console.error('Error fetching hubs:', error);
+        console.error('Error fetching lessons:', error);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchHubs();
+    fetchLecons();
   }, []);
 
   return (
@@ -41,66 +41,85 @@ export default function HubsPage() {
               transition={{ duration: 0.6 }}
               className="max-w-4xl"
             >
+              <Link 
+                to="/"
+                className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground font-paragraph transition-colors mb-6"
+              >
+                <ArrowLeft className="w-5 h-5" />
+                Back to home
+              </Link>
+              
               <p className="font-paragraph text-sm uppercase tracking-wider opacity-80 mb-4">
-                Thematic Library
+                Topic
               </p>
               <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
-                Explore Our Thematic Hubs
+                Slang & Expressions
               </h1>
               <p className="font-paragraph text-lg lg:text-xl opacity-90">
-                Each hub groups specialized lessons to deepen a specific aspect of the French language. Choose your area of interest and begin your structured learning.
+                Explore informal vocabulary and idiomatic expressions of living French.
               </p>
             </motion.div>
           </div>
         </section>
 
-        {/* Hubs Grid */}
+        {/* Lessons List */}
         <section className="py-20 lg:py-28 bg-background">
           <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-12"
+            >
+              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary mb-4">
+                Available Lessons
+              </h2>
+              <p className="font-paragraph text-lg text-foreground">
+                {lecons.length} {lecons.length === 1 ? 'lesson available' : 'lessons available'}
+              </p>
+            </motion.div>
+
             {loading ? (
               <div className="text-center py-20">
-                <p className="font-paragraph text-lg text-foreground">Loading hubs...</p>
+                <p className="font-paragraph text-lg text-foreground">Loading lessons...</p>
               </div>
-            ) : hubs.length === 0 ? (
-              <div className="text-center py-20">
-                <p className="font-paragraph text-lg text-foreground">No hubs available at the moment.</p>
+            ) : lecons.length === 0 ? (
+              <div className="text-center py-12 bg-secondary p-12">
+                <p className="font-paragraph text-lg text-secondary-foreground">
+                  No lessons available at the moment in this topic.
+                </p>
               </div>
             ) : (
-              <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-                {hubs.map((hub, index) => (
+              <div className="space-y-6">
+                {lecons.map((lecon, index) => (
                   <motion.div
-                    key={hub._id}
+                    key={lecon._id}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
                   >
                     <Link 
-                      to={`/hubs/${hub.slug}`}
+                      to={`/lecons/${lecon.slug}`}
                       className="block group"
                     >
-                      <div className="bg-secondary p-10 lg:p-12 border border-primary/10 hover:border-primary/30 transition-all h-full">
-                        <div className="flex flex-col h-full">
+                      <div className="bg-secondary p-8 lg:p-10 border border-primary/10 hover:border-primary/30 transition-all">
+                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                           <div className="flex-1">
-                            <h2 className="font-heading text-2xl lg:text-3xl font-bold text-primary mb-4 group-hover:opacity-80 transition-opacity">
-                              {hub.name}
-                            </h2>
+                            <h3 className="font-heading text-xl lg:text-2xl font-bold text-primary mb-3 group-hover:opacity-80 transition-opacity">
+                              {lecon.title}
+                            </h3>
                             
-                            {hub.summary && (
-                              <p className="font-paragraph text-lg text-secondary-foreground mb-4 font-semibold">
-                                {hub.summary}
-                              </p>
-                            )}
-                            
-                            {hub.description && (
+                            {lecon.description && (
                               <p className="font-paragraph text-base text-foreground">
-                                {hub.description}
+                                {lecon.description}
                               </p>
                             )}
                           </div>
                           
-                          <div className="flex items-center gap-2 text-primary font-paragraph font-semibold mt-6 group-hover:gap-4 transition-all">
-                            Explore this hub
+                          <div className="flex items-center gap-2 text-primary font-paragraph font-semibold group-hover:gap-4 transition-all whitespace-nowrap">
+                            Read lesson
                             <ArrowRight className="w-5 h-5" />
                           </div>
                         </div>
@@ -125,16 +144,16 @@ export default function HubsPage() {
                 className="space-y-6"
               >
                 <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary">
-                  Looking for a specific lesson?
+                  Explore other topics
                 </h2>
                 <p className="font-paragraph text-lg text-secondary-foreground">
-                  Browse all our available lessons and filter by topic to find exactly what you need.
+                  Discover our other learning topics to enrich your French skills.
                 </p>
                 <Link 
-                  to="/lecons"
+                  to="/"
                   className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded font-paragraph font-semibold hover:opacity-90 transition-opacity"
                 >
-                  View All Lessons
+                  Back to Home
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </motion.div>

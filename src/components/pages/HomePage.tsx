@@ -85,42 +85,55 @@ const ParallaxElement: React.FC<{ children: React.ReactNode; speed?: number; cla
 
 // --- CANONICAL DATA SOURCES ---
 
-const HUBS_DATA = [
+const TOPICS_DATA = [
   { 
-    title: 'Prononciation', 
-    description: 'Maîtrisez les sons fondamentaux et les règles phonétiques qui définissent le français authentique.', 
+    title: 'Pronunciation', 
+    description: 'Master the fundamental sounds and phonetic rules that define authentic French.', 
     icon: Mic,
-    phonetic: '/ʁ/'
+    phonetic: '/ʁ/',
+    path: '/pronunciation'
   },
   { 
-    title: 'Français Parlé Moderne', 
-    description: 'Découvrez comment les francophones natifs communiquent réellement au quotidien.', 
+    title: 'Modern French', 
+    description: 'Discover how native French speakers actually communicate in everyday life.', 
     icon: MessageCircle,
-    phonetic: '/œ̃/'
+    phonetic: '/œ̃/',
+    path: '/modern-french'
   },
   { 
-    title: 'Argot et Expressions', 
-    description: 'Explorez le vocabulaire informel et les tournures idiomatiques de la langue vivante.', 
+    title: 'Slang & Expressions', 
+    description: 'Explore informal vocabulary and idiomatic expressions of living French.', 
     icon: Languages,
-    phonetic: '/ʃ/'
+    phonetic: '/ʃ/',
+    path: '/slang'
   },
   { 
-    title: 'Grammaire Sonore', 
-    description: 'Comprenez comment la grammaire influence directement la prononciation et le rythme.', 
+    title: 'Grammar & Sound', 
+    description: 'Understand how grammar directly influences pronunciation and rhythm.', 
     icon: BookOpen,
-    phonetic: '/ʒ/'
+    phonetic: '/ʒ/',
+    path: '/grammar'
   },
   { 
-    title: 'Culture Française', 
-    description: 'Plongez dans le contexte culturel qui enrichit votre compréhension linguistique.', 
+    title: 'French Culture', 
+    description: 'Dive into the cultural context that enriches your linguistic understanding.', 
     icon: GraduationCap,
-    phonetic: '/ɑ̃/'
+    phonetic: '/ɑ̃/',
+    path: '/culture'
   },
   { 
-    title: 'Ressources Audio', 
-    description: 'Écoutez et analysez des contenus authentiques pour affiner votre oreille musicale.', 
+    title: 'Podcasts', 
+    description: 'Listen to authentic French content and improve your listening comprehension.', 
     icon: Radio,
-    phonetic: '/y/'
+    phonetic: '/y/',
+    path: '/podcasts'
+  },
+  { 
+    title: 'Songs & Videos', 
+    description: 'Learn French through music and video content from native speakers.', 
+    icon: Radio,
+    phonetic: '/ə/',
+    path: '/songs'
   }
 ];
 
@@ -225,10 +238,10 @@ export default function HomePage() {
                   <AnimatedElement animation="fade-up" delay={900}>
                     <div className="mt-12 flex flex-wrap gap-6">
                       <Link 
-                        to="/hubs"
+                        to="/pronunciation"
                         className="group inline-flex items-center gap-3 text-secondary font-heading font-semibold text-lg hover:text-white transition-colors"
                       >
-                        <span className="border-b border-secondary/30 pb-1 group-hover:border-white transition-colors">Explore the Library</span>
+                        <span className="border-b border-secondary/30 pb-1 group-hover:border-white transition-colors">Explore Topics</span>
                         <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </div>
@@ -260,7 +273,7 @@ export default function HomePage() {
                   </p>
                   <div className="flex flex-col sm:flex-row justify-between items-end gap-8 mt-16">
                     <p className="font-paragraph text-primary/70 max-w-md leading-relaxed">
-                      Share information about a previous project here to attract new clients. Provide a brief summary to help visitors understand the context and background of the work.
+                      Our comprehensive approach covers pronunciation, modern French, slang, grammar, culture, podcasts, and songs to give you a complete learning experience.
                     </p>
                     <Link to="/a-propos" className="inline-flex items-center gap-2 font-heading font-bold text-primary hover:opacity-70 transition-opacity">
                       <MoveRight className="w-4 h-4" />
@@ -272,7 +285,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* SECTION 3 - THE HUBS (Vertical Sticky Layout) */}
+        {/* SECTION 3 - THE TOPICS (Vertical Sticky Layout) */}
         <section className="w-full max-w-[120rem] mx-auto bg-background relative">
           {/* Decorative Divider */}
           <div className="w-full h-px bg-primary/10"></div>
@@ -283,7 +296,7 @@ export default function HomePage() {
               <AnimatedElement>
                 <div className="w-12 h-1 bg-primary mb-8"></div>
                 <h2 className="font-heading text-5xl lg:text-7xl font-bold text-primary mb-6 tracking-tight">
-                  Thematic<br/>Hubs
+                  Learning<br/>Topics
                 </h2>
                 <p className="font-paragraph text-lg text-primary/60 max-w-xs leading-relaxed">
                   An organized collection of resources for every aspect of your linguistic journey.
@@ -294,40 +307,38 @@ export default function HomePage() {
             {/* Scrollable Content */}
             <div className="lg:w-2/3 bg-secondary/30">
               <div className="grid grid-cols-1 md:grid-cols-2">
-                {HUBS_DATA.map((hub, index) => (
-                  <div 
-                    key={index} 
+                {TOPICS_DATA.map((topic, index) => (
+                  <Link
+                    key={index}
+                    to={topic.path}
                     className={`
                       group relative border-b border-primary/10 p-10 lg:p-16 min-h-[400px] flex flex-col justify-between hover:bg-secondary transition-colors duration-500
                       ${index % 2 === 0 ? 'border-r' : ''}
                     `}
                   >
                     <div className="absolute top-8 right-8 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
-                        <span className="font-heading text-8xl font-bold text-primary">{hub.phonetic}</span>
+                        <span className="font-heading text-8xl font-bold text-primary">{topic.phonetic}</span>
                     </div>
 
                     <AnimatedElement delay={index * 100}>
                       <div className="mb-8">
-                        <hub.icon className="w-8 h-8 text-primary mb-6" strokeWidth={1.5} />
+                        <topic.icon className="w-8 h-8 text-primary mb-6" strokeWidth={1.5} />
                         <h3 className="font-heading text-2xl lg:text-3xl font-bold text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
-                          {hub.title}
+                          {topic.title}
                         </h3>
                         <p className="font-paragraph text-primary/70 leading-relaxed max-w-sm">
-                          {hub.description}
+                          {topic.description}
                         </p>
                       </div>
                     </AnimatedElement>
 
                     <div className="mt-auto">
-                      <Link 
-                        to={`/hubs`}
-                        className="inline-flex items-center gap-3 text-primary font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300"
-                      >
-                        <span>Explore Hub</span>
+                      <div className="inline-flex items-center gap-3 text-primary font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                        <span>Explore Topic</span>
                         <ArrowRight className="w-4 h-4" />
-                      </Link>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -411,7 +422,7 @@ export default function HomePage() {
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                         <Link 
-                            to="/lecons" 
+                            to="/pronunciation" 
                             className="px-10 py-5 bg-primary text-secondary font-heading font-bold text-lg rounded-sm hover:bg-primary/90 transition-colors w-full sm:w-auto"
                         >
                             Start Learning

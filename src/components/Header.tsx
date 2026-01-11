@@ -1,11 +1,26 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 
 export default function Header() {
   const location = useLocation();
+  const [isTopicsOpen, setIsTopicsOpen] = useState(false);
   
   const isActive = (path: string) => {
     return location.pathname === path;
   };
+
+  const topics = [
+    { name: 'Pronunciation', path: '/pronunciation' },
+    { name: 'Modern French', path: '/modern-french' },
+    { name: 'Slang & Expressions', path: '/slang' },
+    { name: 'Grammar & Sound', path: '/grammar' },
+    { name: 'French Culture', path: '/culture' },
+    { name: 'Podcasts', path: '/podcasts' },
+    { name: 'Songs & Videos', path: '/songs' },
+  ];
+
+  const isTopicActive = topics.some(topic => isActive(topic.path));
 
   return (
     <header className="bg-background border-b border-secondary">
@@ -24,22 +39,37 @@ export default function Header() {
             >
               Home
             </Link>
-            <Link 
-              to="/hubs" 
-              className={`font-paragraph text-base lg:text-lg transition-colors ${
-                isActive('/hubs') ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
-              }`}
-            >
-              Thematic Hubs
-            </Link>
-            <Link 
-              to="/lecons" 
-              className={`font-paragraph text-base lg:text-lg transition-colors ${
-                isActive('/lecons') ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
-              }`}
-            >
-              All Lessons
-            </Link>
+
+            {/* Topics Dropdown */}
+            <div className="relative group">
+              <button
+                onClick={() => setIsTopicsOpen(!isTopicsOpen)}
+                className={`font-paragraph text-base lg:text-lg transition-colors flex items-center gap-2 ${
+                  isTopicActive ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
+                }`}
+              >
+                Topics
+                <ChevronDown className={`w-4 h-4 transition-transform ${isTopicsOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Dropdown Menu */}
+              <div className="absolute left-0 mt-0 w-48 bg-background border border-secondary shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                {topics.map((topic) => (
+                  <Link
+                    key={topic.path}
+                    to={topic.path}
+                    className={`block px-4 py-3 font-paragraph text-base transition-colors border-b border-secondary/50 last:border-b-0 ${
+                      isActive(topic.path)
+                        ? 'bg-primary text-primary-foreground font-semibold'
+                        : 'text-foreground hover:bg-secondary'
+                    }`}
+                  >
+                    {topic.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            
             <Link 
               to="/a-propos" 
               className={`font-paragraph text-base lg:text-lg transition-colors ${

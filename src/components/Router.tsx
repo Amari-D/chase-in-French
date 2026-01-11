@@ -3,10 +3,14 @@ import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-rou
 import { ScrollToTop } from '@/lib/scroll-to-top';
 import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
 import HomePage from '@/components/pages/HomePage';
-import HubsPage from '@/components/pages/HubsPage';
-import HubDetailPage from '@/components/pages/HubDetailPage';
-import LeconsPage from '@/components/pages/LeconsPage';
 import LeconDetailPage from '@/components/pages/LeconDetailPage';
+import PronunciationPage from '@/components/pages/PronunciationPage';
+import ModernFrenchPage from '@/components/pages/ModernFrenchPage';
+import SlangPage from '@/components/pages/SlangPage';
+import GrammarPage from '@/components/pages/GrammarPage';
+import CulturePage from '@/components/pages/CulturePage';
+import PodcastsPage from '@/components/pages/PodcastsPage';
+import SongsPage from '@/components/pages/SongsPage';
 import AProposPage from '@/components/pages/AProposPage';
 import ContactPage from '@/components/pages/ContactPage';
 import PolitiqueConfidentialitePage from '@/components/pages/PolitiqueConfidentialitePage';
@@ -35,24 +39,52 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "hubs",
-        element: <HubsPage />,
+        path: "pronunciation",
+        element: <PronunciationPage />,
         routeMetadata: {
-          pageIdentifier: 'hubs',
+          pageIdentifier: 'pronunciation',
         },
       },
       {
-        path: "hubs/:slug",
-        element: <HubDetailPage />,
+        path: "modern-french",
+        element: <ModernFrenchPage />,
         routeMetadata: {
-          pageIdentifier: 'hub-detail',
+          pageIdentifier: 'modern-french',
         },
       },
       {
-        path: "lecons",
-        element: <LeconsPage />,
+        path: "slang",
+        element: <SlangPage />,
         routeMetadata: {
-          pageIdentifier: 'lecons',
+          pageIdentifier: 'slang',
+        },
+      },
+      {
+        path: "grammar",
+        element: <GrammarPage />,
+        routeMetadata: {
+          pageIdentifier: 'grammar',
+        },
+      },
+      {
+        path: "culture",
+        element: <CulturePage />,
+        routeMetadata: {
+          pageIdentifier: 'culture',
+        },
+      },
+      {
+        path: "podcasts",
+        element: <PodcastsPage />,
+        routeMetadata: {
+          pageIdentifier: 'podcasts',
+        },
+      },
+      {
+        path: "songs",
+        element: <SongsPage />,
+        routeMetadata: {
+          pageIdentifier: 'songs',
         },
       },
       {
