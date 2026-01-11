@@ -27,7 +27,7 @@ export default function Header() {
       <div className="max-w-[120rem] mx-auto px-6 lg:px-12 py-6">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <Link to="/" className="font-heading text-2xl lg:text-3xl font-bold text-primary hover:opacity-80 transition-opacity">
-            French Pronunciation
+            Chase in French
           </Link>
           
           <nav className="flex flex-wrap items-center gap-6 lg:gap-8">
