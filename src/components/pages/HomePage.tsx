@@ -199,8 +199,8 @@ export default function HomePage() {
 
               <div className="relative z-10 mt-auto">
                  <AnimatedElement animation="fade-up" delay={400}>
-                    <h2 className="font-heading text-6xl lg:text-8xl font-bold text-primary tracking-tighter leading-[0.9]">
-                      PHON<br/>E<br/>TICS
+                    <h2 className="font-heading text-5xl lg:text-7xl font-bold text-primary tracking-tighter leading-[0.9] whitespace-nowrap">
+                      PHONETICS
                     </h2>
                  </AnimatedElement>
               </div>
