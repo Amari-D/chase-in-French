@@ -64,7 +64,7 @@ export default function Footer() {
         <div className="border-t border-primary-foreground/20 mt-12 pt-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="font-paragraph text-sm opacity-80">
-                © {new Date().getFullYear()} French Pronunciation. All rights reserved.
+                Chase in French all right reserved.
               </p>
             <p className="font-paragraph text-sm opacity-80">
             Built by{' '}
