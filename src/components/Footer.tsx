@@ -64,19 +64,19 @@ export default function Footer() {
         <div className="border-t border-primary-foreground/20 mt-12 pt-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="font-paragraph text-sm opacity-80">
-              © {new Date().getFullYear()} French Pronunciation. All rights reserved.
-            </p>
+                © {new Date().getFullYear()} French Pronunciation. All rights reserved.
+              </p>
             <p className="font-paragraph text-sm opacity-80">
-              Built by{' '}
-              <a 
-                href="https://amaridstudios.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="opacity-100 hover:opacity-70 transition-opacity underline"
-              >
-                Amari D Studios
-              </a>
-            </p>
+            Built by{' '}
+            <a 
+              href="https://amaridstudios.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="opacity-100 hover:opacity-70 transition-opacity underline"
+            >
+              Amari D Studios
+            </a>
+          </p>
           </div>
         </div>
       </div>
