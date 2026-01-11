@@ -16,7 +16,15 @@ export default function CulturePage() {
       try {
         const { items } = await BaseCrudService.getAll<Leons>('lecons');
         const filtered = items.filter(l => l.hub === 'Culture');
-        setLecons(filtered);
+        
+        // Sort by numerical order extracted from lesson title
+        const sorted = filtered.sort((a, b) => {
+          const aNum = parseInt(a.lessonTitle?.match(/\d+/)?.[0] || '0');
+          const bNum = parseInt(b.lessonTitle?.match(/\d+/)?.[0] || '0');
+          return aNum - bNum;
+        });
+        
+        setLecons(sorted);
       } catch (error) {
         console.error('Error fetching lessons:', error);
       } finally {
