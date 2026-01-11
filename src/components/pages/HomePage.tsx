@@ -171,7 +171,7 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 min-h-[90vh]">
             
             {/* LEFT COLUMN - The "Image" Replacement (Architectural Typography) */}
-            <div className="bg-secondary relative overflow-hidden flex flex-col justify-start p-8 lg:p-12 border-r border-primary/10">
+            <div className="bg-secondary relative overflow-hidden flex flex-col justify-center items-start p-8 lg:p-12 border-r border-primary/10">
               {/* Background Grid Pattern */}
               <div className="absolute inset-0 opacity-[0.03]" 
                    style={{ backgroundImage: 'linear-gradient(#152F23 1px, transparent 1px), linear-gradient(90deg, #152F23 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
@@ -197,7 +197,7 @@ export default function HomePage() {
                 </AnimatedElement>
               </div>
 
-              <div className="relative z-10 mt-20">
+              <div className="relative z-10">
                  <AnimatedElement animation="fade-up" delay={400}>
                     <h2 className="font-heading text-5xl lg:text-7xl font-bold text-primary tracking-tighter leading-[0.9] whitespace-nowrap">
                       PHONETICS
