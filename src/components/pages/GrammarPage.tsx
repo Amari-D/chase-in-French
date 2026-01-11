@@ -15,7 +15,13 @@ export default function GrammarPage() {
     const fetchLecons = async () => {
       try {
         const { items } = await BaseCrudService.getAll<Leons>('lecons');
+        
+        // Debug: Log all lessons and their hubs
+        console.log('All lessons:', items.map(l => ({ title: l.lessonTitle, hub: l.hub })));
+        
         const filtered = items.filter(l => l.hub === 'Grammar');
+        
+        console.log('Filtered Grammar lessons:', filtered.length);
         
         // Sort by numerical order extracted from lesson title
         const sorted = filtered.sort((a, b) => {
