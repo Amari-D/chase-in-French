@@ -13,16 +13,34 @@ export default function Footer() {
           </div>
           
           <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Navigation</h4>
+            <h4 className="font-heading text-lg font-semibold mb-4">Topics</h4>
             <nav className="flex flex-col gap-3">
-              <Link to="/" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
-                Home
+              <Link to="/pronunciation" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
+                Pronunciation
               </Link>
-              <Link to="/hubs" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
-                Thematic Hubs
+              <Link to="/modern-french" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
+                Modern French
               </Link>
-              <Link to="/lecons" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
-                All Lessons
+              <Link to="/slang" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
+                Slang
+              </Link>
+              <Link to="/grammar" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
+                Grammar
+              </Link>
+            </nav>
+          </div>
+          
+          <div>
+            <h4 className="font-heading text-lg font-semibold mb-4">More Topics</h4>
+            <nav className="flex flex-col gap-3">
+              <Link to="/culture" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
+                Culture
+              </Link>
+              <Link to="/podcasts" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
+                Podcasts
+              </Link>
+              <Link to="/songs" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
+                Songs
               </Link>
             </nav>
           </div>
@@ -40,13 +58,6 @@ export default function Footer() {
                 Privacy Policy
               </Link>
             </nav>
-          </div>
-          
-          <div>
-            <h4 className="font-heading text-lg font-semibold mb-4">Topics</h4>
-            <p className="font-paragraph text-sm opacity-90">
-              Pronunciation, Modern Spoken French, Slang, Grammar, Culture, Podcasts, Songs
-            </p>
           </div>
         </div>
         
