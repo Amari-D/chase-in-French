@@ -101,19 +101,19 @@ export default function ModernFrenchPage() {
                     transition={{ duration: 0.5, delay: index * 0.05 }}
                   >
                     <Link 
-                      to={`/lecons/${lecon.slug}`}
+                      to={`/lecons/${lecon._id}`}
                       className="block group"
                     >
                       <div className="bg-secondary p-8 lg:p-10 border border-primary/10 hover:border-primary/30 transition-all">
                         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
                           <div className="flex-1">
                             <h3 className="font-heading text-xl lg:text-2xl font-bold text-primary mb-3 group-hover:opacity-80 transition-opacity">
-                              {lecon.title}
+                              {lecon.lessonTitle}
                             </h3>
                             
-                            {lecon.description && (
+                            {lecon.shortDescription && (
                               <p className="font-paragraph text-base text-foreground">
-                                {lecon.description}
+                                {lecon.shortDescription}
                               </p>
                             )}
                           </div>

@@ -4,27 +4,27 @@ import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { BaseCrudService } from '@/integrations';
-import { Leons, HubsThmatiques } from '@/entities';
+import { Leons, Hubs } from '@/entities';
 import { ArrowLeft } from 'lucide-react';
 
 export default function LeconDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const [lecon, setLecon] = useState<Leons | null>(null);
-  const [hub, setHub] = useState<HubsThmatiques | null>(null);
+  const [hub, setHub] = useState<Hubs | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { items: allLecons } = await BaseCrudService.getAll<Leons>('lecons');
-        const foundLecon = allLecons.find(l => l.slug === slug);
+        const foundLecon = allLecons.find(l => l._id === slug);
         
         if (foundLecon) {
           setLecon(foundLecon);
           
-          if (foundLecon.hubName) {
-            const { items: allHubs } = await BaseCrudService.getAll<HubsThmatiques>('hubs');
-            const foundHub = allHubs.find(h => h.name === foundLecon.hubName);
+          if (foundLecon.hub) {
+            const { items: allHubs } = await BaseCrudService.getAll<Hubs>('hubs');
+            const foundHub = allHubs.find(h => h.name === foundLecon.hub);
             if (foundHub) {
               setHub(foundHub);
             }
@@ -107,19 +107,19 @@ export default function LeconDetailPage() {
               </div>
               
               <div className="max-w-4xl">
-                {lecon.hubName && (
+                {lecon.hub && (
                   <p className="font-paragraph text-sm uppercase tracking-wider opacity-80 mb-4">
-                    {lecon.hubName}
+                    {lecon.hub}
                   </p>
                 )}
                 
                 <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
-                  {lecon.title}
+                  {lecon.lessonTitle}
                 </h1>
                 
-                {lecon.description && (
+                {lecon.shortDescription && (
                   <p className="font-paragraph text-xl lg:text-2xl opacity-90">
-                    {lecon.description}
+                    {lecon.shortDescription}
                   </p>
                 )}
               </div>
@@ -137,11 +137,11 @@ export default function LeconDetailPage() {
               transition={{ duration: 0.6 }}
               className="max-w-4xl"
             >
-              {lecon.content ? (
+              {lecon.lessonContent ? (
                 <div className="prose prose-lg max-w-none">
                   <div 
                     className="font-paragraph text-base lg:text-lg text-foreground leading-relaxed whitespace-pre-wrap"
-                    dangerouslySetInnerHTML={{ __html: lecon.content.replace(/\n/g, '<br />') }}
+                    dangerouslySetInnerHTML={{ __html: lecon.lessonContent.replace(/\n/g, '<br />') }}
                   />
                 </div>
               ) : (
