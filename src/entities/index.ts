@@ -5,9 +5,9 @@
 
 /**
  * Collection ID: hubs
- * Interface for HubsThmatiques
+ * Interface for Hubs
  */
-export interface HubsThmatiques {
+export interface Hubs {
   _id: string;
   _createdDate?: Date;
   _updatedDate?: Date;
@@ -15,12 +15,14 @@ export interface HubsThmatiques {
   name?: string;
   /** @wixFieldType text */
   description?: string;
-  /** @wixFieldType text */
-  summary?: string;
+  /** @wixFieldType image */
+  image?: string;
   /** @wixFieldType text */
   slug?: string;
   /** @wixFieldType number */
   displayOrder?: number;
+  /** @wixFieldType boolean */
+  isActive?: boolean;
 }
 
 
@@ -33,17 +35,19 @@ export interface Leons {
   _createdDate?: Date;
   _updatedDate?: Date;
   /** @wixFieldType text */
-  topic?: string;
+  lessonTitle?: string;
   /** @wixFieldType text */
-  title?: string;
+  shortDescription?: string;
   /** @wixFieldType text */
-  content?: string;
+  lessonContent?: string;
   /** @wixFieldType text */
-  hubName?: string;
-  /** @wixFieldType text */
-  description?: string;
-  /** @wixFieldType text */
-  slug?: string;
+  difficultyLevel?: string;
+  /** @wixFieldType number */
+  estimatedDurationMinutes?: number;
+  /** @wixFieldType image */
+  lessonCoverImage?: string;
+  /** @wixFieldType url */
+  videoLink?: string;
 }
 
 
@@ -60,11 +64,13 @@ export interface Podcasts {
   /** @wixFieldType text */
   description?: string;
   /** @wixFieldType url */
-  audioUrl?: string;
+  audioLink?: string;
   /** @wixFieldType number */
-  duration?: number;
+  episodeNumber?: number;
   /** @wixFieldType date */
   releaseDate?: Date | string;
+  /** @wixFieldType image */
+  thumbnail?: string;
 }
 
 
@@ -79,13 +85,15 @@ export interface Songs {
   /** @wixFieldType text */
   title?: string;
   /** @wixFieldType text */
-  description?: string;
+  artist?: string;
   /** @wixFieldType url */
   videoUrl?: string;
-  /** @wixFieldType number */
-  duration?: number;
   /** @wixFieldType text */
-  artist?: string;
+  description?: string;
   /** @wixFieldType image */
   thumbnail?: string;
+  /** @wixFieldType number */
+  duration?: number;
+  /** @wixFieldType number */
+  releaseYear?: number;
 }
