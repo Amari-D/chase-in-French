@@ -71,6 +71,8 @@ export interface Podcasts {
   releaseDate?: Date | string;
   /** @wixFieldType image */
   thumbnail?: string;
+  /** @wixFieldType text */
+  hub?: string;
 }
 
 
@@ -96,4 +98,6 @@ export interface Songs {
   duration?: number;
   /** @wixFieldType number */
   releaseYear?: number;
+  /** @wixFieldType text */
+  hub?: string;
 }
