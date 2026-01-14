@@ -15,7 +15,7 @@ export interface Hubs {
   name?: string;
   /** @wixFieldType text */
   description?: string;
-  /** @wixFieldType image */
+  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   image?: string;
   /** @wixFieldType text */
   slug?: string;
@@ -48,7 +48,7 @@ export interface Leons {
   difficultyLevel?: string;
   /** @wixFieldType number */
   estimatedDurationMinutes?: number;
-  /** @wixFieldType image */
+  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   lessonCoverImage?: string;
   /** @wixFieldType url */
   videoLink?: string;
@@ -75,7 +75,7 @@ export interface Podcasts {
   episodeNumber?: number;
   /** @wixFieldType date */
   releaseDate?: Date | string;
-  /** @wixFieldType image */
+  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   thumbnail?: string;
 }
 
@@ -98,7 +98,7 @@ export interface Songs {
   videoUrl?: string;
   /** @wixFieldType text */
   description?: string;
-  /** @wixFieldType image */
+  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
   thumbnail?: string;
   /** @wixFieldType number */
   duration?: number;

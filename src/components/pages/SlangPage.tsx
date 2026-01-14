@@ -14,8 +14,8 @@ export default function SlangPage() {
   useEffect(() => {
     const fetchLecons = async () => {
       try {
-        const { items } = await BaseCrudService.getAll<Leons>('lecons');
-        const filtered = items.filter(l => l.hub === 'Slang');
+        const { items } = await BaseCrudService.getAll<Leons>('lecons', [], { limit: 100 });
+        const filtered = items.filter(l => l.hub?.toLowerCase() === 'slang');
         setLecons(filtered);
       } catch (error) {
         console.error('Error fetching lessons:', error);
