@@ -23,14 +23,16 @@ export default {
                 paragraph: "work-sans-v2"
             },
             colors: {
-                foreground: '#152F23',
+                foreground: '#1A2B4A',
                 destructive: '#DF3131',
                 destructiveforeground: '#FFFFFF',
                 background: '#FFFFFF',
-                secondary: '#E7EBD8',
-                'secondary-foreground': '#000000',
+                secondary: '#E8EFF7',
+                'secondary-foreground': '#1A2B4A',
                 'primary-foreground': '#FFFFFF',
-                primary: '#152F23'
+                primary: '#1A2B4A',
+                'medium-blue': '#4A6FA5',
+                'accent-red': '#C1272D'
             },
         },
     },

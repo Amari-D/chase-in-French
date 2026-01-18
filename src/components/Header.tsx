@@ -34,7 +34,7 @@ export default function Header() {
             <Link 
               to="/" 
               className={`font-paragraph text-base lg:text-lg transition-colors ${
-                isActive('/') ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
+                isActive('/') ? 'text-primary font-semibold' : 'text-primary hover:opacity-70'
               }`}
             >
               Home
@@ -45,7 +45,7 @@ export default function Header() {
               <button
                 onClick={() => setIsTopicsOpen(!isTopicsOpen)}
                 className={`font-paragraph text-base lg:text-lg transition-colors flex items-center gap-2 ${
-                  isTopicActive ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
+                  isTopicActive ? 'text-primary font-semibold' : 'text-primary hover:opacity-70'
                 }`}
               >
                 Topics
@@ -61,7 +61,7 @@ export default function Header() {
                     className={`block px-4 py-3 font-paragraph text-base transition-colors border-b border-secondary/50 last:border-b-0 ${
                       isActive(topic.path)
                         ? 'bg-primary text-primary-foreground font-semibold'
-                        : 'text-foreground hover:bg-secondary'
+                        : 'text-primary hover:bg-secondary'
                     }`}
                   >
                     {topic.name}
@@ -73,7 +73,7 @@ export default function Header() {
             <Link 
               to="/a-propos" 
               className={`font-paragraph text-base lg:text-lg transition-colors ${
-                isActive('/a-propos') ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
+                isActive('/a-propos') ? 'text-primary font-semibold' : 'text-primary hover:opacity-70'
               }`}
             >
               About
@@ -81,7 +81,7 @@ export default function Header() {
             <Link 
               to="/contact" 
               className={`font-paragraph text-base lg:text-lg transition-colors ${
-                isActive('/contact') ? 'text-primary font-semibold' : 'text-foreground hover:text-primary'
+                isActive('/contact') ? 'text-primary font-semibold' : 'text-primary hover:opacity-70'
               }`}
             >
               Contact

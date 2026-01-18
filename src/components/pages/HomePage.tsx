@@ -148,11 +148,11 @@ export default function HomePage() {
           transform: translate(0, 0) !important;
         }
         .text-stroke {
-            -webkit-text-stroke: 1px rgba(21, 47, 35, 0.2);
+            -webkit-text-stroke: 1px rgba(26, 43, 74, 0.2);
             color: transparent;
         }
         .text-stroke-light {
-            -webkit-text-stroke: 1px rgba(231, 235, 216, 0.3);
+            -webkit-text-stroke: 1px rgba(232, 239, 247, 0.3);
             color: transparent;
         }
         .vertical-text {
@@ -165,51 +165,14 @@ export default function HomePage() {
       
       <main className="flex-1 w-full">
         
-        {/* HERO SECTION - Replicating the Inspiration Image Structure */}
-        {/* Left: Visual/Architectural (Beige) | Right: Content (Dark Green) */}
+        {/* HERO SECTION - SEO-optimized with content first on mobile */}
         <section className="w-full max-w-[120rem] mx-auto relative">
           <div className="grid lg:grid-cols-2 min-h-[90vh]">
             
-            {/* LEFT COLUMN - The "Image" Replacement (Architectural Typography) */}
-            <div className="bg-secondary relative overflow-hidden flex flex-col justify-center items-start p-8 lg:p-12 border-r border-primary/10">
-              {/* Background Grid Pattern */}
-              <div className="absolute inset-0 opacity-[0.03]" 
-                   style={{ backgroundImage: 'linear-gradient(#152F23 1px, transparent 1px), linear-gradient(90deg, #152F23 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
-              </div>
-
-              {/* Floating Phonetic Symbols - Parallax Effect */}
-              <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                 <ParallaxElement speed={0.2} className="absolute top-[10%] left-[10%]">
-                    <span className="font-heading text-[12rem] leading-none text-primary/5 font-bold">/R/</span>
-                 </ParallaxElement>
-                 <ParallaxElement speed={-0.1} className="absolute top-[40%] right-[5%]">
-                    <span className="font-heading text-[8rem] leading-none text-primary/5 font-bold">/y/</span>
-                 </ParallaxElement>
-                 <ParallaxElement speed={0.15} className="absolute bottom-[15%] left-[20%]">
-                    <span className="font-heading text-[10rem] leading-none text-primary/5 font-bold">/œ̃/</span>
-                 </ParallaxElement>
-              </div>
-
-              {/* Content mimicking the "Visual" side */}
-              <div className="relative z-10">
-                <AnimatedElement animation="fade-in" delay={200}>
-                    <span className="font-heading font-bold text-primary text-xl tracking-tight">01.</span>
-                </AnimatedElement>
-              </div>
-
-              <div className="relative z-10">
-                 <AnimatedElement animation="fade-up" delay={400}>
-                    <h2 className="font-heading text-5xl lg:text-7xl font-bold text-primary tracking-tighter leading-[0.9] whitespace-nowrap">
-                      PHONETICS
-                    </h2>
-                 </AnimatedElement>
-              </div>
-            </div>
-            
-            {/* RIGHT COLUMN - The Content Side (Dark Green) */}
-            <div className="bg-primary text-primary-foreground flex flex-col justify-center p-12 lg:p-20 relative overflow-hidden">
+            {/* CONTENT SIDE - First in DOM for SEO (Dark Blue) */}
+            <div className="bg-primary text-primary-foreground flex flex-col justify-center p-12 lg:p-20 relative overflow-hidden order-1 lg:order-2">
                {/* Subtle noise texture overlay */}
-               <div className="absolute inset-0 opacity-[0.02] bg-repeat" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'0 0 2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
+               <div className="absolute inset-0 opacity-[0.02] bg-repeat" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
 
                <div className="relative z-10 max-w-2xl">
                   <AnimatedElement animation="fade-in" delay={300}>
@@ -220,7 +183,7 @@ export default function HomePage() {
 
                   <AnimatedElement animation="fade-up" delay={500}>
                     <h1 className="font-heading text-4xl lg:text-6xl font-bold leading-[1.1] mb-8 text-secondary">
-                      Our journey begins where convention ends.
+                      Master French Pronunciation with Expert Guidance
                     </h1>
                   </AnimatedElement>
 
@@ -239,14 +202,50 @@ export default function HomePage() {
                     <div className="mt-12 flex flex-wrap gap-6">
                       <Link 
                         to="/pronunciation"
-                        className="group inline-flex items-center gap-3 text-secondary font-heading font-semibold text-lg hover:text-white transition-colors"
+                        className="group inline-flex items-center gap-3 text-accent-red font-heading font-semibold text-lg hover:text-white transition-colors"
                       >
-                        <span className="border-b border-secondary/30 pb-1 group-hover:border-white transition-colors">Explore Topics</span>
+                        <span className="border-b border-accent-red/50 pb-1 group-hover:border-white transition-colors">Explore Topics</span>
                         <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
                       </Link>
                     </div>
                   </AnimatedElement>
                </div>
+            </div>
+
+            {/* VISUAL SIDE - Architectural Typography (Light Blue) */}
+            <div className="bg-secondary relative overflow-hidden flex flex-col justify-center items-start p-8 lg:p-12 border-r border-primary/10 order-2 lg:order-1">
+              {/* Background Grid Pattern */}
+              <div className="absolute inset-0 opacity-[0.03]" 
+                   style={{ backgroundImage: 'linear-gradient(#1A2B4A 1px, transparent 1px), linear-gradient(90deg, #1A2B4A 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+              </div>
+
+              {/* Floating Phonetic Symbols - Medium Blue */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                 <ParallaxElement speed={0.2} className="absolute top-[10%] left-[10%]">
+                    <span className="font-heading text-[12rem] leading-none text-medium-blue/20 font-bold">/R/</span>
+                 </ParallaxElement>
+                 <ParallaxElement speed={-0.1} className="absolute top-[40%] right-[5%]">
+                    <span className="font-heading text-[8rem] leading-none text-medium-blue/20 font-bold">/y/</span>
+                 </ParallaxElement>
+                 <ParallaxElement speed={0.15} className="absolute bottom-[15%] left-[20%]">
+                    <span className="font-heading text-[10rem] leading-none text-medium-blue/20 font-bold">/œ̃/</span>
+                 </ParallaxElement>
+              </div>
+
+              {/* Content mimicking the "Visual" side */}
+              <div className="relative z-10">
+                <AnimatedElement animation="fade-in" delay={200}>
+                    <span className="font-heading font-bold text-accent-red text-xl tracking-tight">01.</span>
+                </AnimatedElement>
+              </div>
+
+              <div className="relative z-10">
+                 <AnimatedElement animation="fade-up" delay={400}>
+                    <h2 className="font-heading text-5xl lg:text-7xl font-bold text-primary tracking-tighter leading-[0.9] whitespace-nowrap">
+                      PHONETICS
+                    </h2>
+                 </AnimatedElement>
+              </div>
             </div>
           </div>
         </section>
@@ -294,7 +293,7 @@ export default function HomePage() {
             {/* Sticky Sidebar */}
             <div className="lg:w-1/3 lg:sticky lg:top-0 lg:h-screen bg-background border-r border-primary/10 p-8 lg:p-16 flex flex-col justify-center z-10">
               <AnimatedElement>
-                <div className="w-12 h-1 bg-primary mb-8"></div>
+                <div className="w-12 h-1 bg-accent-red mb-8"></div>
                 <h2 className="font-heading text-5xl lg:text-7xl font-bold text-primary mb-6 tracking-tight">
                   Learning<br/>Topics
                 </h2>
@@ -429,7 +428,7 @@ export default function HomePage() {
                         </Link>
                         <Link 
                             to="/contact" 
-                            className="px-10 py-5 border border-primary text-primary font-heading font-bold text-lg rounded-sm hover:bg-primary hover:text-secondary transition-all w-full sm:w-auto"
+                            className="px-10 py-5 border-2 border-accent-red text-accent-red font-heading font-bold text-lg rounded-sm hover:bg-accent-red hover:text-white transition-all w-full sm:w-auto"
                         >
                             Contact Us
                         </Link>
