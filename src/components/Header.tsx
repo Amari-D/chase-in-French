@@ -5,7 +5,6 @@ import { ChevronDown } from 'lucide-react';
 export default function Header() {
   const location = useLocation();
   const [isTopicsOpen, setIsTopicsOpen] = useState(false);
-  const [isClassesOpen, setIsClassesOpen] = useState(false);
   
   const isActive = (path: string) => {
     return location.pathname === path;
@@ -13,20 +12,15 @@ export default function Header() {
 
   const topics = [
     { name: 'Pronunciation', path: '/pronunciation' },
-    { name: 'Slang & Real Speech', path: '/slang' },
-    { name: 'Grammar', path: '/grammar' },
-    { name: 'Culture', path: '/culture' },
-    { name: 'Podcast', path: '/podcast' },
+    { name: 'Modern French', path: '/modern-french' },
+    { name: 'Slang & Expressions', path: '/slang' },
+    { name: 'Grammar & Sound', path: '/grammar' },
+    { name: 'French Culture', path: '/culture' },
+    { name: 'Podcasts', path: '/podcasts' },
     { name: 'Songs & Videos', path: '/songs' },
   ];
 
-  const classes = [
-    { name: 'Group Classes', path: '/classes/group' },
-    { name: 'Private Lessons', path: '/classes/private' },
-  ];
-
   const isTopicActive = topics.some(topic => isActive(topic.path));
-  const isClassesActive = classes.some(cls => isActive(cls.path));
 
   return (
     <header className="bg-background border-b border-secondary">
@@ -59,7 +53,7 @@ export default function Header() {
               </button>
 
               {/* Dropdown Menu */}
-              <div className="absolute left-0 mt-0 w-56 bg-background border border-secondary shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+              <div className="absolute left-0 mt-0 w-48 bg-background border border-secondary shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 {topics.map((topic) => (
                   <Link
                     key={topic.path}
@@ -75,41 +69,11 @@ export default function Header() {
                 ))}
               </div>
             </div>
-
-            {/* Classes Dropdown */}
-            <div className="relative group">
-              <button
-                onClick={() => setIsClassesOpen(!isClassesOpen)}
-                className={`font-paragraph text-base lg:text-lg transition-colors flex items-center gap-2 ${
-                  isClassesActive ? 'text-primary font-semibold' : 'text-primary hover:opacity-70'
-                }`}
-              >
-                Classes
-                <ChevronDown className={`w-4 h-4 transition-transform ${isClassesOpen ? 'rotate-180' : ''}`} />
-              </button>
-
-              {/* Dropdown Menu */}
-              <div className="absolute left-0 mt-0 w-56 bg-background border border-secondary shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                {classes.map((cls) => (
-                  <Link
-                    key={cls.path}
-                    to={cls.path}
-                    className={`block px-4 py-3 font-paragraph text-base transition-colors border-b border-secondary/50 last:border-b-0 ${
-                      isActive(cls.path)
-                        ? 'bg-primary text-primary-foreground font-semibold'
-                        : 'text-primary hover:bg-secondary'
-                    }`}
-                  >
-                    {cls.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
             
             <Link 
-              to="/about" 
+              to="/a-propos" 
               className={`font-paragraph text-base lg:text-lg transition-colors ${
-                isActive('/about') ? 'text-primary font-semibold' : 'text-primary hover:opacity-70'
+                isActive('/a-propos') ? 'text-primary font-semibold' : 'text-primary hover:opacity-70'
               }`}
             >
               About

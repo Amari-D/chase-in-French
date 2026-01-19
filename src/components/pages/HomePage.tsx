@@ -1,6 +1,7 @@
+// HPI 1.6-V
 import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Mic, MessageCircle, BookOpen, Radio, Languages, GraduationCap, Users, Video } from 'lucide-react';
+import { ArrowRight, Mic, MessageCircle, BookOpen, Radio, Languages, GraduationCap, MoveRight, Play } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -84,40 +85,56 @@ const ParallaxElement: React.FC<{ children: React.ReactNode; speed?: number; cla
 
 // --- CANONICAL DATA SOURCES ---
 
-const LEARNING_PATHS = [
-  {
-    title: 'Pronunciation Foundations',
-    level: 'Beginner',
-    description: 'Build the core sounds first: vowels, rhythm, liaison, and the mistakes English speakers repeat.',
-    cta: 'Start Foundations',
-    path: '/pronunciation#foundations',
-    icon: Mic
+const TOPICS_DATA = [
+  { 
+    title: 'Pronunciation', 
+    description: 'Master the fundamental sounds and phonetic rules that define authentic French.', 
+    icon: Mic,
+    phonetic: '/ʁ/',
+    path: '/pronunciation'
   },
-  {
-    title: 'Fix My Accent',
-    level: 'Intermediate/Advanced',
-    description: 'Targeted corrections for persistent problems: nasal vowels, R placement, vowel openness, and flow.',
-    cta: 'Fix my Accent',
-    path: '/pronunciation#fix',
-    icon: MessageCircle
+  { 
+    title: 'Modern French', 
+    description: 'Discover how native French speakers actually communicate in everyday life.', 
+    icon: MessageCircle,
+    phonetic: '/œ̃/',
+    path: '/modern-french'
   },
-  {
-    title: 'Real Spoken French',
-    level: 'Fast Speech',
-    description: 'Learn the reductions and contractions that make French sound "different" from textbook French.',
-    cta: 'Real Spoken French',
-    path: '/slang',
-    icon: Languages
+  { 
+    title: 'Slang & Expressions', 
+    description: 'Explore informal vocabulary and idiomatic expressions of living French.', 
+    icon: Languages,
+    phonetic: '/ʃ/',
+    path: '/slang'
+  },
+  { 
+    title: 'Grammar & Sound', 
+    description: 'Understand how grammar directly influences pronunciation and rhythm.', 
+    icon: BookOpen,
+    phonetic: '/ʒ/',
+    path: '/grammar'
+  },
+  { 
+    title: 'French Culture', 
+    description: 'Dive into the cultural context that enriches your linguistic understanding.', 
+    icon: GraduationCap,
+    phonetic: '/ɑ̃/',
+    path: '/culture'
+  },
+  { 
+    title: 'Podcasts', 
+    description: 'Listen to authentic French content and improve your listening comprehension.', 
+    icon: Radio,
+    phonetic: '/y/',
+    path: '/podcasts'
+  },
+  { 
+    title: 'Songs & Videos', 
+    description: 'Learn French through music and video content from native speakers.', 
+    icon: Radio,
+    phonetic: '/ə/',
+    path: '/songs'
   }
-];
-
-const TOPICS_LIST = [
-  { name: 'Pronunciation', description: 'the sound system and delivery', path: '/pronunciation', icon: Mic },
-  { name: 'Slang & Real Speech', description: 'contractions, reductions, modern usage', path: '/slang', icon: Languages },
-  { name: 'Grammar', description: 'practical micro-guides for speaking (not textbook theory)', path: '/grammar', icon: BookOpen },
-  { name: 'Culture', description: 'the social signals behind what people say (and how)', path: '/culture', icon: GraduationCap },
-  { name: 'Podcast', description: 'Learning French by Accident', path: '/podcast', icon: Radio },
-  { name: 'Songs & Videos', description: 'learn through listening and music', path: '/songs', icon: Video }
 ];
 
 // --- PAGE COMPONENT ---
@@ -148,253 +165,296 @@ export default function HomePage() {
       
       <main className="flex-1 w-full">
         
-        {/* HERO SECTION */}
-        <section className="w-full max-w-[120rem] mx-auto px-6 lg:px-12 py-20 lg:py-32">
-          <div className="max-w-5xl mx-auto text-center">
-            <AnimatedElement animation="fade-up" delay={200}>
-              <h1 className="font-heading text-5xl lg:text-7xl font-bold text-primary mb-8 leading-tight">
-                Learn the French you actually hear
-              </h1>
-            </AnimatedElement>
+        {/* HERO SECTION - SEO-optimized with content first on mobile */}
+        <section className="w-full max-w-[120rem] mx-auto relative">
+          <div className="grid lg:grid-cols-2 min-h-[90vh]">
+            
+            {/* CONTENT SIDE - First in DOM for SEO (Dark Blue) */}
+            <div className="bg-primary text-primary-foreground flex flex-col justify-center p-12 lg:p-20 relative overflow-hidden order-1 lg:order-2">
+               {/* Subtle noise texture overlay */}
+               <div className="absolute inset-0 opacity-[0.02] bg-repeat" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
 
-            <AnimatedElement animation="fade-up" delay={400}>
-              <p className="font-paragraph text-xl lg:text-2xl text-primary/70 mb-12 max-w-3xl mx-auto leading-relaxed">
-                Real pronunciation, modern spoken French, and clear bilingual explanations — built for the way French is spoken in real life.
-              </p>
-            </AnimatedElement>
+               <div className="relative z-10 max-w-2xl">
+                  <AnimatedElement animation="fade-in" delay={300}>
+                    <p className="font-paragraph text-sm font-medium tracking-[0.2em] uppercase text-secondary/80 mb-8">
+                      The Art of Speech
+                    </p>
+                  </AnimatedElement>
 
-            <AnimatedElement animation="fade-up" delay={600}>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <Link 
-                  to="/start"
-                  className="px-10 py-5 bg-primary text-primary-foreground font-heading font-bold text-lg hover:bg-primary/90 transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-3"
-                >
-                  Start here
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-                <Link 
-                  to="/topics"
-                  className="px-10 py-5 border-2 border-primary text-primary font-heading font-bold text-lg hover:bg-primary hover:text-primary-foreground transition-all w-full sm:w-auto inline-flex items-center justify-center gap-3"
-                >
-                  Browse Topics
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
-              </div>
-            </AnimatedElement>
-          </div>
-        </section>
+                  <AnimatedElement animation="fade-up" delay={500}>
+                    <h1 className="font-heading text-4xl lg:text-6xl font-bold leading-[1.1] mb-8 text-secondary">
+                      Master French Pronunciation with Expert Guidance
+                    </h1>
+                  </AnimatedElement>
 
-        {/* WHAT CHASE IN FRENCH IS */}
-        <section className="w-full bg-secondary py-20 lg:py-32">
-          <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-            <div className="max-w-4xl mx-auto">
-              <AnimatedElement>
-                <h2 className="font-heading text-3xl lg:text-5xl font-bold text-primary mb-8">
-                  What Chase in French is
-                </h2>
-                <p className="font-paragraph text-lg lg:text-xl text-primary/80 mb-12 leading-relaxed">
-                  Chase in French is a pronunciation-first learning platform. We focus on the sound system, the rhythm, and the patterns behind real spoken French — so you stop guessing and start hearing what's actually being said.
-                </p>
-              </AnimatedElement>
-
-              <AnimatedElement delay={200}>
-                <ul className="space-y-6">
-                  <li className="flex items-start gap-4">
-                    <div className="w-2 h-2 bg-accent-red rounded-full mt-3 flex-shrink-0"></div>
-                    <p className="font-paragraph text-lg text-primary/80">Short lessons you can actually finish</p>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <div className="w-2 h-2 bg-accent-red rounded-full mt-3 flex-shrink-0"></div>
-                    <p className="font-paragraph text-lg text-primary/80">Clear explanations (English + real French examples)</p>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <div className="w-2 h-2 bg-accent-red rounded-full mt-3 flex-shrink-0"></div>
-                    <p className="font-paragraph text-lg text-primary/80">Modern spoken French: reductions, rhythm, contractions, and delivery</p>
-                  </li>
-                </ul>
-              </AnimatedElement>
-            </div>
-          </div>
-        </section>
-
-        {/* START HERE - 3 LEARNING PATHS */}
-        <section className="w-full max-w-[120rem] mx-auto px-6 lg:px-12 py-20 lg:py-32">
-          <AnimatedElement>
-            <div className="text-center mb-16">
-              <h2 className="font-heading text-4xl lg:text-5xl font-bold text-primary mb-6">
-                Start here
-              </h2>
-              <p className="font-paragraph text-lg text-primary/70 max-w-2xl mx-auto">
-                This is not the topic menu. It is a fast entry point for new visitors.
-              </p>
-            </div>
-          </AnimatedElement>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {LEARNING_PATHS.map((path, index) => (
-              <AnimatedElement key={index} delay={index * 150}>
-                <div className="bg-secondary p-8 lg:p-10 h-full flex flex-col border border-primary/10 hover:border-primary/30 transition-all group">
-                  <path.icon className="w-12 h-12 text-primary mb-6" strokeWidth={1.5} />
-                  <h3 className="font-heading text-2xl font-bold text-primary mb-3">
-                    {path.title}
-                  </h3>
-                  <p className="font-paragraph text-sm text-primary/60 mb-4">
-                    {path.level}
-                  </p>
-                  <p className="font-paragraph text-base text-primary/80 mb-8 leading-relaxed flex-grow">
-                    {path.description}
-                  </p>
-                  <Link 
-                    to={path.path}
-                    className="inline-flex items-center gap-2 font-heading font-semibold text-primary group-hover:text-accent-red transition-colors"
-                  >
-                    {path.cta}
-                    <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
-                  </Link>
-                </div>
-              </AnimatedElement>
-            ))}
-          </div>
-        </section>
-
-        {/* BROWSE BY TOPIC */}
-        <section className="w-full bg-secondary py-20 lg:py-32">
-          <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-            <AnimatedElement>
-              <h2 className="font-heading text-4xl lg:text-5xl font-bold text-primary mb-12 text-center">
-                Browse by topic
-              </h2>
-            </AnimatedElement>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {TOPICS_LIST.map((topic, index) => (
-                <AnimatedElement key={index} delay={index * 100}>
-                  <Link 
-                    to={topic.path}
-                    className="group bg-background p-8 border border-primary/10 hover:border-primary/30 transition-all flex items-start gap-4"
-                  >
-                    <topic.icon className="w-8 h-8 text-primary flex-shrink-0 mt-1" strokeWidth={1.5} />
-                    <div>
-                      <h3 className="font-heading text-xl font-bold text-primary mb-2 group-hover:text-accent-red transition-colors">
-                        {topic.name}
-                      </h3>
-                      <p className="font-paragraph text-sm text-primary/70">
-                        {topic.description}
+                  <AnimatedElement animation="fade-up" delay={700}>
+                    <div className="space-y-6 text-lg lg:text-xl text-secondary/80 font-light leading-relaxed">
+                      <p>
+                        Pronunciation is not a detail, it's the foundation. We don't accept the word "impossible" when it comes to mastering French accent.
+                      </p>
+                      <p>
+                        Here, we are exceptionally skilled in our craft. Phonetic challenges are our guiding stars, and precision is our compass of confidence.
                       </p>
                     </div>
-                  </Link>
+                  </AnimatedElement>
+
+                  <AnimatedElement animation="fade-up" delay={900}>
+                    <div className="mt-12 flex flex-wrap gap-6">
+                      <Link 
+                        to="/pronunciation"
+                        className="group inline-flex items-center gap-3 text-accent-red font-heading font-semibold text-lg hover:text-white transition-colors"
+                      >
+                        <span className="border-b border-accent-red/50 pb-1 group-hover:border-white transition-colors">Explore Topics</span>
+                        <ArrowRight className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  </AnimatedElement>
+               </div>
+            </div>
+
+            {/* VISUAL SIDE - Architectural Typography (Light Blue) */}
+            <div className="bg-secondary relative overflow-hidden flex flex-col justify-center items-start p-8 lg:p-12 border-r border-primary/10 order-2 lg:order-1">
+              {/* Background Grid Pattern */}
+              <div className="absolute inset-0 opacity-[0.03]" 
+                   style={{ backgroundImage: 'linear-gradient(#1A2B4A 1px, transparent 1px), linear-gradient(90deg, #1A2B4A 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+              </div>
+
+              {/* Floating Phonetic Symbols - Medium Blue */}
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                 <ParallaxElement speed={0.2} className="absolute top-[10%] left-[10%]">
+                    <span className="font-heading text-[12rem] leading-none text-medium-blue/20 font-bold">/R/</span>
+                 </ParallaxElement>
+                 <ParallaxElement speed={-0.1} className="absolute top-[40%] right-[5%]">
+                    <span className="font-heading text-[8rem] leading-none text-medium-blue/20 font-bold">/y/</span>
+                 </ParallaxElement>
+                 <ParallaxElement speed={0.15} className="absolute bottom-[15%] left-[20%]">
+                    <span className="font-heading text-[10rem] leading-none text-medium-blue/20 font-bold">/œ̃/</span>
+                 </ParallaxElement>
+              </div>
+
+              {/* Content mimicking the "Visual" side */}
+              <div className="relative z-10">
+                <AnimatedElement animation="fade-in" delay={200}>
+                    <span className="font-heading font-bold text-accent-red text-xl tracking-tight">01.</span>
                 </AnimatedElement>
-              ))}
+              </div>
+
+              <div className="relative z-10">
+                 <AnimatedElement animation="fade-up" delay={400}>
+                    <h2 className="font-heading text-5xl lg:text-7xl font-bold text-primary tracking-tighter leading-[0.9] whitespace-nowrap">
+                      PHONETICS
+                    </h2>
+                 </AnimatedElement>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* CLASSES CONVERSION */}
-        <section className="w-full max-w-[120rem] mx-auto px-6 lg:px-12 py-20 lg:py-32">
-          <div className="max-w-4xl mx-auto text-center">
-            <AnimatedElement>
-              <h2 className="font-heading text-4xl lg:text-5xl font-bold text-primary mb-8">
-                Want feedback from Chase?
-              </h2>
-              <p className="font-paragraph text-lg lg:text-xl text-primary/70 mb-12 leading-relaxed">
-                If you want correction and fast progress, join a group class or book private lessons.
-              </p>
-            </AnimatedElement>
-
-            <AnimatedElement delay={200}>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                <Link 
-                  to="/classes/group"
-                  className="px-10 py-5 bg-primary text-primary-foreground font-heading font-bold text-lg hover:bg-primary/90 transition-colors w-full sm:w-auto inline-flex items-center justify-center gap-3"
-                >
-                  <Users className="w-5 h-5" />
-                  Group Classes
-                </Link>
-                <Link 
-                  to="/classes/private"
-                  className="px-10 py-5 border-2 border-primary text-primary font-heading font-bold text-lg hover:bg-primary hover:text-primary-foreground transition-all w-full sm:w-auto inline-flex items-center justify-center gap-3"
-                >
-                  Private Lessons
-                </Link>
-              </div>
-            </AnimatedElement>
+        {/* SECTION 2 - Project Spotlight / Introduction (Replicating bottom part of inspiration) */}
+        <section className="w-full max-w-[120rem] mx-auto bg-secondary py-24 lg:py-32 px-6 lg:px-12 border-b border-primary/5">
+          <div className="grid lg:grid-cols-12 gap-12 items-start">
+            <div className="lg:col-span-4">
+               <AnimatedElement>
+                  <span className="font-paragraph text-xs font-bold tracking-[0.2em] uppercase text-primary/60 block mb-4">
+                    Our Approach
+                  </span>
+                  <h3 className="font-heading text-3xl lg:text-4xl font-bold text-primary leading-tight">
+                    An authoritative structure for the modern learner.
+                  </h3>
+               </AnimatedElement>
+            </div>
+            <div className="lg:col-span-8 lg:pl-12 border-l border-primary/10">
+               <AnimatedElement delay={200}>
+                  <p className="font-heading text-4xl lg:text-6xl font-medium text-primary mb-8 leading-[1.1]">
+                    Pronunciation, <br/>
+                    <span className="text-primary/40">Spoken French,</span> <br/>
+                    <span className="text-primary/40">Culture.</span>
+                  </p>
+                  <div className="flex flex-col sm:flex-row justify-between items-end gap-8 mt-16">
+                    <p className="font-paragraph text-primary/70 max-w-md leading-relaxed">
+                      Our comprehensive approach covers pronunciation, modern French, slang, grammar, culture, podcasts, and songs to give you a complete learning experience.
+                    </p>
+                    <Link to="/a-propos" className="inline-flex items-center gap-2 font-heading font-bold text-primary hover:opacity-70 transition-opacity">
+                      <MoveRight className="w-4 h-4" />
+                      <span>Learn More</span>
+                    </Link>
+                  </div>
+               </AnimatedElement>
+            </div>
           </div>
         </section>
 
-        {/* CREDIBILITY */}
-        <section className="w-full bg-primary text-primary-foreground py-20 lg:py-32">
-          <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
-            <div className="max-w-4xl mx-auto">
-              <AnimatedElement>
-                <div className="grid md:grid-cols-3 gap-12 mb-16">
-                  <div className="text-center">
-                    <p className="font-heading text-5xl lg:text-6xl font-bold mb-4">650,000+</p>
-                    <p className="font-paragraph text-base opacity-90">learners across TikTok, Instagram, YouTube, and podcast platforms</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="font-heading text-3xl lg:text-4xl font-bold mb-4">On-set coaching</p>
-                    <p className="font-paragraph text-base opacity-90">language coaching and pronunciation direction for major film & TV productions</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="font-heading text-3xl lg:text-4xl font-bold mb-4">Proven method</p>
-                    <p className="font-paragraph text-base opacity-90">built on voice, performance, and the realities of spoken French</p>
-                  </div>
-                </div>
-              </AnimatedElement>
+        {/* SECTION 3 - THE TOPICS (Vertical Sticky Layout) */}
+        <section className="w-full max-w-[120rem] mx-auto bg-background relative">
+          {/* Decorative Divider */}
+          <div className="w-full h-px bg-primary/10"></div>
 
-              <AnimatedElement delay={200}>
-                <p className="font-paragraph text-sm text-center opacity-70">
-                  Selected credits include Napoleon, The Boys S4, Boat Story, Great Expectations.
+          <div className="flex flex-col lg:flex-row">
+            {/* Sticky Sidebar */}
+            <div className="lg:w-1/3 lg:sticky lg:top-0 lg:h-screen bg-background border-r border-primary/10 p-8 lg:p-16 flex flex-col justify-center z-10">
+              <AnimatedElement>
+                <div className="w-12 h-1 bg-accent-red mb-8"></div>
+                <h2 className="font-heading text-5xl lg:text-7xl font-bold text-primary mb-6 tracking-tight">
+                  Learning<br/>Topics
+                </h2>
+                <p className="font-paragraph text-lg text-primary/60 max-w-xs leading-relaxed">
+                  An organized collection of resources for every aspect of your linguistic journey.
                 </p>
               </AnimatedElement>
             </div>
+
+            {/* Scrollable Content */}
+            <div className="lg:w-2/3 bg-secondary/30">
+              <div className="grid grid-cols-1 md:grid-cols-2">
+                {TOPICS_DATA.map((topic, index) => (
+                  <Link
+                    key={index}
+                    to={topic.path}
+                    className={`
+                      group relative border-b border-primary/10 p-10 lg:p-16 min-h-[400px] flex flex-col justify-between hover:bg-secondary transition-colors duration-500
+                      ${index % 2 === 0 ? 'border-r' : ''}
+                    `}
+                  >
+                    <div className="absolute top-8 right-8 opacity-10 group-hover:opacity-20 transition-opacity duration-500">
+                        <span className="font-heading text-8xl font-bold text-primary">{topic.phonetic}</span>
+                    </div>
+
+                    <AnimatedElement delay={index * 100}>
+                      <div className="mb-8">
+                        <topic.icon className="w-8 h-8 text-primary mb-6" strokeWidth={1.5} />
+                        <h3 className="font-heading text-2xl lg:text-3xl font-bold text-primary mb-4 group-hover:translate-x-2 transition-transform duration-300">
+                          {topic.title}
+                        </h3>
+                        <p className="font-paragraph text-primary/70 leading-relaxed max-w-sm">
+                          {topic.description}
+                        </p>
+                      </div>
+                    </AnimatedElement>
+
+                    <div className="mt-auto">
+                      <div className="inline-flex items-center gap-3 text-primary font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                        <span>Explore Topic</span>
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* NEWSLETTER */}
-        <section className="w-full max-w-[120rem] mx-auto px-6 lg:px-12 py-20 lg:py-32">
-          <div className="max-w-2xl mx-auto text-center">
-            <AnimatedElement>
-              <h2 className="font-heading text-4xl lg:text-5xl font-bold text-primary mb-6">
-                Get the weekly lesson
-              </h2>
-              <p className="font-paragraph text-lg text-primary/70 mb-12">
-                One short lesson per week, plus new podcast episodes and new topic pages.
-              </p>
-            </AnimatedElement>
+        {/* SECTION 4 - FEATURED LESSONS (Marquee / List) */}
+        <section className="bg-primary text-secondary py-24 overflow-hidden relative">
+           {/* Background Elements */}
+           <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent"></div>
+           
+           <div className="max-w-[120rem] mx-auto px-6 lg:px-12 mb-16">
+              <AnimatedElement>
+                <div className="flex items-center justify-between mb-12">
+                    <h2 className="font-heading text-3xl lg:text-4xl font-bold">Latest Lessons</h2>
+                    <Link to="/lecons" className="hidden md:flex items-center gap-2 text-secondary/70 hover:text-secondary transition-colors">
+                        View all <ArrowRight className="w-4 h-4" />
+                    </Link>
+                </div>
+              </AnimatedElement>
 
-            <AnimatedElement delay={200}>
-              <form className="flex flex-col sm:flex-row gap-4 max-w-xl mx-auto">
-                <input 
-                  type="text" 
-                  placeholder="First name" 
-                  className="flex-1 px-6 py-4 border-2 border-primary/20 focus:border-primary outline-none font-paragraph text-base"
-                />
-                <input 
-                  type="email" 
-                  placeholder="Email" 
-                  className="flex-1 px-6 py-4 border-2 border-primary/20 focus:border-primary outline-none font-paragraph text-base"
-                />
-                <button 
-                  type="submit"
-                  className="px-10 py-4 bg-primary text-primary-foreground font-heading font-bold text-lg hover:bg-primary/90 transition-colors whitespace-nowrap"
-                >
-                  Subscribe
-                </button>
-              </form>
-            </AnimatedElement>
-          </div>
+              <div className="grid md:grid-cols-3 gap-8">
+                 {[1, 2, 3].map((i) => (
+                    <AnimatedElement key={i} delay={i * 150} className="group cursor-pointer">
+                        <div className="border-t border-secondary/20 pt-6 hover:border-secondary transition-colors duration-300">
+                            <span className="font-paragraph text-xs font-bold tracking-widest text-secondary/50 mb-3 block">LESSON 0{i}</span>
+                            <h3 className="font-heading text-2xl font-medium mb-4 group-hover:underline decoration-1 underline-offset-4">
+                                {i === 1 ? "Nasal vowels in detail" : i === 2 ? "Forbidden elision" : "Sentence rhythm"}
+                            </h3>
+                            <p className="font-paragraph text-secondary/60 text-sm leading-relaxed mb-6">
+                                An in-depth analysis of essential phonetic mechanisms for natural speech.
+                            </p>
+                            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-secondary/40 group-hover:text-secondary transition-colors">
+                                <Play className="w-3 h-3 fill-current" />
+                                <span>Start</span>
+                            </div>
+                        </div>
+                    </AnimatedElement>
+                 ))}
+              </div>
+           </div>
+
+           {/* Infinite Text Marquee */}
+           <div className="relative w-full py-12 border-t border-secondary/10 bg-primary/50 backdrop-blur-sm">
+              <div className="flex whitespace-nowrap overflow-hidden">
+                <div className="animate-marquee flex gap-16 items-center">
+                    {[...Array(4)].map((_, i) => (
+                        <React.Fragment key={i}>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">PRONUNCIATION</span>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">CULTURE</span>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">GRAMMAR</span>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">SLANG</span>
+                        </React.Fragment>
+                    ))}
+                </div>
+                <div className="animate-marquee flex gap-16 items-center ml-16" aria-hidden="true">
+                    {[...Array(4)].map((_, i) => (
+                        <React.Fragment key={i}>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">PRONUNCIATION</span>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">CULTURE</span>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">GRAMMAR</span>
+                            <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">SLANG</span>
+                        </React.Fragment>
+                    ))}
+                </div>
+              </div>
+           </div>
+        </section>
+
+        {/* SECTION 5 - CTA / FOOTER PRELUDE */}
+        <section className="bg-secondary py-32 lg:py-40 px-6 relative overflow-hidden">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-24 bg-primary/20"></div>
+            
+            <div className="max-w-4xl mx-auto text-center relative z-10">
+                <AnimatedElement animation="fade-up">
+                    <h2 className="font-heading text-5xl lg:text-7xl font-bold text-primary mb-8 tracking-tight">
+                        Ready to perfect<br/>your accent?
+                    </h2>
+                    <p className="font-paragraph text-xl text-primary/70 mb-12 max-w-2xl mx-auto">
+                        Join thousands of learners who have transformed the way they speak French through our structured method.
+                    </p>
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+                        <Link 
+                            to="/pronunciation" 
+                            className="px-10 py-5 bg-primary text-secondary font-heading font-bold text-lg rounded-sm hover:bg-primary/90 transition-colors w-full sm:w-auto"
+                        >
+                            Start Learning
+                        </Link>
+                        <Link 
+                            to="/contact" 
+                            className="px-10 py-5 border-2 border-accent-red text-accent-red font-heading font-bold text-lg rounded-sm hover:bg-accent-red hover:text-white transition-all w-full sm:w-auto"
+                        >
+                            Contact Us
+                        </Link>
+                    </div>
+                </AnimatedElement>
+            </div>
+
+            {/* Decorative large letters in background */}
+            <div className="absolute bottom-0 left-0 w-full flex justify-between px-12 pointer-events-none opacity-[0.03]">
+                <span className="font-heading text-[20vw] font-bold text-primary leading-none -mb-12">F</span>
+                <span className="font-heading text-[20vw] font-bold text-primary leading-none -mb-12">R</span>
+            </div>
         </section>
 
       </main>
       
       <Footer />
       
-      {/* Global Styles for Animations */}
+      {/* Global Styles for Marquee and Animations */}
       <style>{`
-        .is-visible {
-          opacity: 1 !important;
-          transform: translate(0, 0) !important;
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        .animate-marquee {
+            animation: marquee 40s linear infinite;
         }
       `}</style>
     </div>
