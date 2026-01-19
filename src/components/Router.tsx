@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-rou
 import { ScrollToTop } from '@/lib/scroll-to-top';
 import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
 import HomePage from '@/components/pages/HomePage';
+import StartPage from '@/components/pages/StartPage';
 import LeconDetailPage from '@/components/pages/LeconDetailPage';
 import PronunciationPage from '@/components/pages/PronunciationPage';
 import ModernFrenchPage from '@/components/pages/ModernFrenchPage';
@@ -11,6 +12,9 @@ import GrammarPage from '@/components/pages/GrammarPage';
 import CulturePage from '@/components/pages/CulturePage';
 import PodcastsPage from '@/components/pages/PodcastsPage';
 import SongsPage from '@/components/pages/SongsPage';
+import ClassesPage from '@/components/pages/ClassesPage';
+import GroupClassesPage from '@/components/pages/GroupClassesPage';
+import PrivateLessonsPage from '@/components/pages/PrivateLessonsPage';
 import AProposPage from '@/components/pages/AProposPage';
 import ContactPage from '@/components/pages/ContactPage';
 import PolitiqueConfidentialitePage from '@/components/pages/PolitiqueConfidentialitePage';
@@ -36,6 +40,13 @@ const router = createBrowserRouter([
         element: <HomePage />,
         routeMetadata: {
           pageIdentifier: 'home',
+        },
+      },
+      {
+        path: "start",
+        element: <StartPage />,
+        routeMetadata: {
+          pageIdentifier: 'start',
         },
       },
       {
@@ -74,17 +85,42 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "podcasts",
+        path: "podcast",
         element: <PodcastsPage />,
         routeMetadata: {
-          pageIdentifier: 'podcasts',
+          pageIdentifier: 'podcast',
         },
+      },
+      {
+        path: "podcasts",
+        element: <Navigate to="/podcast" replace />,
       },
       {
         path: "songs",
         element: <SongsPage />,
         routeMetadata: {
           pageIdentifier: 'songs',
+        },
+      },
+      {
+        path: "classes",
+        element: <ClassesPage />,
+        routeMetadata: {
+          pageIdentifier: 'classes',
+        },
+      },
+      {
+        path: "classes/group",
+        element: <GroupClassesPage />,
+        routeMetadata: {
+          pageIdentifier: 'classes-group',
+        },
+      },
+      {
+        path: "classes/private",
+        element: <PrivateLessonsPage />,
+        routeMetadata: {
+          pageIdentifier: 'classes-private',
         },
       },
       {
@@ -95,11 +131,15 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "a-propos",
+        path: "about",
         element: <AProposPage />,
         routeMetadata: {
-          pageIdentifier: 'a-propos',
+          pageIdentifier: 'about',
         },
+      },
+      {
+        path: "a-propos",
+        element: <Navigate to="/about" replace />,
       },
       {
         path: "contact",
