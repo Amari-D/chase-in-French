@@ -12,6 +12,7 @@ import CulturePage from '@/components/pages/CulturePage';
 import PodcastsPage from '@/components/pages/PodcastsPage';
 import SongsPage from '@/components/pages/SongsPage';
 import AProposPage from '@/components/pages/AProposPage';
+import AboutPage from '@/components/pages/AboutPage';
 import ContactPage from '@/components/pages/ContactPage';
 import PolitiqueConfidentialitePage from '@/components/pages/PolitiqueConfidentialitePage';
 import PrivacyPolicyPage from '@/components/pages/PrivacyPolicyPage';
@@ -100,6 +101,13 @@ const router = createBrowserRouter([
         element: <AProposPage />,
         routeMetadata: {
           pageIdentifier: 'a-propos',
+        },
+      },
+      {
+        path: "about",
+        element: <AboutPage />,
+        routeMetadata: {
+          pageIdentifier: 'about',
         },
       },
       {
