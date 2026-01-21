@@ -38,7 +38,6 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
       <main className="w-full">
         {/* Hero Section */}
         <section className="w-full bg-primary text-primary-foreground py-20 md:py-32">
@@ -56,13 +55,13 @@ export default function AboutPage() {
               
               <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg" variant="secondary" className="font-paragraph text-base">
-                  <Link to="/">Start Here</Link>
+                  <Link to="/start">Start Here</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  <Link to="/pronunciation">Browse Pronunciation</Link>
+                  <Link to="/classes">Join Classes</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  <Link to="/podcasts">Listen to the Podcast</Link>
+                  <Link to="/podcast">Listen to the Podcast</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                   <Link to="/contact">Contact</Link>
@@ -84,11 +83,13 @@ export default function AboutPage() {
             >
               <div className="relative aspect-[4/3] md:aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="https://static.wixstatic.com/media/a60e36_538c0bdfd29d45f1afdbca4de8d395c1~mv2.png?originWidth=896&originHeight=640"
-                  alt="Chase Emery Davis - French pronunciation specialist and dialect coach"
+                  src="https://static.wixstatic.com/media/a60e36_d4a910895cdd4abfb6465b6f9821a3a0~mv2.webp"
                   className="w-full h-full object-cover"
                   width={1200}
-                />
+                  originWidth={1000}
+                  originHeight={709}
+                  focalPointX={39.2}
+                  focalPointY={40.83215796897038} />
               </div>
             </motion.div>
           </div>
@@ -380,13 +381,16 @@ export default function AboutPage() {
               
               <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4">
                 <Button asChild size="lg" variant="secondary" className="font-paragraph text-base">
-                  <Link to="/">Start Here</Link>
+                  <Link to="/start">Start Here</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                   <Link to="/pronunciation">Browse Pronunciation</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  <Link to="/podcasts">Listen to the Podcast</Link>
+                  <Link to="/classes">Join Classes</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                  <Link to="/podcast">Listen to the Podcast</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                   <Link to="/contact">Contact</Link>
@@ -396,7 +400,6 @@ export default function AboutPage() {
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );
