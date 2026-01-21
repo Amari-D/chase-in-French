@@ -102,19 +102,19 @@ export default function ContactPage() {
                     asChild
                     className="bg-primary text-primary-foreground hover:opacity-90 font-paragraph font-semibold"
                   >
-                    <Link to="/start">Start Here</Link>
+                    <Link to="/start-here">Start Here</Link>
                   </Button>
                   <Button 
                     asChild
                     className="bg-primary text-primary-foreground hover:opacity-90 font-paragraph font-semibold"
                   >
-                    <Link to="/classes">Classes</Link>
+                    <Link to="/classees">Classes</Link>
                   </Button>
                   <Button 
                     asChild
                     className="bg-primary text-primary-foreground hover:opacity-90 font-paragraph font-semibold"
                   >
-                    <Link to="/podcast">Podcast</Link>
+                    <Link to="/podcasts">Podcast</Link>
                   </Button>
                 </div>
               </motion.div>
