@@ -56,13 +56,13 @@ export default function AboutPage() {
               
               <div className="flex flex-wrap gap-4">
                 <Button asChild size="lg" variant="secondary" className="font-paragraph text-base">
-                  <Link to="/start">Start Here</Link>
+                  <Link to="/">Start Here</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  <Link to="/classes">Join Classes</Link>
+                  <Link to="/pronunciation">Browse Pronunciation</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  <Link to="/podcast">Listen to the Podcast</Link>
+                  <Link to="/podcasts">Listen to the Podcast</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                   <Link to="/contact">Contact</Link>
@@ -380,16 +380,13 @@ export default function AboutPage() {
               
               <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-4">
                 <Button asChild size="lg" variant="secondary" className="font-paragraph text-base">
-                  <Link to="/start">Start Here</Link>
+                  <Link to="/">Start Here</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                   <Link to="/pronunciation">Browse Pronunciation</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  <Link to="/classes">Join Classes</Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
-                  <Link to="/podcast">Listen to the Podcast</Link>
+                  <Link to="/podcasts">Listen to the Podcast</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="font-paragraph text-base border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
                   <Link to="/contact">Contact</Link>
