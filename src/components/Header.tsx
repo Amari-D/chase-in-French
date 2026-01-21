@@ -71,9 +71,9 @@ export default function Header() {
             </div>
             
             <Link 
-              to="/a-propos" 
+              to="/about" 
               className={`font-paragraph text-base lg:text-lg transition-colors ${
-                isActive('/a-propos') ? 'text-primary font-semibold' : 'text-primary hover:opacity-70'
+                isActive('/about') ? 'text-primary font-semibold' : 'text-primary hover:opacity-70'
               }`}
             >
               About

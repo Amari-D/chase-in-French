@@ -48,7 +48,7 @@ export default function Footer() {
           <div>
             <h4 className="font-heading text-lg font-semibold mb-4">Information</h4>
             <nav className="flex flex-col gap-3">
-              <Link to="/a-propos" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
+              <Link to="/about" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
                 About
               </Link>
               <Link to="/contact" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
