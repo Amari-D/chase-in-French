@@ -18,6 +18,7 @@ import ContactPage from '@/components/pages/ContactPage';
 import PolitiqueConfidentialitePage from '@/components/pages/PolitiqueConfidentialitePage';
 import PrivacyPolicyPage from '@/components/pages/PrivacyPolicyPage';
 import TopicsPage from '@/components/pages/TopicsPage';
+import TopicsSongsPage from '@/components/pages/TopicsSongsPage';
 import ClassesPage from '@/components/pages/ClassesPage';
 import GroupClassesPage from '@/components/pages/GroupClassesPage';
 import PrivateLessonsPage from '@/components/pages/PrivateLessonsPage';
@@ -57,6 +58,13 @@ const router = createBrowserRouter([
         element: <TopicsPage />,
         routeMetadata: {
           pageIdentifier: 'topics',
+        },
+      },
+      {
+        path: "topics/songs",
+        element: <TopicsSongsPage />,
+        routeMetadata: {
+          pageIdentifier: 'topics-songs',
         },
       },
       {
