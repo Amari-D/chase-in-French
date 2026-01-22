@@ -19,7 +19,7 @@ export default function GrammarPage() {
         // Debug: Log all lessons and their hubs
         console.log('All lessons:', items.map(l => ({ title: l.lessonTitle, hub: l.hub })));
         
-        const filtered = items.filter(l => l.hub === 'Grammar');
+        const filtered = items.filter(l => l.hub?.toLowerCase() === 'grammar');
         
         console.log('Filtered Grammar lessons:', filtered.length);
         

@@ -15,7 +15,7 @@ export default function CulturePage() {
     const fetchLecons = async () => {
       try {
         const { items } = await BaseCrudService.getAll<Leons>('lecons');
-        const filtered = items.filter(l => l.hub === 'Culture');
+        const filtered = items.filter(l => l.hub?.toLowerCase() === 'culture');
         
         // Sort by numerical order extracted from lesson title
         const sorted = filtered.sort((a, b) => {
