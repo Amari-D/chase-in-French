@@ -19,8 +19,8 @@ export default {
                 '9xl': ['8rem', { lineHeight: '1', letterSpacing: '-0.04em', fontWeight: '900' }]
             },
             fontFamily: {
-                heading: "space grotesk",
-                paragraph: "work-sans-v2"
+                heading: "'Space Grotesk', sans-serif",
+                paragraph: "'work-sans-v2', sans-serif"
             },
             colors: {
                 foreground: '#1A2B4A',
