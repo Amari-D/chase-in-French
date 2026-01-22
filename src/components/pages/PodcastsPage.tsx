@@ -1,38 +1,75 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { BaseCrudService } from '@/integrations';
-import { Podcasts } from '@/entities';
-import { ArrowRight, ArrowLeft, Play } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function PodcastsPage() {
-  const [podcasts, setPodcasts] = useState<Podcasts[]>([]);
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    const fetchPodcasts = async () => {
-      try {
-        const { items } = await BaseCrudService.getAll<Podcasts>('podcasts');
-        const filtered = items.filter(p => p.hub?.toLowerCase().includes('podcast'));
-        setPodcasts(filtered);
-      } catch (error) {
-        console.error('Error fetching podcasts:', error);
-      } finally {
-        setLoading(false);
-      }
+    // Load Buzzsprout scripts for each episode
+    const loadBuzzsproutScripts = () => {
+      const episodeIds = [
+        'buzzsprout-player-12720257',
+        'buzzsprout-player-13096226',
+        'buzzsprout-player-17546850',
+        'buzzsprout-player-14517473',
+        'buzzsprout-player-15324531'
+      ];
+
+      episodeIds.forEach(id => {
+        const script = document.createElement('script');
+        script.src = `https://www.buzzsprout.com/2179138/episodes/${id.split('-')[2]}-*.js?container_id=${id}&player=small`;
+        script.type = 'text/javascript';
+        script.charset = 'utf-8';
+        script.async = true;
+        const container = document.getElementById(id);
+        if (container) {
+          container.appendChild(script);
+        }
+      });
     };
 
-    fetchPodcasts();
+    loadBuzzsproutScripts();
   }, []);
 
-  const formatDuration = (seconds?: number) => {
-    if (!seconds) return '';
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${secs.toString().padStart(2, '0')}`;
-  };
+  const episodes = [
+    {
+      id: 'il',
+      number: '01',
+      title: 'How we actually say "IL"',
+      buzzsproutId: '12720257',
+      buzzsproutUrl: 'https://www.buzzsprout.com/2179138/episodes/12720257-the-ultimate-french-pronunciation-podcast-how-we-actually-say-il.js'
+    },
+    {
+      id: 'je',
+      number: '02',
+      title: 'How we actually say "JE"',
+      buzzsproutId: '13096226',
+      buzzsproutUrl: 'https://www.buzzsprout.com/2179138/episodes/13096226-the-ultimate-french-pronunciation-podcast-how-we-actually-say-je.js'
+    },
+    {
+      id: 'tu',
+      number: '03',
+      title: 'How we actually say "TU"',
+      buzzsproutId: '17546850',
+      buzzsproutUrl: 'https://www.buzzsprout.com/2179138/episodes/17546850-free-preview-the-ultimate-french-pronunciation-podcast-how-we-actually-say-te.js'
+    },
+    {
+      id: 'nous-on',
+      number: '04',
+      title: '"NOUS" vs "ON" (usage + real speech)',
+      buzzsproutId: '14517473',
+      buzzsproutUrl: 'https://www.buzzsprout.com/2179138/episodes/14517473-the-ultimate-french-pronunciation-podcast-how-we-actually-say-nous.js'
+    },
+    {
+      id: 'vous',
+      number: '05',
+      title: 'How we actually say "VOUS"',
+      buzzsproutId: '15324531',
+      buzzsproutUrl: 'https://www.buzzsprout.com/2179138/episodes/15324531-the-ultimate-french-pronunciation-podcast-how-we-actually-say-vous.js'
+    }
+  ];
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -48,28 +85,46 @@ export default function PodcastsPage() {
               transition={{ duration: 0.6 }}
               className="max-w-4xl"
             >
-              <Link 
-                to="/"
-                className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground font-paragraph transition-colors mb-6"
-              >
-                <ArrowLeft className="w-5 h-5" />
-                Back to home
-              </Link>
-              
-              <p className="font-paragraph text-sm uppercase tracking-wider opacity-80 mb-4">
-                Audio Content
-              </p>
-              <h1 className="font-heading text-4xl lg:text-6xl font-bold mb-6">
-                Podcasts
+              <h1 className="font-heading text-5xl lg:text-7xl font-bold mb-6">
+                Learning French by Accident (Podcast)
               </h1>
-              <p className="font-paragraph text-lg lg:text-xl opacity-90">
-                Listen to authentic French content and improve your listening comprehension.
+              <p className="font-paragraph text-lg lg:text-xl opacity-90 mb-8">
+                This podcast trains your ear for real French — the pronunciation shifts, contractions, and sentence flow that disappear in textbooks. Each episode focuses on a single high‐frequency pattern so you can hear it, copy it, and use it.
               </p>
+              
+              {/* Top CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="https://podcasts.apple.com/us/podcast/learning-french-by-accident/id1684581201"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-accent-red text-primary-foreground px-8 py-4 rounded font-paragraph font-semibold hover:opacity-90 transition-opacity"
+                >
+                  Subscribe on Apple Podcasts
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+                <a
+                  href="https://learningfrenchbyaccident.buzzsprout.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-8 py-4 rounded font-paragraph font-semibold hover:opacity-90 transition-opacity border border-primary-foreground"
+                >
+                  Listen on Buzzsprout
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+                <Link
+                  to="/start"
+                  className="inline-flex items-center justify-center gap-2 bg-primary-foreground/20 text-primary-foreground px-8 py-4 rounded font-paragraph font-semibold hover:bg-primary-foreground/30 transition-colors border border-primary-foreground/40"
+                >
+                  Start Here
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+              </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Podcasts List */}
+        {/* Episodes Section */}
         <section className="py-20 lg:py-28 bg-background">
           <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
             <motion.div
@@ -77,79 +132,73 @@ export default function PodcastsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="mb-12"
+              className="mb-16"
             >
-              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary mb-4">
+              <h2 className="font-heading text-4xl lg:text-5xl font-bold text-primary mb-4">
                 Available Episodes
               </h2>
-              <p className="font-paragraph text-lg text-foreground">
-                {podcasts.length} {podcasts.length === 1 ? 'episode available' : 'episodes available'}
-              </p>
             </motion.div>
 
-            {loading ? (
-              <div className="text-center py-20">
-                <p className="font-paragraph text-lg text-foreground">Loading podcasts...</p>
-              </div>
-            ) : podcasts.length === 0 ? (
-              <div className="text-center py-12 bg-secondary p-12">
-                <p className="font-paragraph text-lg text-secondary-foreground">
-                  No podcasts available at the moment.
-                </p>
-              </div>
-            ) : (
-              <div className="space-y-6">
-                {podcasts.map((podcast, index) => (
-                  <motion.div
-                    key={podcast._id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.05 }}
+            <div className="space-y-12">
+              {episodes.map((episode, index) => (
+                <motion.div
+                  key={episode.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-secondary p-8 lg:p-12 rounded-lg"
+                >
+                  <div className="mb-6">
+                    <p className="font-paragraph text-sm uppercase tracking-wider text-primary/70 mb-2">
+                      Episode {episode.number}
+                    </p>
+                    <h3 className="font-heading text-2xl lg:text-3xl font-bold text-primary mb-4">
+                      {episode.title}
+                    </h3>
+                  </div>
+
+                  {/* Buzzsprout Player */}
+                  <div className="mb-6 bg-white p-6 rounded">
+                    <div id={`buzzsprout-player-${episode.buzzsproutId}`}></div>
+                  </div>
+
+                  {/* Read Episode Link */}
+                  <Link
+                    to={`/podcast/${episode.id}`}
+                    className="inline-flex items-center gap-2 text-primary font-paragraph font-semibold hover:gap-4 transition-all"
                   >
-                    <a 
-                      href={podcast.audioUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block group"
-                    >
-                      <div className="bg-secondary p-8 lg:p-10 border border-primary/10 hover:border-primary/30 transition-all">
-                        <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
-                          <div className="flex-1">
-                            <h3 className="font-heading text-xl lg:text-2xl font-bold text-primary mb-3 group-hover:opacity-80 transition-opacity">
-                              {podcast.title}
-                            </h3>
-                            
-                            {podcast.description && (
-                              <p className="font-paragraph text-base text-foreground mb-4">
-                                {podcast.description}
-                              </p>
-                            )}
-                            
-                            {podcast.duration && (
-                              <p className="font-paragraph text-sm text-foreground/70">
-                                Duration: {formatDuration(podcast.duration)}
-                              </p>
-                            )}
-                          </div>
-                          
-                          <div className="flex items-center gap-2 text-primary font-paragraph font-semibold group-hover:gap-4 transition-all whitespace-nowrap">
-                            <Play className="w-5 h-5 fill-current" />
-                            Listen
-                            <ArrowRight className="w-5 h-5" />
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </motion.div>
-                ))}
-              </div>
-            )}
+                    Read episode
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-secondary py-20 lg:py-28">
+        {/* Coming Next Section */}
+        <section className="py-20 lg:py-28 bg-secondary">
+          <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="max-w-3xl"
+            >
+              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary mb-4">
+                Coming Next
+              </h2>
+              <p className="font-paragraph text-lg text-foreground">
+                Next season (planned): Passé composé in real speech — pronouns, questions, negatives, and the forms people actually use (6 weeks).
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Bottom CTA Section */}
+        <section className="bg-primary text-primary-foreground py-20 lg:py-28">
           <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center">
               <motion.div
@@ -157,21 +206,35 @@ export default function PodcastsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                className="space-y-6"
+                className="space-y-8"
               >
-                <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary">
-                  Explore other topics
+                <h2 className="font-heading text-3xl lg:text-4xl font-bold">
+                  Continue Your Learning
                 </h2>
-                <p className="font-paragraph text-lg text-secondary-foreground">
-                  Discover our other learning topics to enrich your French skills.
-                </p>
-                <Link 
-                  to="/"
-                  className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-8 py-4 rounded font-paragraph font-semibold hover:opacity-90 transition-opacity"
-                >
-                  Back to Home
-                  <ArrowRight className="w-5 h-5" />
-                </Link>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link
+                    to="/pronunciation"
+                    className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-8 py-4 rounded font-paragraph font-semibold hover:opacity-90 transition-opacity"
+                  >
+                    Browse Pronunciation Lessons
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    to="/classes"
+                    className="inline-flex items-center justify-center gap-2 bg-accent-red text-primary-foreground px-8 py-4 rounded font-paragraph font-semibold hover:opacity-90 transition-opacity"
+                  >
+                    Join Classes
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <Link
+                    to="/start"
+                    className="inline-flex items-center justify-center gap-2 bg-primary-foreground/20 text-primary-foreground px-8 py-4 rounded font-paragraph font-semibold hover:bg-primary-foreground/30 transition-colors border border-primary-foreground/40"
+                  >
+                    Start Here
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </div>
               </motion.div>
             </div>
           </div>

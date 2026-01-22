@@ -10,6 +10,7 @@ import SlangPage from '@/components/pages/SlangPage';
 import GrammarPage from '@/components/pages/GrammarPage';
 import CulturePage from '@/components/pages/CulturePage';
 import PodcastsPage from '@/components/pages/PodcastsPage';
+import PodcastEpisodePage from '@/components/pages/PodcastEpisodePage';
 import SongsPage from '@/components/pages/SongsPage';
 import AProposPage from '@/components/pages/AProposPage';
 import AboutPage from '@/components/pages/AboutPage';
@@ -108,10 +109,17 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "podcasts",
+        path: "podcast",
         element: <PodcastsPage />,
         routeMetadata: {
-          pageIdentifier: 'podcasts',
+          pageIdentifier: 'podcast',
+        },
+      },
+      {
+        path: "podcast/:slug",
+        element: <PodcastEpisodePage />,
+        routeMetadata: {
+          pageIdentifier: 'podcast-episode',
         },
       },
       {
