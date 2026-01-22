@@ -5,6 +5,8 @@ import { ArrowRight, Mic, MessageCircle, BookOpen, Radio, Languages, GraduationC
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
+import { BaseCrudService } from '@/integrations';
+import { Leons } from '@/entities';
 
 // --- UTILS & COMPONENTS ---
 
@@ -134,6 +136,24 @@ const TOPICS_DATA = [
 // --- PAGE COMPONENT ---
 
 export default function HomePage() {
+  const [latestLessons, setLatestLessons] = useState<Leons[]>([]);
+  const [lessonsLoading, setLessonsLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchLatestLessons = async () => {
+      try {
+        const { items } = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 3 });
+        setLatestLessons(items);
+      } catch (error) {
+        console.error('Error fetching latest lessons:', error);
+      } finally {
+        setLessonsLoading(false);
+      }
+    };
+
+    fetchLatestLessons();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col bg-background font-paragraph text-foreground overflow-x-hidden selection:bg-primary selection:text-primary-foreground">
       <style>{`
@@ -391,23 +411,49 @@ export default function HomePage() {
               </AnimatedElement>
 
               <div className="grid md:grid-cols-3 gap-8">
-                 {[1, 2, 3].map((i) => (
-                    <AnimatedElement key={i} delay={i * 150} className="group cursor-pointer">
-                        <div className="border-t border-secondary/20 pt-6 hover:border-secondary transition-colors duration-300">
-                            <span className="font-paragraph text-xs font-bold tracking-widest text-secondary/50 mb-3 block">LESSON 0{i}</span>
-                            <h3 className="font-heading text-2xl font-medium mb-4 group-hover:underline decoration-1 underline-offset-4">
-                                {i === 1 ? "Nasal vowels in detail" : i === 2 ? "Forbidden elision" : "Sentence rhythm"}
-                            </h3>
-                            <p className="font-paragraph text-secondary/60 text-sm leading-relaxed mb-6">
-                                An in-depth analysis of essential phonetic mechanisms for natural speech.
-                            </p>
-                            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-secondary/40 group-hover:text-secondary transition-colors">
-                                <Play className="w-3 h-3 fill-current" />
-                                <span>Start</span>
+                 {!lessonsLoading && latestLessons.length > 0 ? (
+                   latestLessons.map((lesson, i) => (
+                      <Link
+                        key={lesson._id}
+                        to={`/lecons/${lesson._id}`}
+                        className="group cursor-pointer"
+                      >
+                        <AnimatedElement delay={i * 150} className="h-full">
+                            <div className="border-t border-secondary/20 pt-6 hover:border-secondary transition-colors duration-300 h-full flex flex-col">
+                                <span className="font-paragraph text-xs font-bold tracking-widest text-secondary/50 mb-3 block">LESSON 0{i + 1}</span>
+                                <h3 className="font-heading text-2xl font-medium mb-4 group-hover:underline decoration-1 underline-offset-4">
+                                    {lesson.lessonTitle || "Untitled Lesson"}
+                                </h3>
+                                <p className="font-paragraph text-secondary/60 text-sm leading-relaxed mb-6 flex-grow">
+                                    {lesson.shortDescription || "An in-depth analysis of essential phonetic mechanisms for natural speech."}
+                                </p>
+                                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-secondary/40 group-hover:text-secondary transition-colors">
+                                    <Play className="w-3 h-3 fill-current" />
+                                    <span>Start</span>
+                                </div>
                             </div>
-                        </div>
-                    </AnimatedElement>
-                 ))}
+                        </AnimatedElement>
+                      </Link>
+                   ))
+                 ) : (
+                   [1, 2, 3].map((i) => (
+                      <AnimatedElement key={i} delay={i * 150} className="group cursor-pointer">
+                          <div className="border-t border-secondary/20 pt-6 hover:border-secondary transition-colors duration-300">
+                              <span className="font-paragraph text-xs font-bold tracking-widest text-secondary/50 mb-3 block">LESSON 0{i}</span>
+                              <h3 className="font-heading text-2xl font-medium mb-4 group-hover:underline decoration-1 underline-offset-4">
+                                  {i === 1 ? "Nasal vowels in detail" : i === 2 ? "Forbidden elision" : "Sentence rhythm"}
+                              </h3>
+                              <p className="font-paragraph text-secondary/60 text-sm leading-relaxed mb-6">
+                                  An in-depth analysis of essential phonetic mechanisms for natural speech.
+                              </p>
+                              <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-secondary/40 group-hover:text-secondary transition-colors">
+                                  <Play className="w-3 h-3 fill-current" />
+                                  <span>Start</span>
+                              </div>
+                          </div>
+                      </AnimatedElement>
+                   ))
+                 )}
               </div>
            </div>
 
