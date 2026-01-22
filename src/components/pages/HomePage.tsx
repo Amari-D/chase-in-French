@@ -420,7 +420,7 @@ export default function HomePage() {
                             <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">GRAMMAR</span>
                             <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">SLANG</span>
                         </React.Fragment>
-                    )))}
+                    ))}
                 </div>
                 <div className="animate-marquee flex gap-16 items-center ml-16" aria-hidden="true">
                     {[...Array(4)].map((_, i) => (
@@ -430,7 +430,7 @@ export default function HomePage() {
                             <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">GRAMMAR</span>
                             <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">SLANG</span>
                         </React.Fragment>
-                    )))}
+                    ))}
                 </div>
               </div>
            </div>

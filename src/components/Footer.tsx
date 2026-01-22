@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, MapPin, Instagram, Linkedin, Youtube } from 'lucide-react';
+import { Mail, MapPin, Instagram, Linkedin, Youtube, Music } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -16,7 +16,7 @@ export default function Footer() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a href="https://www.tiktok.com/@chaseinfrench" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">
-                <TikTok className="w-5 h-5" />
+                <Music className="w-5 h-5" />
               </a>
               <a href="https://www.youtube.com/@chaseinfrench" target="_blank" rel="noopener noreferrer" className="opacity-70 hover:opacity-100 transition-opacity">
                 <Youtube className="w-5 h-5" />
