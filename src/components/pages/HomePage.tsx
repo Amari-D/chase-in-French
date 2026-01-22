@@ -555,7 +555,7 @@ export default function HomePage() {
                             to="/contact" 
                             className="px-10 py-5 border-2 border-accent-red text-accent-red font-heading font-bold text-lg rounded-sm hover:bg-accent-red hover:text-white transition-all w-full sm:w-auto"
                         >
-                            Contact Us
+                            Contact
                         </Link>
                     </div>
                 </AnimatedElement>
