@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
-export default function Header() {
+function Header() {
   const location = useLocation();
   const [isTopicsOpen, setIsTopicsOpen] = useState(false);
   
@@ -107,3 +107,5 @@ export default function Header() {
     </header>
   );
 }
+
+export default Header;

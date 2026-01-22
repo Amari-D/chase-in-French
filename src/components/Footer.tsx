@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Instagram, Linkedin, Youtube, Music } from 'lucide-react';
 
-export default function Footer() {
+function Footer() {
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="max-w-[120rem] mx-auto px-6 lg:px-12 py-12 lg:py-16">
@@ -107,3 +107,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default Footer;
