@@ -16,8 +16,7 @@ export default function SongsPage() {
     const fetchSongs = async () => {
       try {
         const { items } = await BaseCrudService.getAll<Songs>('songs');
-        const filtered = items.filter(s => s.hub?.toLowerCase().includes('french songs'));
-        setSongs(filtered);
+        setSongs(items);
       } catch (error) {
         console.error('Error fetching songs:', error);
       } finally {
@@ -117,9 +116,9 @@ export default function SongsPage() {
                       <div className="bg-secondary border border-primary/10 hover:border-primary/30 transition-all h-full flex flex-col overflow-hidden">
                         {/* Thumbnail */}
                         <div className="relative bg-primary/10 aspect-video overflow-hidden">
-                          {song.thumbnail?.url ? (
+                          {song.thumbnail ? (
                             <Image 
-                              src={song.thumbnail.url}
+                              src={song.thumbnail}
                               alt={song.title || 'Song thumbnail'}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                               width={400}
