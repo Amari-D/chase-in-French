@@ -57,7 +57,7 @@ export default function Footer() {
               <Link to="/songs" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
                 Songs & Videos
               </Link>
-              <Link to="/start" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
+              <Link to="/classes" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
                 Classes
               </Link>
             </nav>
