@@ -15,7 +15,7 @@ function Header() {
     { name: 'Slang & Expressions', path: '/slang' },
     { name: 'Grammar & Sound', path: '/grammar' },
     { name: 'French Culture', path: '/culture' },
-    { name: 'Podcasts', path: '/podcasts' },
+    { name: 'Podcasts', path: '/podcast' },
     { name: 'Songs & Videos', path: '/songs' },
   ];
 
@@ -78,9 +78,9 @@ function Header() {
               Classes
             </Link>
             <Link 
-              to="/podcasts" 
+              to="/podcast" 
               className={`font-paragraph text-base lg:text-lg transition-colors ${
-                isActive('/podcasts') ? 'text-primary font-semibold' : 'text-primary hover:opacity-70'
+                isActive('/podcast') ? 'text-primary font-semibold' : 'text-primary hover:opacity-70'
               }`}
             >
               Podcast

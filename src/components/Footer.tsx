@@ -51,7 +51,7 @@ function Footer() {
           <div>
             <h4 className="font-heading text-lg font-semibold mb-4">More Content</h4>
             <nav className="flex flex-col gap-3">
-              <Link to="/podcasts" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
+              <Link to="/podcast" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
                 Podcasts
               </Link>
               <Link to="/songs" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
