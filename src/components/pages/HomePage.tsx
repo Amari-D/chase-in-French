@@ -154,9 +154,7 @@ export default function HomePage() {
             text-orientation: mixed;
         }
       `}</style>
-
       <Header />
-      
       <main className="flex-1 w-full">
         
         {/* HERO SECTION - SEO-optimized with content first on mobile */}
@@ -238,12 +236,14 @@ export default function HomePage() {
 
               {/* Chase Photo */}
               <div className="relative z-10 w-full h-full flex items-center justify-center">
-                <Image 
-                  src="https://static.wixstatic.com/media/a60e36_b14de620c5ed4087a9db82121c26c4d0~mv2.png?originWidth=384&originHeight=576"
-                  alt="Chase Emery Davis - French Pronunciation Coach"
+                <Image
+                  src="https://static.wixstatic.com/media/a60e36_d4a910895cdd4abfb6465b6f9821a3a0~mv2.webp"
                   width={400}
-                  className="w-full h-full object-cover"
-                />
+                  className="w-full h-full object-cover my-0 mx-[100px]"
+                  originWidth={1000}
+                  originHeight={709}
+                  focalPointX={39.2}
+                  focalPointY={40.83215796897038} />
               </div>
             </div>
           </div>
@@ -567,9 +567,7 @@ export default function HomePage() {
         </section>
 
       </main>
-      
       <Footer />
-      
       {/* Global Styles for Marquee and Animations */}
       <style>{`
         @keyframes marquee {
