@@ -18,6 +18,8 @@ import PolitiqueConfidentialitePage from '@/components/pages/PolitiqueConfidenti
 import PrivacyPolicyPage from '@/components/pages/PrivacyPolicyPage';
 import TopicsPage from '@/components/pages/TopicsPage';
 import ClassesPage from '@/components/pages/ClassesPage';
+import GroupClassesPage from '@/components/pages/GroupClassesPage';
+import PrivateLessonsPage from '@/components/pages/PrivateLessonsPage';
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -61,6 +63,20 @@ const router = createBrowserRouter([
         element: <ClassesPage />,
         routeMetadata: {
           pageIdentifier: 'classes',
+        },
+      },
+      {
+        path: "classes/group",
+        element: <GroupClassesPage />,
+        routeMetadata: {
+          pageIdentifier: 'classes-group',
+        },
+      },
+      {
+        path: "classes/private",
+        element: <PrivateLessonsPage />,
+        routeMetadata: {
+          pageIdentifier: 'classes-private',
         },
       },
       {
