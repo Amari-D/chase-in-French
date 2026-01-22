@@ -16,7 +16,7 @@ export default {
                 '6xl': ['3.75rem', { lineHeight: '1.1', letterSpacing: '-0.025em', fontWeight: '800' }],
                 '7xl': ['4.5rem', { lineHeight: '1', letterSpacing: '-0.03em', fontWeight: '900' }],
                 '8xl': ['6rem', { lineHeight: '1', letterSpacing: '-0.035em', fontWeight: '900' }],
-                '9xl': ['8rem', { lineHeight: '1', letterSpacing: '-0.04em', fontWeight: '900' }],
+                '9xl': ['8rem', { lineHeight: '1', letterSpacing: '-0.04em', fontWeight: '900' }]
             },
             fontFamily: {
                 heading: "space grotesk",
@@ -33,11 +33,11 @@ export default {
                 primary: '#1A2B4A',
                 'medium-blue': '#4A6FA5',
                 'accent-red': '#C1272D'
-            },
-        },
+            }
+        }
     },
     future: {
-        hoverOnlyWhenSupported: true,
+        hoverOnlyWhenSupported: true
     },
-    plugins: [require('@tailwindcss/container-queries'), require('@tailwindcss/typography')],
+    plugins: [require('@tailwindcss/container-queries'), require('@tailwindcss/typography')]
 }
