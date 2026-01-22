@@ -170,7 +170,114 @@ export default function SongsPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* Browse by Training Mode Section */}
+        <section className="py-20 lg:py-28 bg-background">
+          <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-12"
+            >
+              <h2 className="font-heading text-3xl lg:text-4xl font-bold text-primary mb-4">
+                Browse by training mode
+              </h2>
+              <p className="font-paragraph text-lg text-foreground">
+                Choose your learning path
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                {
+                  title: 'Pronunciation foundations',
+                  description: 'Master the fundamentals of French pronunciation with guided exercises and native speaker examples.',
+                  link: '/pronunciation'
+                },
+                {
+                  title: 'Modern flow',
+                  description: 'Learn contemporary French through songs, slang, and cultural content for real-world communication.',
+                  link: '/slang'
+                },
+                {
+                  title: 'Articulation',
+                  description: 'Develop clear and precise articulation through targeted practice and detailed phonetic guidance.',
+                  link: '/pronunciation'
+                }
+              ].map((mode, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Link
+                    to={mode.link}
+                    className="block group h-full"
+                  >
+                    <div className="bg-secondary border border-primary/10 hover:border-primary/30 transition-all p-8 h-full flex flex-col hover:shadow-md">
+                      <h3 className="font-heading text-xl font-bold text-primary mb-3 group-hover:opacity-80 transition-opacity">
+                        {mode.title}
+                      </h3>
+                      <p className="font-paragraph text-foreground flex-1 mb-4">
+                        {mode.description}
+                      </p>
+                      <div className="flex items-center gap-2 text-primary font-semibold group-hover:gap-3 transition-all">
+                        Learn more
+                        <ArrowRight className="w-5 h-5" />
+                      </div>
+                    </div>
+                  </Link>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA Section - Want faster progress */}
+        <section className="bg-primary text-primary-foreground py-20 lg:py-28">
+          <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
+            <div className="max-w-3xl mx-auto text-center">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="space-y-8"
+              >
+                <div className="space-y-4">
+                  <h2 className="font-heading text-3xl lg:text-4xl font-bold">
+                    Want faster progress?
+                  </h2>
+                  <p className="font-paragraph text-lg opacity-90">
+                    Join a group class for live practice, or book a private lesson for targeted correction.
+                  </p>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link 
+                    to="/classes/group"
+                    className="inline-flex items-center justify-center gap-2 bg-primary-foreground text-primary px-8 py-4 rounded font-paragraph font-semibold hover:opacity-90 transition-opacity"
+                  >
+                    Group Classes
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                  <Link 
+                    to="/classes/private"
+                    className="inline-flex items-center justify-center gap-2 border-2 border-primary-foreground text-primary-foreground px-8 py-4 rounded font-paragraph font-semibold hover:bg-primary-foreground/10 transition-colors"
+                  >
+                    Private Lessons
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* Explore other topics Section */}
         <section className="bg-secondary py-20 lg:py-28">
           <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
             <div className="max-w-3xl mx-auto text-center">
