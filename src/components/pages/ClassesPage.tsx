@@ -1,4 +1,3 @@
-import Head from '@/components/Head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -30,10 +29,6 @@ export default function ClassesPage() {
 
   return (
     <>
-      <Head
-        title="French Classes | Chase in French"
-        description="Join weekly group classes or book private French lessons with Chase Emery Davis, pronunciation specialist and on‐set dialect coach."
-      />
       <Header />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}

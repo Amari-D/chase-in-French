@@ -1,4 +1,3 @@
-import Head from '@/components/Head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -54,10 +53,6 @@ export default function PrivateLessonsPage() {
 
   return (
     <>
-      <Head
-        title="Private Lessons | Chase in French"
-        description="Book personalized 1:1 French lessons with Chase Emery Davis. Focus on pronunciation, listening, and real spoken French."
-      />
       <Header />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}

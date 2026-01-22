@@ -1,4 +1,3 @@
-import Head from '@/components/Head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -8,10 +7,6 @@ import { motion } from 'framer-motion';
 export default function GroupClassesPage() {
   return (
     <>
-      <Head
-        title="Group French Classes | Chase in French"
-        description="Weekly 60-minute live French group classes on Instagram with replays and Q&A."
-      />
       <Header />
       <main className="min-h-screen bg-white">
         {/* Hero Section */}
