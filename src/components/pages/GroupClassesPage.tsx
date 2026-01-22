@@ -163,8 +163,92 @@ export default function GroupClassesPage() {
           </div>
         </section>
 
-        {/* Who It's For Section */}
+        {/* Class Levels Section */}
         <section className="w-full py-16 md:py-24 bg-white">
+          <div className="max-w-[100rem] mx-auto px-6 md:px-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-12">
+                Our class levels
+              </h2>
+              <div className="grid md:grid-cols-3 gap-8">
+                {[
+                  {
+                    level: 'Beginner',
+                    title: 'Foundations',
+                    schedule: 'Tuesdays 7pm EST',
+                    duration: '60 minutes',
+                    description: 'Start your French journey with the essentials. Learn pronunciation, basic grammar, and everyday phrases.',
+                    includes: ['Live Q&A', 'Replay available', 'Chat support']
+                  },
+                  {
+                    level: 'Intermediate',
+                    title: 'Intermediate Conversation',
+                    schedule: 'Thursdays 7pm EST',
+                    duration: '60 minutes',
+                    description: 'Build confidence speaking French. Practice real conversations and improve your listening skills.',
+                    includes: ['Live Q&A', 'Replay available', 'Chat support']
+                  },
+                  {
+                    level: 'Advanced',
+                    title: 'Accent Training',
+                    schedule: 'Saturdays 6pm EST',
+                    duration: '60 minutes',
+                    description: 'Perfect your pronunciation and master native-like accent patterns. Advanced conversation techniques.',
+                    includes: ['Live Q&A', 'Replay available', 'Chat support']
+                  }
+                ].map((classItem, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="bg-secondary rounded-lg p-8 border border-secondary/50 flex flex-col"
+                  >
+                    <div className="mb-4">
+                      <span className="inline-block bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold mb-3">
+                        {classItem.level}
+                      </span>
+                      <h3 className="font-heading text-2xl font-bold text-primary mb-2">
+                        {classItem.title}
+                      </h3>
+                      <p className="font-paragraph text-sm text-secondary-foreground mb-1">
+                        {classItem.schedule}
+                      </p>
+                      <p className="font-paragraph text-sm text-secondary-foreground font-semibold">
+                        {classItem.duration}
+                      </p>
+                    </div>
+                    <p className="font-paragraph text-secondary-foreground mb-6 flex-grow">
+                      {classItem.description}
+                    </p>
+                    <div>
+                      <p className="font-heading text-sm font-semibold text-primary mb-3 uppercase tracking-wide">
+                        Includes
+                      </p>
+                      <ul className="space-y-2">
+                        {classItem.includes.map((item, i) => (
+                          <li key={i} className="font-paragraph text-sm text-secondary-foreground flex items-start">
+                            <span className="text-primary mr-2 font-bold">•</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Who It's For Section */}
+        <section className="w-full py-16 md:py-24 bg-secondary">
           <div className="max-w-[100rem] mx-auto px-6 md:px-12">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -187,7 +271,7 @@ export default function GroupClassesPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-gradient-to-br from-secondary to-secondary/50 rounded-lg p-8 border border-secondary/50"
+                    className="bg-white rounded-lg p-8 border border-secondary/50"
                   >
                     <p className="font-paragraph text-lg text-secondary-foreground leading-relaxed">
                       {item}
