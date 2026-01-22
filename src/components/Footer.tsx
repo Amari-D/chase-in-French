@@ -30,6 +30,9 @@ export default function Footer() {
           <div>
             <h4 className="font-heading text-lg font-semibold mb-4">Learning Topics</h4>
             <nav className="flex flex-col gap-3">
+              <Link to="/topics" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity font-semibold">
+                Topics Index
+              </Link>
               <Link to="/pronunciation" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
                 Pronunciation
               </Link>
