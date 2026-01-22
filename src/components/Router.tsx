@@ -17,6 +17,7 @@ import ContactPage from '@/components/pages/ContactPage';
 import PolitiqueConfidentialitePage from '@/components/pages/PolitiqueConfidentialitePage';
 import PrivacyPolicyPage from '@/components/pages/PrivacyPolicyPage';
 import TopicsPage from '@/components/pages/TopicsPage';
+import ClassesPage from '@/components/pages/ClassesPage';
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -53,6 +54,13 @@ const router = createBrowserRouter([
         element: <TopicsPage />,
         routeMetadata: {
           pageIdentifier: 'topics',
+        },
+      },
+      {
+        path: "classes",
+        element: <ClassesPage />,
+        routeMetadata: {
+          pageIdentifier: 'classes',
         },
       },
       {
