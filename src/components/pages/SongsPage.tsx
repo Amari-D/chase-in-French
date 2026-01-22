@@ -113,53 +113,44 @@ export default function SongsPage() {
                       rel="noopener noreferrer"
                       className="block group h-full"
                     >
-                      <div className="bg-secondary border border-primary/10 hover:border-primary/30 transition-all h-full flex flex-col overflow-hidden">
-                        {/* Thumbnail */}
-                        <div className="relative bg-primary/10 aspect-video overflow-hidden">
-                          {song.thumbnail ? (
-                            <Image 
-                              src={song.thumbnail}
-                              alt={song.title || 'Song thumbnail'}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              width={400}
-                              height={225}
-                            />
-                          ) : (
-                            <div className="w-full h-full flex items-center justify-center">
-                              <Music className="w-12 h-12 text-primary/30" />
-                            </div>
-                          )}
-                          <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                            <div className="bg-primary text-primary-foreground rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                              <ArrowRight className="w-6 h-6" />
-                            </div>
+                      <div className="relative bg-primary/10 aspect-video overflow-hidden rounded">
+                        {song.thumbnail ? (
+                          <Image 
+                            src={song.thumbnail}
+                            alt={song.title || 'Song thumbnail'}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            width={400}
+                            height={225}
+                          />
+                        ) : (
+                          <div className="w-full h-full flex items-center justify-center bg-secondary">
+                            <Music className="w-12 h-12 text-primary/30" />
+                          </div>
+                        )}
+                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                          <div className="bg-primary text-primary-foreground rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <ArrowRight className="w-6 h-6" />
                           </div>
                         </div>
-
-                        {/* Content */}
-                        <div className="p-6 flex flex-col flex-1">
-                          <h3 className="font-heading text-lg font-bold text-primary mb-2 group-hover:opacity-80 transition-opacity line-clamp-2">
-                            {song.title}
-                          </h3>
-                          
-                          {song.artist && (
-                            <p className="font-paragraph text-sm text-foreground/70 mb-3">
-                              {song.artist}
-                            </p>
-                          )}
-                          
-                          {song.description && (
-                            <p className="font-paragraph text-sm text-foreground mb-4 flex-1 line-clamp-3">
-                              {song.description}
-                            </p>
-                          )}
-                          
-                          {song.duration && (
-                            <p className="font-paragraph text-xs text-foreground/60">
-                              Duration: {formatDuration(song.duration)}
-                            </p>
-                          )}
-                        </div>
+                      </div>
+                      
+                      {/* Content Below Thumbnail */}
+                      <div className="pt-4">
+                        <h3 className="font-heading text-lg font-bold text-primary mb-2 group-hover:opacity-80 transition-opacity line-clamp-2">
+                          {song.title}
+                        </h3>
+                        
+                        {song.artist && (
+                          <p className="font-paragraph text-sm text-foreground/70 mb-2">
+                            {song.artist}
+                          </p>
+                        )}
+                        
+                        {song.duration && (
+                          <p className="font-paragraph text-xs text-foreground/60">
+                            Duration: {formatDuration(song.duration)}
+                          </p>
+                        )}
                       </div>
                     </a>
                   </motion.div>

@@ -197,31 +197,33 @@ export default function HomePage() {
                   </AnimatedElement>
 
                   <AnimatedElement animation="fade-up" delay={1000}>
-                    <div className="mt-8 flex flex-col sm:flex-row flex-wrap gap-4">
+                    <div className="mt-8 flex flex-col gap-4">
                       <Link 
                         to="/start"
-                        className="px-6 py-3 bg-accent-red text-white font-heading font-bold rounded-sm hover:bg-accent-red/90 transition-colors text-center"
+                        className="px-6 py-3 bg-accent-red text-white font-heading font-bold rounded-sm hover:bg-accent-red/90 transition-colors text-center w-full sm:w-auto"
                       >
                         Start Here
                       </Link>
-                      <Link 
-                        to="/pronunciation"
-                        className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center"
-                      >
-                        Explore Pronunciation
-                      </Link>
-                      <Link 
-                        to="/start"
-                        className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center"
-                      >
-                        Join Classes
-                      </Link>
-                      <Link 
-                        to="/podcasts"
-                        className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center"
-                      >
-                        Listen to Podcast
-                      </Link>
+                      <div className="flex flex-col sm:flex-row gap-4">
+                        <Link 
+                          to="/pronunciation"
+                          className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center flex-1"
+                        >
+                          Explore Pronunciation
+                        </Link>
+                        <Link 
+                          to="/start"
+                          className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center flex-1"
+                        >
+                          Join Classes
+                        </Link>
+                        <Link 
+                          to="/podcasts"
+                          className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center flex-1"
+                        >
+                          Listen to Podcast
+                        </Link>
+                      </div>
                     </div>
                   </AnimatedElement>
                </div>
