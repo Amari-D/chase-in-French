@@ -264,9 +264,9 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <AnimatedElement delay={100} className="group">
-              <div className="bg-secondary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                <h3 className="font-heading text-2xl font-bold text-primary mb-3">Pronunciation Foundations</h3>
-                <p className="font-paragraph text-primary/70 mb-6 flex-grow">
+              <div className="bg-primary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                <h3 className="font-heading text-2xl font-bold text-white mb-3">Pronunciation Foundations</h3>
+                <p className="font-paragraph text-white/80 mb-6 flex-grow">
                   Start with the sound system — vowels, rhythm, liaison, and core drills.
                 </p>
                 <Link 
@@ -279,9 +279,9 @@ export default function HomePage() {
             </AnimatedElement>
 
             <AnimatedElement delay={200} className="group">
-              <div className="bg-secondary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                <h3 className="font-heading text-2xl font-bold text-primary mb-3">Fix My Accent</h3>
-                <p className="font-paragraph text-primary/70 mb-6 flex-grow">
+              <div className="bg-primary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                <h3 className="font-heading text-2xl font-bold text-white mb-3">Fix My Accent</h3>
+                <p className="font-paragraph text-white/80 mb-6 flex-grow">
                   Diagnose the 3–5 errors that create a "foreign sound" and correct them fast.
                 </p>
                 <Link 
@@ -294,9 +294,9 @@ export default function HomePage() {
             </AnimatedElement>
 
             <AnimatedElement delay={300} className="group">
-              <div className="bg-secondary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                <h3 className="font-heading text-2xl font-bold text-primary mb-3">Real Spoken French</h3>
-                <p className="font-paragraph text-primary/70 mb-6 flex-grow">
+              <div className="bg-primary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                <h3 className="font-heading text-2xl font-bold text-white mb-3">Real Spoken French</h3>
+                <p className="font-paragraph text-white/80 mb-6 flex-grow">
                   Learn what disappears, what links, and why French sounds "compressed".
                 </p>
                 <Link 
@@ -317,13 +317,13 @@ export default function HomePage() {
 
           <div className="flex flex-col lg:flex-row">
             {/* Sticky Sidebar */}
-            <div className="lg:w-1/3 lg:sticky lg:top-0 lg:h-screen bg-background border-r border-primary/10 p-8 lg:p-16 flex flex-col justify-center z-10">
+            <div className="lg:w-1/3 lg:sticky lg:top-0 lg:h-screen bg-primary border-r border-primary/10 p-8 lg:p-16 flex flex-col justify-center z-10">
               <AnimatedElement>
                 <div className="w-12 h-1 bg-accent-red mb-8"></div>
-                <h2 className="font-heading text-5xl lg:text-7xl font-bold text-primary mb-6 tracking-tight">
+                <h2 className="font-heading text-5xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
                   Learning<br/>Topics
                 </h2>
-                <p className="font-paragraph text-lg text-primary/60 max-w-xs leading-relaxed">
+                <p className="font-paragraph text-lg text-white/70 max-w-xs leading-relaxed">
                   Browse by topic, then use the "Start here" list on each hub to get moving quickly.
                 </p>
               </AnimatedElement>
@@ -337,7 +337,7 @@ export default function HomePage() {
                     key={index}
                     to={topic.path}
                     className={`
-                      group relative border-b border-primary/10 p-10 lg:p-16 min-h-[400px] flex flex-col justify-between hover:bg-secondary transition-colors duration-500
+                      group relative border-b border-primary/10 p-10 lg:p-16 min-h-[200px] flex flex-col justify-between hover:bg-secondary transition-colors duration-500
                       ${index % 2 === 0 ? 'border-r' : ''}
                     `}
                   >
