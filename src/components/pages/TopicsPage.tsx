@@ -3,7 +3,6 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { Helmet } from 'react-helmet';
 
 interface TopicCard {
   title: string;
@@ -47,13 +46,6 @@ const topics: TopicCard[] = [
 export default function TopicsPage() {
   return (
     <>
-      <Helmet>
-        <title>Topics | Chase in French</title>
-        <meta
-          name="description"
-          content="Browse French pronunciation, slang, grammar, culture, podcasts, and songs — built for modern spoken French."
-        />
-      </Helmet>
       <Header />
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
