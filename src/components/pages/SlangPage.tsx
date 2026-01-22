@@ -15,7 +15,7 @@ export default function SlangPage() {
     const fetchLecons = async () => {
       try {
         const { items } = await BaseCrudService.getAll<Leons>('lecons', [], { limit: 100 });
-        const filtered = items.filter(l => l.hub?.toLowerCase() === 'slang');
+        const filtered = items.filter(l => l.hub?.toLowerCase().includes('slang'));
         
         // Sort lessons numerically by extracting numbers from titles
         const sorted = filtered.sort((a, b) => {

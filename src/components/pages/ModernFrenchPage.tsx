@@ -15,7 +15,7 @@ export default function ModernFrenchPage() {
     const fetchLecons = async () => {
       try {
         const { items } = await BaseCrudService.getAll<Leons>('lecons');
-        const filtered = items.filter(l => l.hub?.toLowerCase() === 'modern french');
+        const filtered = items.filter(l => l.hub?.toLowerCase().includes('modern french'));
         setLecons(filtered);
       } catch (error) {
         console.error('Error fetching lessons:', error);

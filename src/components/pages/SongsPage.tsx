@@ -16,7 +16,7 @@ export default function SongsPage() {
     const fetchSongs = async () => {
       try {
         const { items } = await BaseCrudService.getAll<Songs>('songs');
-        const filtered = items.filter(s => s.hub?.toLowerCase() === 'french songs');
+        const filtered = items.filter(s => s.hub?.toLowerCase().includes('french songs'));
         setSongs(filtered);
       } catch (error) {
         console.error('Error fetching songs:', error);
