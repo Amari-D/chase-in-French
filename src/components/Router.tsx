@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-rou
 import { ScrollToTop } from '@/lib/scroll-to-top';
 import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
 import HomePage from '@/components/pages/HomePage';
+import StartHerePage from '@/components/pages/StartHerePage';
 import LeconDetailPage from '@/components/pages/LeconDetailPage';
 import PronunciationPage from '@/components/pages/PronunciationPage';
 import ModernFrenchPage from '@/components/pages/ModernFrenchPage';
@@ -38,6 +39,13 @@ const router = createBrowserRouter([
         element: <HomePage />,
         routeMetadata: {
           pageIdentifier: 'home',
+        },
+      },
+      {
+        path: "start",
+        element: <StartHerePage />,
+        routeMetadata: {
+          pageIdentifier: 'start',
         },
       },
       {
