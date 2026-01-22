@@ -6,7 +6,6 @@ import HomePage from '@/components/pages/HomePage';
 import StartHerePage from '@/components/pages/StartHerePage';
 import LeconDetailPage from '@/components/pages/LeconDetailPage';
 import PronunciationPage from '@/components/pages/PronunciationPage';
-import ModernFrenchPage from '@/components/pages/ModernFrenchPage';
 import SlangPage from '@/components/pages/SlangPage';
 import GrammarPage from '@/components/pages/GrammarPage';
 import CulturePage from '@/components/pages/CulturePage';
@@ -53,13 +52,6 @@ const router = createBrowserRouter([
         element: <PronunciationPage />,
         routeMetadata: {
           pageIdentifier: 'pronunciation',
-        },
-      },
-      {
-        path: "modern-french",
-        element: <ModernFrenchPage />,
-        routeMetadata: {
-          pageIdentifier: 'modern-french',
         },
       },
       {

@@ -12,7 +12,6 @@ export default function Header() {
 
   const topics = [
     { name: 'Pronunciation', path: '/pronunciation' },
-    { name: 'Modern French', path: '/modern-french' },
     { name: 'Slang & Expressions', path: '/slang' },
     { name: 'Grammar & Sound', path: '/grammar' },
     { name: 'French Culture', path: '/culture' },
