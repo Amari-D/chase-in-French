@@ -12,6 +12,7 @@ import CulturePage from '@/components/pages/CulturePage';
 import PodcastsPage from '@/components/pages/PodcastsPage';
 import PodcastEpisodePage from '@/components/pages/PodcastEpisodePage';
 import SongsPage from '@/components/pages/SongsPage';
+import FrenchSongsLab11Page from '@/components/pages/FrenchSongsLab11Page';
 import AProposPage from '@/components/pages/AProposPage';
 import AboutPage from '@/components/pages/AboutPage';
 import ContactPage from '@/components/pages/ContactPage';
@@ -135,6 +136,13 @@ const router = createBrowserRouter([
         element: <SongsPage />,
         routeMetadata: {
           pageIdentifier: 'songs',
+        },
+      },
+      {
+        path: "songs/french-songs-lab-11",
+        element: <FrenchSongsLab11Page />,
+        routeMetadata: {
+          pageIdentifier: 'french-songs-lab-11',
         },
       },
       {
