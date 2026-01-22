@@ -1,5 +1,5 @@
 import { Head } from '@/components/Head';
-import { Header } from '@/components/Header';
+import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
