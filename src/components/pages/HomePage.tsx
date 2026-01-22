@@ -162,25 +162,25 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-2 min-h-[90vh]">
             
             {/* CONTENT SIDE - First in DOM for SEO (Dark Blue) */}
-            <div className="bg-primary text-primary-foreground flex flex-col justify-center p-12 lg:p-20 relative overflow-hidden order-1 lg:order-2">
+            <div className="bg-primary text-white flex flex-col justify-center p-12 lg:p-20 relative overflow-hidden order-1 lg:order-2">
                {/* Subtle noise texture overlay */}
                 <div className="absolute inset-0 opacity-[0.02] bg-repeat" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%270 0 200 200%27 xmlns=%27http://www.w3.org/2000/svg%27%3E%3Cfilter id=%27noiseFilter%27%3E%3CfeTurbulence type=%27fractalNoise%27 baseFrequency=%270.65%27 numOctaves=%273%27 stitchTiles=%27stitch%27/%3E%3C/filter%3E%3Crect width=%27100%25%27 height=%27100%25%27 filter=%27url(%23noiseFilter)%27/%3E%3C/svg%3E")' }}></div>
 
                <div className="relative z-10 max-w-2xl">
                   <AnimatedElement animation="fade-in" delay={300}>
-                    <p className="font-paragraph text-sm font-medium tracking-[0.2em] uppercase text-secondary/80 mb-8">
+                    <p className="font-paragraph text-sm font-medium tracking-[0.2em] uppercase text-white/80 mb-8">
                       French pronunciation • Real spoken French
                     </p>
                   </AnimatedElement>
 
                   <AnimatedElement animation="fade-up" delay={500}>
-                    <h1 className="font-heading text-4xl lg:text-6xl font-bold leading-[1.1] mb-8 text-secondary">
+                    <h1 className="font-heading text-4xl lg:text-6xl font-bold leading-[1.1] mb-8 text-white">
                       Learn the French You Actually Hear
                     </h1>
                   </AnimatedElement>
 
                   <AnimatedElement animation="fade-up" delay={700}>
-                    <div className="space-y-6 text-lg lg:text-xl text-secondary/80 font-light leading-relaxed">
+                    <div className="space-y-6 text-lg lg:text-xl text-white/80 font-light leading-relaxed">
                       <p>
                         Real pronunciation, modern spoken French, and clear bilingual explanations — built for English speakers.
                       </p>
@@ -191,7 +191,7 @@ export default function HomePage() {
                   </AnimatedElement>
 
                   <AnimatedElement animation="fade-up" delay={900}>
-                    <p className="text-sm text-secondary/70 mb-8 font-paragraph">
+                    <p className="text-sm text-white/70 mb-8 font-paragraph">
                       Created by Chase Emery Davis — on-set French dialect coach, voice professional, and host of Learning French by Accident.
                     </p>
                   </AnimatedElement>
@@ -227,11 +227,11 @@ export default function HomePage() {
                </div>
             </div>
 
-            {/* VISUAL SIDE - Chase Photo (Light Blue) */}
-            <div className="bg-secondary relative overflow-hidden flex flex-col justify-center items-center p-8 lg:p-12 order-2 lg:order-1">
+            {/* VISUAL SIDE - Chase Photo (Full Height) */}
+            <div className="bg-primary relative overflow-hidden flex flex-col justify-center items-center order-2 lg:order-1">
               {/* Background Grid Pattern */}
               <div className="absolute inset-0 opacity-[0.03]" 
-                   style={{ backgroundImage: 'linear-gradient(#1A2B4A 1px, transparent 1px), linear-gradient(90deg, #1A2B4A 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+                   style={{ backgroundImage: 'linear-gradient(#FFFFFF 1px, transparent 1px), linear-gradient(90deg, #FFFFFF 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
               </div>
 
               {/* Chase Photo */}
@@ -239,7 +239,7 @@ export default function HomePage() {
                 <Image
                   src="https://static.wixstatic.com/media/a60e36_d4a910895cdd4abfb6465b6f9821a3a0~mv2.webp"
                   width={400}
-                  className="w-full h-full object-cover my-0 mx-[100px]"
+                  className="w-full h-full object-cover"
                   originWidth={1000}
                   originHeight={709}
                   focalPointX={39.2}
