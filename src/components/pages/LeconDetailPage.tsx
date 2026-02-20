@@ -16,8 +16,9 @@ export default function LeconDetailPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        const decodedSlug = slug ? decodeURIComponent(slug) : '';
         const { items: allLecons } = await BaseCrudService.getAll<Leons>('lecons');
-        const foundLecon = allLecons.find(l => l._id === slug);
+        const foundLecon = allLecons.find(l => l._id === decodedSlug);
         
         if (foundLecon) {
           setLecon(foundLecon);

@@ -415,7 +415,7 @@ export default function HomePage() {
                    latestLessons.map((lesson, i) => (
                       <Link
                         key={lesson._id}
-                        to={`/lecons/${lesson._id}`}
+                        to={`/lecons/${encodeURIComponent(lesson._id)}`}
                         className="group cursor-pointer"
                       >
                         <AnimatedElement delay={i * 150} className="h-full">
