@@ -144,22 +144,12 @@ const TOPICS_DATA = [
 export default function HomePage() {
   const [latestLessons, setLatestLessons] = useState<Leons[]>([]);
   const [lessonsLoading, setLessonsLoading] = useState(true);
-  const [hubs, setHubs] = useState<Record<string, Hubs>>({});
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { items: lessons } = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 3 });
         setLatestLessons(lessons);
-
-        const { items: hubsList } = await BaseCrudService.getAll<Hubs>('hubs', {}, { limit: 100 });
-        const hubsMap = hubsList.reduce((acc, hub) => {
-          if (hub.slug) {
-            acc[hub.slug] = hub;
-          }
-          return acc;
-        }, {} as Record<string, Hubs>);
-        setHubs(hubsMap);
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
@@ -300,16 +290,13 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: 'Pronunciation Foundations', description: 'Start with the sound system — vowels, rhythm, liaison, and core drills.', hubSlug: 'pronunciation', delay: 100 },
-              { title: 'Fix My Accent', description: 'Diagnose the 3–5 errors that create a "foreign sound" and correct them fast.', hubSlug: 'slang', delay: 200 },
-              { title: 'Real Spoken French', description: 'Learn what disappears, what links, and why French sounds "compressed".', hubSlug: 'grammar', delay: 300 }
+              { title: 'Pronunciation Foundations', description: 'Start with the sound system — vowels, rhythm, liaison, and core drills.', path: '/pronunciation', delay: 100 },
+              { title: 'Fix My Accent', description: 'Diagnose the 3–5 errors that create a "foreign sound" and correct them fast.', path: '/slang', delay: 200 },
+              { title: 'Real Spoken French', description: 'Learn what disappears, what links, and why French sounds "compressed".', path: '/grammar', delay: 300 }
             ].map((track) => {
-              const hub = hubs[track.hubSlug];
-              const linkPath = hub ? `/topics/${encodeURIComponent(hub._id)}` : '/start';
-              
               return (
-                <AnimatedElement key={track.hubSlug} delay={track.delay} className="group">
-                  <Link to={linkPath} className="block h-full">
+                <AnimatedElement key={track.path} delay={track.delay} className="group">
+                  <Link to={track.path} className="block h-full">
                     <div className="bg-primary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
                       <h3 className="font-heading text-2xl font-bold text-white mb-3">{track.title}</h3>
                       <p className="font-paragraph text-white/80 mb-6 flex-grow">
