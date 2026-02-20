@@ -25,11 +25,6 @@ export default function PrivateLessonsPage() {
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </a>
-              <a href="mailto:chaseinfrench@gmail.com" className="inline-block">
-                <Button variant="outline" className="w-full sm:w-auto">
-                  Email enquiries
-                </Button>
-              </a>
             </div>
           </div>
         </section>
@@ -136,11 +131,6 @@ export default function PrivateLessonsPage() {
                   <ChevronRight className="ml-2 h-4 w-4" />
                 </Button>
               </a>
-              <Link to="/start">
-                <Button variant="outline">
-                  Start Here
-                </Button>
-              </Link>
               <Link to="/classes/group">
                 <Button variant="outline">
                   Prefer weekly group?
@@ -153,15 +143,13 @@ export default function PrivateLessonsPage() {
         {/* Credibility Links */}
         <section className="w-full max-w-[100rem] mx-auto px-6 py-12">
           <div className="flex justify-center items-center gap-4">
-            <span className="font-paragraph text-sm text-foreground/60">Connect with Chase:</span>
             <a 
               href="https://www.linkedin.com/in/language-expert-chase-emery-davis/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors"
+              className="inline-flex items-center justify-center text-primary hover:text-primary/80 transition-colors"
             >
               <Linkedin className="w-5 h-5" />
-              <span className="font-paragraph text-sm">LinkedIn</span>
             </a>
           </div>
         </section>
