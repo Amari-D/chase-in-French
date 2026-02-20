@@ -6,7 +6,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
 import { BaseCrudService } from '@/integrations';
-import { Leons } from '@/entities';
+import { Leons, Hubs } from '@/entities';
 
 // --- UTILS & COMPONENTS ---
 
@@ -94,42 +94,48 @@ const TOPICS_DATA = [
     description: 'Master the fundamental sounds and phonetic rules that define authentic French.', 
     icon: Mic,
     phonetic: '/ʁ/',
-    path: '/pronunciation'
+    path: '/pronunciation',
+    hubSlug: 'pronunciation'
   },
   { 
     title: 'Slang & Expressions', 
     description: 'Explore informal vocabulary and idiomatic expressions of living French.', 
     icon: Languages,
     phonetic: '/ʃ/',
-    path: '/slang'
+    path: '/slang',
+    hubSlug: 'slang'
   },
   { 
     title: 'Grammar & Sound', 
     description: 'Understand how grammar directly influences pronunciation and rhythm.', 
     icon: BookOpen,
     phonetic: '/ʒ/',
-    path: '/grammar'
+    path: '/grammar',
+    hubSlug: 'grammar'
   },
   { 
     title: 'French Culture', 
     description: 'Dive into the cultural context that enriches your linguistic understanding.', 
     icon: GraduationCap,
     phonetic: '/ɑ̃/',
-    path: '/culture'
+    path: '/culture',
+    hubSlug: 'culture'
   },
   { 
     title: 'Podcasts', 
     description: 'Listen to authentic French content and improve your listening comprehension.', 
     icon: Radio,
     phonetic: '/y/',
-    path: '/podcasts'
+    path: '/podcasts',
+    hubSlug: 'podcasts'
   },
   { 
     title: 'Songs & Videos', 
     description: 'Learn French through music and video content from native speakers.', 
     icon: Radio,
     phonetic: '/ə/',
-    path: '/songs'
+    path: '/songs',
+    hubSlug: 'songs'
   }
 ];
 
@@ -138,20 +144,30 @@ const TOPICS_DATA = [
 export default function HomePage() {
   const [latestLessons, setLatestLessons] = useState<Leons[]>([]);
   const [lessonsLoading, setLessonsLoading] = useState(true);
+  const [hubs, setHubs] = useState<Record<string, Hubs>>({});
 
   useEffect(() => {
-    const fetchLatestLessons = async () => {
+    const fetchData = async () => {
       try {
-        const { items } = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 3 });
-        setLatestLessons(items);
+        const { items: lessons } = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 3 });
+        setLatestLessons(lessons);
+
+        const { items: hubsList } = await BaseCrudService.getAll<Hubs>('hubs', {}, { limit: 100 });
+        const hubsMap = hubsList.reduce((acc, hub) => {
+          if (hub.slug) {
+            acc[hub.slug] = hub;
+          }
+          return acc;
+        }, {} as Record<string, Hubs>);
+        setHubs(hubsMap);
       } catch (error) {
-        console.error('Error fetching latest lessons:', error);
+        console.error('Error fetching data:', error);
       } finally {
         setLessonsLoading(false);
       }
     };
 
-    fetchLatestLessons();
+    fetchData();
   }, []);
 
   return (
@@ -283,50 +299,30 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <AnimatedElement delay={100} className="group">
-              <div className="bg-primary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                <h3 className="font-heading text-2xl font-bold text-white mb-3">Pronunciation Foundations</h3>
-                <p className="font-paragraph text-white/80 mb-6 flex-grow">
-                  Start with the sound system — vowels, rhythm, liaison, and core drills.
-                </p>
-                <Link 
-                  to="/start"
-                  className="inline-flex items-center gap-2 text-accent-red font-heading font-bold hover:opacity-70 transition-opacity"
-                >
-                  Start Foundations <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </AnimatedElement>
-
-            <AnimatedElement delay={200} className="group">
-              <div className="bg-primary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                <h3 className="font-heading text-2xl font-bold text-white mb-3">Fix My Accent</h3>
-                <p className="font-paragraph text-white/80 mb-6 flex-grow">
-                  Diagnose the 3–5 errors that create a "foreign sound" and correct them fast.
-                </p>
-                <Link 
-                  to="/start"
-                  className="inline-flex items-center gap-2 text-accent-red font-heading font-bold hover:opacity-70 transition-opacity"
-                >
-                  Fix my accent <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </AnimatedElement>
-
-            <AnimatedElement delay={300} className="group">
-              <div className="bg-primary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
-                <h3 className="font-heading text-2xl font-bold text-white mb-3">Real Spoken French</h3>
-                <p className="font-paragraph text-white/80 mb-6 flex-grow">
-                  Learn what disappears, what links, and why French sounds "compressed".
-                </p>
-                <Link 
-                  to="/start"
-                  className="inline-flex items-center gap-2 text-accent-red font-heading font-bold hover:opacity-70 transition-opacity"
-                >
-                  Real spoken French <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </AnimatedElement>
+            {[
+              { title: 'Pronunciation Foundations', description: 'Start with the sound system — vowels, rhythm, liaison, and core drills.', hubSlug: 'pronunciation', delay: 100 },
+              { title: 'Fix My Accent', description: 'Diagnose the 3–5 errors that create a "foreign sound" and correct them fast.', hubSlug: 'slang', delay: 200 },
+              { title: 'Real Spoken French', description: 'Learn what disappears, what links, and why French sounds "compressed".', hubSlug: 'grammar', delay: 300 }
+            ].map((track) => {
+              const hub = hubs[track.hubSlug];
+              const linkPath = hub ? `/topics/${encodeURIComponent(hub._id)}` : '/start';
+              
+              return (
+                <AnimatedElement key={track.hubSlug} delay={track.delay} className="group">
+                  <Link to={linkPath} className="block h-full">
+                    <div className="bg-primary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                      <h3 className="font-heading text-2xl font-bold text-white mb-3">{track.title}</h3>
+                      <p className="font-paragraph text-white/80 mb-6 flex-grow">
+                        {track.description}
+                      </p>
+                      <div className="inline-flex items-center gap-2 text-accent-red font-heading font-bold hover:opacity-70 transition-opacity">
+                        Explore <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </Link>
+                </AnimatedElement>
+              );
+            })}
           </div>
         </section>
 
