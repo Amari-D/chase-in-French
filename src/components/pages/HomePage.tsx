@@ -218,7 +218,7 @@ export default function HomePage() {
                   <AnimatedElement animation="fade-up" delay={700}>
                     <div className="space-y-6 text-lg lg:text-xl text-white/80 font-light leading-relaxed">
                       <p>
-                        Real pronunciation, modern spoken French, and clear bilingual explanations — built for English speakers.
+                        Real pronunciation, modern spoken French, and clear bilingual explanations .. built for English speakers.
                       </p>
                       <p>
                         Chase in French is a structured learning library for people who want French to sound natural, not textbook. Train your ear, shape the mouth correctly, and copy the rhythm native speakers actually use.
