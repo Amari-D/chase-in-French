@@ -218,11 +218,6 @@ export default function GroupClassesPage() {
                     Join on Instagram
                   </Button>
                 </a>
-                <Link to="/start" className="inline-block">
-                  <Button variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8 py-3 text-lg font-semibold rounded-lg">
-                    Start Here
-                  </Button>
-                </Link>
                 <Link to="/classes/private" className="inline-block">
                   <Button variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 px-8 py-3 text-lg font-semibold rounded-lg">
                     Prefer 1:1? Private lessons
