@@ -4,6 +4,7 @@ import { ScrollToTop } from '@/lib/scroll-to-top';
 import ErrorPage from '@/integrations/errorHandlers/ErrorPage';
 import HomePage from '@/components/pages/HomePage';
 import StartHerePage from '@/components/pages/StartHerePage';
+import LeconsPage from '@/components/pages/LeconsPage';
 import LeconDetailPage from '@/components/pages/LeconDetailPage';
 import PronunciationPage from '@/components/pages/PronunciationPage';
 import SlangPage from '@/components/pages/SlangPage';
@@ -143,6 +144,13 @@ const router = createBrowserRouter([
         element: <FrenchSongsLab11Page />,
         routeMetadata: {
           pageIdentifier: 'french-songs-lab-11',
+        },
+      },
+      {
+        path: "lecons",
+        element: <LeconsPage />,
+        routeMetadata: {
+          pageIdentifier: 'lecons',
         },
       },
       {

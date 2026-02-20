@@ -401,7 +401,7 @@ export default function HomePage() {
                       </p>
                     </div>
                     <Link to="/lecons" className="hidden md:flex items-center gap-2 text-secondary/70 hover:text-secondary transition-colors whitespace-nowrap ml-8">
-                        View all <ArrowRight className="w-4 h-4" />
+                        View All <ArrowRight className="w-4 h-4" />
                     </Link>
                 </div>
               </AnimatedElement>
