@@ -19,7 +19,7 @@ export default function PrivateLessonsPage() {
               1:1 lessons designed around your exact pronunciation and listening profile. We identify the few habits that create the biggest "foreign sound" — then rebuild them with targeted drills and real speech practice.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="mailto:chaseinfrench@gmail.com">
+              <a href="https://calendly.com/chaseinfrench/30-minute-consultation?month=2026-02" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground w-full sm:w-auto">
                   Book a 30-minute intro session
                   <ChevronRight className="ml-2 h-4 w-4" />
@@ -130,7 +130,7 @@ export default function PrivateLessonsPage() {
               Ready to get started?
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center flex-wrap">
-              <a href="mailto:chaseinfrench@gmail.com">
+              <a href="https://calendly.com/chaseinfrench/30-minute-consultation?month=2026-02" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                   Book intro
                   <ChevronRight className="ml-2 h-4 w-4" />
