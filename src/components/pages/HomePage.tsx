@@ -233,19 +233,19 @@ export default function HomePage() {
                       <div className="flex flex-col sm:flex-row gap-4">
                         <Link 
                           to="/pronunciation"
-                          className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center flex-1"
+                          className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center flex-1 text-sm sm:text-base"
                         >
                           Explore Pronunciation
                         </Link>
                         <Link 
-                          to="/start"
-                          className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center flex-1"
+                          to="/classes"
+                          className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center flex-1 text-sm sm:text-base"
                         >
                           Join Classes
                         </Link>
                         <Link 
                           to="/podcasts"
-                          className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center flex-1"
+                          className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center flex-1 text-sm sm:text-base"
                         >
                           Listen to Podcast
                         </Link>
@@ -535,7 +535,7 @@ export default function HomePage() {
                   Weekly live sessions via Instagram subscription.
                 </p>
                 <Link 
-                  to="/start"
+                  to="/classes/group"
                   className="inline-flex items-center gap-2 text-accent-red font-heading font-bold hover:opacity-70 transition-opacity"
                 >
                   Group classes <ArrowRight className="w-4 h-4" />
@@ -551,7 +551,7 @@ export default function HomePage() {
                   1:1 pronunciation and spoken French coaching.
                 </p>
                 <Link 
-                  to="/start"
+                  to="/classes/private"
                   className="inline-flex items-center gap-2 text-accent-red font-heading font-bold hover:opacity-70 transition-opacity"
                 >
                   Private lessons <ArrowRight className="w-4 h-4" />

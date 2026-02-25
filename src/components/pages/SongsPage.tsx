@@ -193,7 +193,7 @@ export default function SongsPage() {
                 {
                   title: 'Articulation',
                   description: 'Develop clear and precise articulation through targeted practice and detailed phonetic guidance.',
-                  link: '/pronunciation'
+                  link: '/grammar'
                 }
               ].map((mode, index) => (
                 <motion.div

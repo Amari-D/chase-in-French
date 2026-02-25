@@ -176,16 +176,16 @@ export default function StartHerePage() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="/classes" className="flex-1">
+            <Link to="/classes/group" className="flex-1">
               <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 font-heading text-base font-semibold">
                 Group Classes
               </Button>
-            </a>
-            <a href="/classes" className="flex-1">
+            </Link>
+            <Link to="/classes/private" className="flex-1">
               <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90 h-12 font-heading text-base font-semibold">
                 Private Lessons
               </Button>
-            </a>
+            </Link>
           </div>
         </section>
       </main>
