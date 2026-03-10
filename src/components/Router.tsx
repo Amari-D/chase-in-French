@@ -70,6 +70,13 @@ const router = createBrowserRouter([
         },
       },
       {
+        path: "classes",
+        element: <ClassesPage />,
+        routeMetadata: {
+          pageIdentifier: 'classes',
+        },
+      },
+      {
         path: "classes/group",
         element: <GroupClassesPage />,
         routeMetadata: {
@@ -81,13 +88,6 @@ const router = createBrowserRouter([
         element: <PrivateLessonsPage />,
         routeMetadata: {
           pageIdentifier: 'classes-private',
-        },
-      },
-      {
-        path: "classes",
-        element: <ClassesPage />,
-        routeMetadata: {
-          pageIdentifier: 'classes',
         },
       },
       {
