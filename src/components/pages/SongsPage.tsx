@@ -7,10 +7,19 @@ import { BaseCrudService } from '@/integrations';
 import { Songs } from '@/entities';
 import { ArrowRight, ArrowLeft, Music } from 'lucide-react';
 import { Image } from '@/components/ui/image';
+import { setMetaTags } from '@/lib/meta-tags';
 
 export default function SongsPage() {
   const [songs, setSongs] = useState<Songs[]>([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setMetaTags(
+      'Learn French Through Songs | Chase in French',
+      'learn French through songs, French listening practice, French pronunciation songs',
+      'Improve your French pronunciation and listening skills by learning through authentic French songs.'
+    );
+  }, []);
 
   useEffect(() => {
     const fetchSongs = async () => {

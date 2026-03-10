@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import { Image } from '@/components/ui/image';
 import { BaseCrudService } from '@/integrations';
 import { Leons, Hubs } from '@/entities';
+import { setMetaTags } from '@/lib/meta-tags';
 
 // --- UTILS & COMPONENTS ---
 
@@ -144,6 +145,14 @@ const TOPICS_DATA = [
 export default function HomePage() {
   const [latestLessons, setLatestLessons] = useState<Leons[]>([]);
   const [lessonsLoading, setLessonsLoading] = useState(true);
+
+  useEffect(() => {
+    setMetaTags(
+      'French Pronunciation & Real Spoken French | Chase in French',
+      'French pronunciation, real spoken French, French accent training, learn French pronunciation',
+      'Master authentic French pronunciation and real spoken French with Chase in French. Learn from a professional dialect coach.'
+    );
+  }, []);
 
   useEffect(() => {
     const fetchData = async () => {

@@ -5,19 +5,15 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Mail, MapPin, Instagram, Linkedin, Music } from 'lucide-react';
+import { setMetaTags } from '@/lib/meta-tags';
 
 export default function ContactPage() {
   useEffect(() => {
-    document.title = 'Contact | Chase in French';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Contact Chase in French for private lessons, group classes, or collaboration enquiries.');
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = 'description';
-      meta.content = 'Contact Chase in French for private lessons, group classes, or collaboration enquiries.';
-      document.head.appendChild(meta);
-    }
+    setMetaTags(
+      'Contact | Chase in French',
+      'contact French lessons, French pronunciation coaching',
+      'Contact Chase in French for private lessons, group classes, or collaboration enquiries.'
+    );
   }, []);
 
   return (

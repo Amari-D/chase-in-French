@@ -6,10 +6,19 @@ import Footer from '@/components/Footer';
 import { BaseCrudService } from '@/integrations';
 import { Leons } from '@/entities';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { setMetaTags } from '@/lib/meta-tags';
 
 export default function GrammarPage() {
   const [lecons, setLecons] = useState<Leons[]>([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setMetaTags(
+      'French Grammar & Pronunciation Patterns | Chase in French',
+      'French grammar pronunciation, spoken French grammar, French grammar patterns',
+      'Understand how French grammar affects pronunciation and learn the patterns that shape authentic spoken French.'
+    );
+  }, []);
 
   useEffect(() => {
     const fetchLecons = async () => {

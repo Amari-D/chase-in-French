@@ -1,9 +1,18 @@
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import { setMetaTags } from '@/lib/meta-tags';
 
 export default function StartHerePage() {
+  useEffect(() => {
+    setMetaTags(
+      'Start Learning French Pronunciation | Chase in French',
+      'start learning French, French pronunciation for beginners, beginner French pronunciation',
+      'Begin your French pronunciation journey with a curated learning path designed for beginners.'
+    );
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       <Header />

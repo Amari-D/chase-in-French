@@ -6,10 +6,19 @@ import Footer from '@/components/Footer';
 import { BaseCrudService } from '@/integrations';
 import { Leons } from '@/entities';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { setMetaTags } from '@/lib/meta-tags';
 
 export default function PronunciationPage() {
   const [lecons, setLecons] = useState<Leons[]>([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setMetaTags(
+      'French Pronunciation Guide | Chase in French',
+      'French pronunciation, how to pronounce French, French phonetics, French accent training',
+      'Master French pronunciation with detailed guides on phonetics, accent training, and authentic French sounds.'
+    );
+  }, []);
 
   useEffect(() => {
     const fetchLecons = async () => {

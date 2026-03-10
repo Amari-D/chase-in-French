@@ -6,10 +6,19 @@ import Footer from '@/components/Footer';
 import { BaseCrudService } from '@/integrations';
 import { Leons } from '@/entities';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { setMetaTags } from '@/lib/meta-tags';
 
 export default function CulturePage() {
   const [lecons, setLecons] = useState<Leons[]>([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setMetaTags(
+      'French Culture & Communication | Chase in French',
+      'French culture communication, French conversation habits, French communication style',
+      'Explore French culture and communication styles to understand how they shape authentic spoken French.'
+    );
+  }, []);
 
   useEffect(() => {
     const fetchLecons = async () => {

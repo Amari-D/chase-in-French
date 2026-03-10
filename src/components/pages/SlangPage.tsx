@@ -6,10 +6,19 @@ import Footer from '@/components/Footer';
 import { BaseCrudService } from '@/integrations';
 import { Leons } from '@/entities';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { setMetaTags } from '@/lib/meta-tags';
 
 export default function SlangPage() {
   const [lecons, setLecons] = useState<Leons[]>([]);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setMetaTags(
+      'French Slang & Expressions | Chase in French',
+      'French slang, spoken French expressions, informal French phrases',
+      'Learn authentic French slang and expressions used in real spoken French conversations.'
+    );
+  }, []);
 
   useEffect(() => {
     const fetchLecons = async () => {

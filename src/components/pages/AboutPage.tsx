@@ -6,14 +6,15 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Image } from '@/components/ui/image';
 import { ArrowRight, ExternalLink } from 'lucide-react';
+import { setMetaTags } from '@/lib/meta-tags';
 
 export default function AboutPage() {
   useEffect(() => {
-    document.title = 'About | Chase in French';
-    const metaDescription = document.querySelector('meta[name="description"]');
-    if (metaDescription) {
-      metaDescription.setAttribute('content', 'Chase in French is built by Chase Emery Davis — bilingual French pronunciation specialist, on‐set dialect coach, and host of Learning French by Accident.');
-    }
+    setMetaTags(
+      'Chase Emery Davis | French Pronunciation Expert',
+      'French pronunciation expert, French dialect coach, Chase Emery Davis',
+      'Learn about Chase Emery Davis, a professional French dialect coach and French pronunciation expert.'
+    );
   }, []);
 
   const containerVariants = {

@@ -4,8 +4,17 @@ import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { ArrowRight } from 'lucide-react';
+import { setMetaTags } from '@/lib/meta-tags';
 
 export default function PodcastsPage() {
+  useEffect(() => {
+    setMetaTags(
+      'Learning French by Accident Podcast | Chase in French',
+      'French pronunciation podcast, learn French listening, spoken French podcast',
+      'Listen to the Learning French by Accident podcast to improve your French pronunciation and listening skills.'
+    );
+  }, []);
+
   useEffect(() => {
     // Load Buzzsprout scripts for each episode
     const loadBuzzsproutScripts = () => {
