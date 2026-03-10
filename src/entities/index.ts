@@ -37,6 +37,8 @@ export interface Leons {
   /** @wixFieldType text */
   relatedLinks?: string;
   /** @wixFieldType text */
+  relatedLessons?: string;
+  /** @wixFieldType text */
   lessonTitle?: string;
   /** @wixFieldType text */
   hub?: string;
