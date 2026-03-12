@@ -5,12 +5,13 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { BaseCrudService } from '@/integrations';
 import { Leons, Hubs } from '@/entities';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export default function LeconDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const [lecon, setLecon] = useState<Leons | null>(null);
   const [hub, setHub] = useState<Hubs | null>(null);
+  const [relatedLessons, setRelatedLessons] = useState<Leons[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -28,6 +29,17 @@ export default function LeconDetailPage() {
             const foundHub = allHubs.find(h => h.name === foundLecon.hub);
             if (foundHub) {
               setHub(foundHub);
+            }
+          }
+
+          // Fetch related lessons if relatedLessons field contains IDs
+          if (foundLecon.relatedLessons) {
+            try {
+              const relatedIds = foundLecon.relatedLessons.split(',').map(id => id.trim()).filter(id => id);
+              const related = allLecons.filter(l => relatedIds.includes(l._id));
+              setRelatedLessons(related);
+            } catch (e) {
+              console.error('Error parsing related lessons:', e);
             }
           }
         }
@@ -155,6 +167,47 @@ export default function LeconDetailPage() {
             </motion.div>
           </div>
         </section>
+
+        {/* Related Lessons Section */}
+        {relatedLessons.length > 0 && (
+          <section className="py-20 lg:py-28 bg-background">
+            <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="font-heading text-3xl lg:text-4xl font-bold mb-12 text-primary">
+                  Related Lessons
+                </h2>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {relatedLessons.map((relatedLesson) => (
+                    <Link
+                      key={relatedLesson._id}
+                      to={`/lecons/${encodeURIComponent(relatedLesson._id)}`}
+                      className="group cursor-pointer"
+                    >
+                      <div className="border-t border-primary/10 pt-6 hover:border-primary transition-colors duration-300 h-full flex flex-col">
+                        <h3 className="font-heading text-xl font-medium mb-4 group-hover:underline decoration-1 underline-offset-4 text-primary">
+                          {relatedLesson.lessonTitle || "Untitled Lesson"}
+                        </h3>
+                        <p className="font-paragraph text-primary/60 text-sm leading-relaxed mb-6 flex-grow">
+                          {relatedLesson.shortDescription || "An in-depth analysis of essential phonetic mechanisms for natural speech."}
+                        </p>
+                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary/40 group-hover:text-primary transition-colors">
+                          <ArrowRight className="w-3 h-3" />
+                          <span>View</span>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+          </section>
+        )}
 
         {/* Navigation Section */}
         <section className="bg-secondary py-20 lg:py-28">
