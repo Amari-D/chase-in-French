@@ -34,20 +34,25 @@ export default function LeconDetailPage() {
 
           // Find lessons that THIS lesson links TO (i.e., lessons in this lesson's relatedLessons field)
           const related: Leons[] = [];
+          console.log('Current lesson relatedLessons field:', foundLecon.relatedLessons);
+          
           if (foundLecon.relatedLessons && foundLecon.relatedLessons.trim()) {
             try {
               let relatedIds: string[] = [];
               const rawValue = foundLecon.relatedLessons.trim();
+              console.log('Raw relatedLessons value:', rawValue);
               
               // Try parsing as JSON first
               try {
                 const parsed = JSON.parse(rawValue);
+                console.log('Parsed JSON:', parsed);
                 if (Array.isArray(parsed)) {
                   relatedIds = parsed.map(id => String(id).trim()).filter(id => id);
                 } else if (typeof parsed === 'string') {
                   relatedIds = [parsed];
                 }
-              } catch {
+              } catch (e) {
+                console.log('JSON parse failed, trying comma-separated:', e);
                 // Fall back to comma-separated parsing
                 relatedIds = rawValue
                   .split(',')
@@ -55,9 +60,12 @@ export default function LeconDetailPage() {
                   .filter(id => id && id.length > 0);
               }
               
+              console.log('Extracted related IDs:', relatedIds);
+              
               // Find the actual lesson objects for each related ID
               relatedIds.forEach(relatedId => {
                 const relatedLesson = allLecons.find(l => l._id === relatedId);
+                console.log(`Looking for lesson ${relatedId}:`, relatedLesson ? 'Found' : 'Not found');
                 if (relatedLesson) {
                   related.push(relatedLesson);
                 }
@@ -67,6 +75,7 @@ export default function LeconDetailPage() {
             }
           }
           
+          console.log('Final related lessons array:', related);
           setRelatedLessons(related);
         }
       } catch (error) {
@@ -194,8 +203,8 @@ export default function LeconDetailPage() {
           </div>
         </section>
 
-        {/* Related Lessons Section */}
-        {relatedLessons.length > 0 && (
+        {/* Related Lessons Section - Always show if there are any */}
+        {relatedLessons && relatedLessons.length > 0 && (
           <section className="py-20 lg:py-28 bg-background">
             <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
               <motion.div
