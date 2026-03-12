@@ -55,15 +55,22 @@ export default function LeconDetailPage() {
                 .filter(id => id.length > 0);
             }
             
+            // Debug log to verify parsing
+            console.log('Raw relatedLessons value:', rawValue);
+            console.log('Parsed IDs:', relatedIds);
+            console.log('All available lesson IDs:', allLecons.map(l => l._id));
+            
             // Match IDs to actual lessons
             relatedIds.forEach(relatedId => {
               const relatedLesson = allLecons.find(l => l._id === relatedId);
+              console.log(`Looking for ID "${relatedId}":`, relatedLesson ? 'FOUND' : 'NOT FOUND');
               if (relatedLesson) {
                 related.push(relatedLesson);
               }
             });
           }
           
+          console.log('Final related lessons:', related);
           setRelatedLessons(related);
         }
       } catch (error) {
