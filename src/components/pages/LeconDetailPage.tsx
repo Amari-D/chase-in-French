@@ -32,17 +32,16 @@ export default function LeconDetailPage() {
             }
           }
 
-          // Fetch related lessons if relatedLessons field contains IDs
-          if (foundLecon.relatedLessons && foundLecon.relatedLessons.trim()) {
-            try {
-              // Handle both comma-separated string and JSON array formats
-              let relatedIds: string[] = [];
-              const rawValue = foundLecon.relatedLessons.trim();
-              
-              console.log('Raw relatedLessons value:', rawValue, 'Type:', typeof rawValue, 'Length:', rawValue.length);
-              
-              if (typeof rawValue === 'string' && rawValue.length > 0) {
-                // Try parsing as JSON first (in case it's a stringified array)
+          // Find lessons that link TO this lesson (i.e., lessons that have this lesson's ID in their relatedLessons)
+          const related = allLecons.filter(lesson => {
+            if (lesson._id === foundLecon._id) return false; // Don't include self
+            
+            if (lesson.relatedLessons && lesson.relatedLessons.trim()) {
+              try {
+                let relatedIds: string[] = [];
+                const rawValue = lesson.relatedLessons.trim();
+                
+                // Try parsing as JSON first
                 try {
                   const parsed = JSON.parse(rawValue);
                   if (Array.isArray(parsed)) {
@@ -57,22 +56,18 @@ export default function LeconDetailPage() {
                     .map(id => id.trim())
                     .filter(id => id && id.length > 0);
                 }
+                
+                // Check if current lesson is in this lesson's related lessons
+                return relatedIds.some(id => id === foundLecon._id || id.includes(foundLecon._id) || foundLecon._id.includes(id));
+              } catch (e) {
+                console.error('Error parsing related lessons:', e);
+                return false;
               }
-              
-              console.log('Parsed relatedIds:', relatedIds);
-              console.log('All lecons available:', allLecons.map(l => ({ _id: l._id, title: l.lessonTitle })));
-              
-              // Filter related lessons - match by _id
-              const related = allLecons.filter(l => 
-                relatedIds.some(id => l._id === id || l._id.includes(id) || id.includes(l._id))
-              );
-              
-              setRelatedLessons(related);
-              console.log('Related lessons found:', related.length, 'Matched IDs:', related.map(r => r._id));
-            } catch (e) {
-              console.error('Error parsing related lessons:', e);
             }
-          }
+            return false;
+          });
+          
+          setRelatedLessons(related);
         }
       } catch (error) {
         console.error('Error fetching lecon details:', error);
