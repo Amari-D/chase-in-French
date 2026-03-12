@@ -62,6 +62,16 @@ export default function LeconDetailPage() {
                 .filter(id => id.length > 0);
             }
             
+            // Extract IDs from URLs if they are full URLs
+            relatedIds = relatedIds.map(id => {
+              // Check if it's a URL containing /lecons/
+              const urlMatch = id.match(/\/lecons\/([a-f0-9\-]+)$/);
+              if (urlMatch && urlMatch[1]) {
+                return urlMatch[1];
+              }
+              return id;
+            });
+            
             console.log('Parsed IDs from relatedLessons:', relatedIds);
             
             // Match IDs to actual lessons - try exact match first, then case-insensitive
