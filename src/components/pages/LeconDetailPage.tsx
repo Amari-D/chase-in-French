@@ -35,9 +35,23 @@ export default function LeconDetailPage() {
           // Fetch related lessons if relatedLessons field contains IDs
           if (foundLecon.relatedLessons) {
             try {
-              const relatedIds = foundLecon.relatedLessons.split(',').map(id => id.trim()).filter(id => id);
+              // Handle both comma-separated string and JSON array formats
+              let relatedIds: string[] = [];
+              
+              if (typeof foundLecon.relatedLessons === 'string') {
+                // Try parsing as JSON first (in case it's a stringified array)
+                try {
+                  const parsed = JSON.parse(foundLecon.relatedLessons);
+                  relatedIds = Array.isArray(parsed) ? parsed : [foundLecon.relatedLessons];
+                } catch {
+                  // Fall back to comma-separated parsing
+                  relatedIds = foundLecon.relatedLessons.split(',').map(id => id.trim()).filter(id => id);
+                }
+              }
+              
               const related = allLecons.filter(l => relatedIds.includes(l._id));
               setRelatedLessons(related);
+              console.log('Related lessons found:', related.length, 'IDs:', relatedIds);
             } catch (e) {
               console.error('Error parsing related lessons:', e);
             }
