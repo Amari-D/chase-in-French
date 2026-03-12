@@ -18,24 +18,24 @@ export default function LeconDetailPage() {
     const fetchData = async () => {
       try {
         const decodedSlug = slug ? decodeURIComponent(slug) : '';
-        const { items: allLecons } = await BaseCrudService.getAll<Leons>('lecons');
+        const { items: allLecons } = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 100 });
         const foundLecon = allLecons.find(l => l._id === decodedSlug);
         
         if (foundLecon) {
           setLecon(foundLecon);
           
           if (foundLecon.hub) {
-            const { items: allHubs } = await BaseCrudService.getAll<Hubs>('hubs');
+            const { items: allHubs } = await BaseCrudService.getAll<Hubs>('hubs', {}, { limit: 100 });
             const foundHub = allHubs.find(h => h.name === foundLecon.hub);
             if (foundHub) {
               setHub(foundHub);
             }
           }
 
-          // Parse relatedLessons field with robust handling
+          // Parse relatedLessons field with comprehensive handling
           const related: Leons[] = [];
           
-          if (foundLecon.relatedLessons && foundLecon.relatedLessons.trim()) {
+          if (foundLecon.relatedLessons && typeof foundLecon.relatedLessons === 'string' && foundLecon.relatedLessons.trim()) {
             const rawValue = foundLecon.relatedLessons.trim();
             let relatedIds: string[] = [];
             
@@ -43,9 +43,9 @@ export default function LeconDetailPage() {
             try {
               const parsed = JSON.parse(rawValue);
               if (Array.isArray(parsed)) {
-                relatedIds = parsed.map(id => String(id).trim()).filter(id => id);
+                relatedIds = parsed.map(id => String(id).trim()).filter(id => id.length > 0);
               } else if (typeof parsed === 'string') {
-                relatedIds = [parsed.trim()].filter(id => id);
+                relatedIds = [parsed.trim()].filter(id => id.length > 0);
               }
             } catch {
               // Fall back to comma-separated parsing
@@ -55,22 +55,32 @@ export default function LeconDetailPage() {
                 .filter(id => id.length > 0);
             }
             
-            // Debug log to verify parsing
+            // Debug logging
+            console.log('=== RELATED LESSONS DEBUG ===');
+            console.log('Current lesson:', foundLecon.lessonTitle);
             console.log('Raw relatedLessons value:', rawValue);
             console.log('Parsed IDs:', relatedIds);
-            console.log('All available lesson IDs:', allLecons.map(l => l._id));
+            console.log('All available lesson IDs:', allLecons.map(l => ({ id: l._id, title: l.lessonTitle })));
             
-            // Match IDs to actual lessons
+            // Match IDs to actual lessons - try exact match first, then case-insensitive
             relatedIds.forEach(relatedId => {
-              const relatedLesson = allLecons.find(l => l._id === relatedId);
-              console.log(`Looking for ID "${relatedId}":`, relatedLesson ? 'FOUND' : 'NOT FOUND');
+              let relatedLesson = allLecons.find(l => l._id === relatedId);
+              
+              // If not found, try case-insensitive match
+              if (!relatedLesson) {
+                relatedLesson = allLecons.find(l => l._id.toLowerCase() === relatedId.toLowerCase());
+              }
+              
+              console.log(`Looking for ID "${relatedId}":`, relatedLesson ? `FOUND - ${relatedLesson.lessonTitle}` : 'NOT FOUND');
               if (relatedLesson) {
                 related.push(relatedLesson);
               }
             });
+            
+            console.log('Final related lessons count:', related.length);
+            console.log('=== END DEBUG ===');
           }
           
-          console.log('Final related lessons:', related);
           setRelatedLessons(related);
         }
       } catch (error) {
@@ -219,7 +229,7 @@ export default function LeconDetailPage() {
                       to={`/lecons/${encodeURIComponent(relatedLesson._id)}`}
                       className="group cursor-pointer"
                     >
-                      <div className="border-t border-primary/10 pt-6 hover:border-primary transition-colors duration-300 h-full flex flex-col">
+                      <div className="bg-background border border-primary/10 p-6 hover:border-primary transition-colors duration-300 h-full flex flex-col rounded">
                         <h3 className="font-heading text-xl font-medium mb-4 group-hover:underline decoration-1 underline-offset-4 text-primary">
                           {relatedLesson.lessonTitle || "Untitled Lesson"}
                         </h3>
