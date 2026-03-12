@@ -25,6 +25,7 @@ import ClassesPage from '@/components/pages/ClassesPage';
 import GroupClassesPage from '@/components/pages/GroupClassesPage';
 import PrivateLessonsPage from '@/components/pages/PrivateLessonsPage';
 import DiagnosticsPage from '@/components/pages/DiagnosticsPage';
+import DebugLessonsPage from '@/components/pages/DebugLessonsPage';
 
 // Layout component that includes ScrollToTop
 function Layout() {
@@ -201,6 +202,13 @@ const router = createBrowserRouter([
         element: <DiagnosticsPage />,
         routeMetadata: {
           pageIdentifier: 'diagnostics',
+        },
+      },
+      {
+        path: "debug-lessons",
+        element: <DebugLessonsPage />,
+        routeMetadata: {
+          pageIdentifier: 'debug-lessons',
         },
       },
       {

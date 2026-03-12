@@ -35,6 +35,13 @@ export default function LeconDetailPage() {
           // Parse relatedLessons field with comprehensive handling
           const related: Leons[] = [];
           
+          console.log('=== RELATED LESSONS DEBUG START ===');
+          console.log('Current lesson ID:', foundLecon._id);
+          console.log('Current lesson title:', foundLecon.lessonTitle);
+          console.log('Raw relatedLessons field:', foundLecon.relatedLessons);
+          console.log('Type of relatedLessons:', typeof foundLecon.relatedLessons);
+          console.log('All available lessons:', allLecons.map(l => ({ id: l._id, title: l.lessonTitle })));
+          
           if (foundLecon.relatedLessons && typeof foundLecon.relatedLessons === 'string' && foundLecon.relatedLessons.trim()) {
             const rawValue = foundLecon.relatedLessons.trim();
             let relatedIds: string[] = [];
@@ -55,12 +62,7 @@ export default function LeconDetailPage() {
                 .filter(id => id.length > 0);
             }
             
-            // Debug logging
-            console.log('=== RELATED LESSONS DEBUG ===');
-            console.log('Current lesson:', foundLecon.lessonTitle);
-            console.log('Raw relatedLessons value:', rawValue);
-            console.log('Parsed IDs:', relatedIds);
-            console.log('All available lesson IDs:', allLecons.map(l => ({ id: l._id, title: l.lessonTitle })));
+            console.log('Parsed IDs from relatedLessons:', relatedIds);
             
             // Match IDs to actual lessons - try exact match first, then case-insensitive
             relatedIds.forEach(relatedId => {
@@ -71,16 +73,24 @@ export default function LeconDetailPage() {
                 relatedLesson = allLecons.find(l => l._id.toLowerCase() === relatedId.toLowerCase());
               }
               
-              console.log(`Looking for ID "${relatedId}":`, relatedLesson ? `FOUND - ${relatedLesson.lessonTitle}` : 'NOT FOUND');
-              if (relatedLesson) {
+              // If still not found, try matching by title
+              if (!relatedLesson) {
+                relatedLesson = allLecons.find(l => l.lessonTitle?.toLowerCase() === relatedId.toLowerCase());
+              }
+              
+              console.log(`Looking for "${relatedId}":`, relatedLesson ? `FOUND - ${relatedLesson.lessonTitle}` : 'NOT FOUND');
+              if (relatedLesson && !related.find(r => r._id === relatedLesson._id)) {
                 related.push(relatedLesson);
               }
             });
             
-            console.log('Final related lessons count:', related.length);
-            console.log('=== END DEBUG ===');
+            console.log('Final related lessons found:', related.length);
+            console.log('Related lessons:', related.map(l => ({ id: l._id, title: l.lessonTitle })));
+          } else {
+            console.log('No relatedLessons data to parse');
           }
           
+          console.log('=== RELATED LESSONS DEBUG END ===');
           setRelatedLessons(related);
         }
       } catch (error) {
