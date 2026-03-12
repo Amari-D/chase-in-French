@@ -33,30 +33,42 @@ export default function LeconDetailPage() {
           }
 
           // Fetch related lessons if relatedLessons field contains IDs
-          if (foundLecon.relatedLessons) {
+          if (foundLecon.relatedLessons && foundLecon.relatedLessons.trim()) {
             try {
               // Handle both comma-separated string and JSON array formats
               let relatedIds: string[] = [];
+              const rawValue = foundLecon.relatedLessons.trim();
               
-              console.log('Raw relatedLessons value:', foundLecon.relatedLessons, 'Type:', typeof foundLecon.relatedLessons);
+              console.log('Raw relatedLessons value:', rawValue, 'Type:', typeof rawValue, 'Length:', rawValue.length);
               
-              if (typeof foundLecon.relatedLessons === 'string') {
+              if (typeof rawValue === 'string' && rawValue.length > 0) {
                 // Try parsing as JSON first (in case it's a stringified array)
                 try {
-                  const parsed = JSON.parse(foundLecon.relatedLessons);
-                  relatedIds = Array.isArray(parsed) ? parsed : [foundLecon.relatedLessons];
+                  const parsed = JSON.parse(rawValue);
+                  if (Array.isArray(parsed)) {
+                    relatedIds = parsed.map(id => String(id).trim()).filter(id => id);
+                  } else if (typeof parsed === 'string') {
+                    relatedIds = [parsed];
+                  }
                 } catch {
                   // Fall back to comma-separated parsing
-                  relatedIds = foundLecon.relatedLessons.split(',').map(id => id.trim()).filter(id => id);
+                  relatedIds = rawValue
+                    .split(',')
+                    .map(id => id.trim())
+                    .filter(id => id && id.length > 0);
                 }
               }
               
               console.log('Parsed relatedIds:', relatedIds);
               console.log('All lecons available:', allLecons.map(l => ({ _id: l._id, title: l.lessonTitle })));
               
-              const related = allLecons.filter(l => relatedIds.includes(l._id));
+              // Filter related lessons - match by _id
+              const related = allLecons.filter(l => 
+                relatedIds.some(id => l._id === id || l._id.includes(id) || id.includes(l._id))
+              );
+              
               setRelatedLessons(related);
-              console.log('Related lessons found:', related.length, 'IDs:', relatedIds);
+              console.log('Related lessons found:', related.length, 'Matched IDs:', related.map(r => r._id));
             } catch (e) {
               console.error('Error parsing related lessons:', e);
             }
