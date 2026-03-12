@@ -38,6 +38,8 @@ export default function LeconDetailPage() {
               // Handle both comma-separated string and JSON array formats
               let relatedIds: string[] = [];
               
+              console.log('Raw relatedLessons value:', foundLecon.relatedLessons, 'Type:', typeof foundLecon.relatedLessons);
+              
               if (typeof foundLecon.relatedLessons === 'string') {
                 // Try parsing as JSON first (in case it's a stringified array)
                 try {
@@ -48,6 +50,9 @@ export default function LeconDetailPage() {
                   relatedIds = foundLecon.relatedLessons.split(',').map(id => id.trim()).filter(id => id);
                 }
               }
+              
+              console.log('Parsed relatedIds:', relatedIds);
+              console.log('All lecons available:', allLecons.map(l => ({ _id: l._id, title: l.lessonTitle })));
               
               const related = allLecons.filter(l => relatedIds.includes(l._id));
               setRelatedLessons(related);
