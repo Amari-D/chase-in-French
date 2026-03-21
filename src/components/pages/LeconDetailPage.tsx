@@ -228,6 +228,62 @@ export default function LeconDetailPage() {
           </div>
         </section>
 
+        {/* Related Links Section - Links to main systems */}
+        {lecon.relatedLinks && lecon.relatedLinks.trim() && (
+          <section className="py-20 lg:py-28 bg-secondary">
+            <div className="max-w-[120rem] mx-auto px-6 lg:px-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <h2 className="font-heading text-3xl lg:text-4xl font-bold mb-12 text-primary">
+                  Related Topics
+                </h2>
+                
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {lecon.relatedLinks.split(',').map((link, index) => {
+                    const trimmedLink = link.trim().toLowerCase();
+                    const linkMap: { [key: string]: { path: string; label: string } } = {
+                      'pronunciation': { path: '/pronunciation', label: 'Pronunciation' },
+                      'slang': { path: '/slang', label: 'Slang & Expressions' },
+                      'grammar': { path: '/grammar', label: 'Grammar & Sound' },
+                      'culture': { path: '/culture', label: 'French Culture' },
+                      'podcast': { path: '/podcast', label: 'Podcasts' },
+                      'songs': { path: '/songs', label: 'Songs & Videos' },
+                    };
+                    
+                    const linkInfo = linkMap[trimmedLink];
+                    if (!linkInfo) return null;
+                    
+                    return (
+                      <Link
+                        key={index}
+                        to={linkInfo.path}
+                        className="group cursor-pointer"
+                      >
+                        <div className="bg-background border border-primary/10 p-6 hover:border-primary transition-colors duration-300 h-full flex flex-col rounded">
+                          <h3 className="font-heading text-xl font-medium mb-4 group-hover:underline decoration-1 underline-offset-4 text-primary">
+                            {linkInfo.label}
+                          </h3>
+                          <p className="font-paragraph text-primary/60 text-sm leading-relaxed mb-6 flex-grow">
+                            Explore more content in this topic area
+                          </p>
+                          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary/40 group-hover:text-primary transition-colors">
+                            <ArrowRight className="w-3 h-3" />
+                            <span>Explore</span>
+                          </div>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            </div>
+          </section>
+        )}
+
         {/* Related Lessons Section - Always show if there are any */}
         {relatedLessons && relatedLessons.length > 0 && (
           <section className="py-20 lg:py-28 bg-background">
