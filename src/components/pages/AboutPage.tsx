@@ -82,7 +82,7 @@ export default function AboutPage() {
               transition={{ duration: 0.6 }}
               className="max-w-4xl mx-auto"
             >
-              <div className="relative aspect-[4/3] md:aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative aspect-[4/3] md:aspect-[16/9] rounded-2xl overflow-hidden">
                 <Image
                   src="https://static.wixstatic.com/media/a60e36_d4a910895cdd4abfb6465b6f9821a3a0~mv2.webp"
                   className="w-full h-full object-cover"

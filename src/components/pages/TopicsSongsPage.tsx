@@ -142,7 +142,7 @@ export default function TopicsSongsPage() {
                         to={`/songs#${curatedSong.songId}`}
                         className="group block h-full"
                       >
-                        <div className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow h-full flex flex-col">
+                        <div className="bg-white rounded-lg overflow-hidden hover:opacity-90 transition-opacity h-full flex flex-col">
                           {song?.thumbnail && (
                             <div className="relative w-full aspect-video overflow-hidden bg-secondary">
                               <Image

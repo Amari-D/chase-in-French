@@ -77,7 +77,7 @@ export default function TopicsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {topics.map((topic) => (
               <Link key={topic.link} to={topic.link}>
-                <Card className="h-full p-6 hover:shadow-lg transition-shadow cursor-pointer border border-secondary bg-white">
+                <Card className="h-full p-6 hover:opacity-90 transition-opacity cursor-pointer border border-secondary bg-white">
                   <div className="space-y-3">
                     <h2 className="text-xl font-heading font-semibold text-foreground">
                       {topic.title}

@@ -216,7 +216,7 @@ export default function SongsPage() {
                     to={mode.link}
                     className="block group h-full"
                   >
-                    <div className="bg-secondary border border-primary/10 hover:border-primary/30 transition-all p-8 h-full flex flex-col hover:shadow-md">
+                    <div className="bg-secondary border border-primary/10 hover:border-primary/30 transition-all p-8 h-full flex flex-col hover:opacity-90">
                       <h3 className="font-heading text-xl font-bold text-primary mb-3 group-hover:opacity-80 transition-opacity">
                         {mode.title}
                       </h3>

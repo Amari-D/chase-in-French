@@ -306,7 +306,7 @@ export default function HomePage() {
               return (
                 <AnimatedElement key={track.path} delay={track.delay} className="group">
                   <Link to={track.path} className="block h-full">
-                    <div className="bg-primary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+                    <div className="bg-primary p-8 lg:p-10 rounded-lg hover:opacity-90 transition-all duration-300 h-full flex flex-col">
                       <h3 className="font-heading text-2xl font-bold text-white mb-3">{track.title}</h3>
                       <p className="font-paragraph text-white/80 mb-6 flex-grow">
                         {track.description}
@@ -491,7 +491,7 @@ export default function HomePage() {
             <AnimatedElement delay={100}>
               <Link 
                 to="/podcasts"
-                className="bg-secondary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 text-center"
+                className="bg-secondary p-8 lg:p-10 rounded-lg hover:opacity-90 transition-all duration-300 text-center"
               >
                 <Headphones className="w-12 h-12 text-accent-red mx-auto mb-4" />
                 <h3 className="font-heading text-xl font-bold text-primary mb-2">Listen on the site</h3>
@@ -504,7 +504,7 @@ export default function HomePage() {
                 href="https://podcasts.apple.com/us/podcast/learning-french-by-accident/id1684581201"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-secondary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 text-center"
+                className="bg-secondary p-8 lg:p-10 rounded-lg hover:opacity-90 transition-all duration-300 text-center"
               >
                 <Apple className="w-12 h-12 text-accent-red mx-auto mb-4" />
                 <h3 className="font-heading text-xl font-bold text-primary mb-2">Subscribe on Apple Podcasts</h3>
@@ -517,7 +517,7 @@ export default function HomePage() {
                 href="https://learningfrenchbyaccident.buzzsprout.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-secondary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 text-center"
+                className="bg-secondary p-8 lg:p-10 rounded-lg hover:opacity-90 transition-all duration-300 text-center"
               >
                 <Radio className="w-12 h-12 text-accent-red mx-auto mb-4" />
                 <h3 className="font-heading text-xl font-bold text-primary mb-2">Open on Buzzsprout</h3>
@@ -537,7 +537,7 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 gap-8">
             <AnimatedElement delay={100} className="group">
-              <div className="bg-secondary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+              <div className="bg-secondary p-8 lg:p-10 rounded-lg hover:opacity-90 transition-all duration-300 h-full flex flex-col">
                 <Users className="w-12 h-12 text-accent-red mb-4" />
                 <h3 className="font-heading text-2xl font-bold text-primary mb-3">Group Classes</h3>
                 <p className="font-paragraph text-primary/70 mb-6 flex-grow">
@@ -553,7 +553,7 @@ export default function HomePage() {
             </AnimatedElement>
 
             <AnimatedElement delay={200} className="group">
-              <div className="bg-secondary p-8 lg:p-10 rounded-lg hover:shadow-lg transition-all duration-300 h-full flex flex-col">
+              <div className="bg-secondary p-8 lg:p-10 rounded-lg hover:opacity-90 transition-all duration-300 h-full flex flex-col">
                 <User className="w-12 h-12 text-accent-red mb-4" />
                 <h3 className="font-heading text-2xl font-bold text-primary mb-3">Private Lessons</h3>
                 <p className="font-paragraph text-primary/70 mb-6 flex-grow">

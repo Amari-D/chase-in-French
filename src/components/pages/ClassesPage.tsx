@@ -56,7 +56,7 @@ export default function ClassesPage() {
         <section className="w-full max-w-[100rem] mx-auto px-6 py-16">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Group Classes Card */}
-            <div className="border border-secondary bg-white rounded-lg p-8 hover:shadow-lg transition-shadow">
+            <div className="border border-secondary bg-white rounded-lg p-8 hover:opacity-90 transition-opacity">
               <h2 className="font-heading text-2xl font-bold text-foreground mb-2">
                 Group classes
               </h2>
@@ -73,7 +73,7 @@ export default function ClassesPage() {
             </div>
 
             {/* Private Lessons Card */}
-            <div className="border border-secondary bg-white rounded-lg p-8 hover:shadow-lg transition-shadow">
+            <div className="border border-secondary bg-white rounded-lg p-8 hover:opacity-90 transition-opacity">
               <h2 className="font-heading text-2xl font-bold text-foreground mb-2">
                 Private lessons
               </h2>
