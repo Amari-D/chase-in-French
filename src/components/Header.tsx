@@ -59,7 +59,7 @@ function Header() {
               </button>
 
               {/* Dropdown Menu - Mobile and Desktop */}
-              <div className={`absolute left-0 mt-0 w-48 bg-background border border-secondary shadow-lg transition-all duration-200 z-50 ${
+              <div className={`absolute left-0 mt-0 w-48 bg-background border border-secondary transition-all duration-200 z-50 ${
                 isTopicsOpen ? 'opacity-100 visible' : 'opacity-0 invisible lg:group-hover:opacity-100 lg:group-hover:visible'
               }`}>
                 {topics.map((topic) => (
@@ -92,7 +92,7 @@ function Header() {
               </button>
 
               {/* Dropdown Menu - Mobile and Desktop */}
-              <div className={`absolute left-0 mt-0 w-48 bg-background border border-secondary shadow-lg transition-all duration-200 z-50 ${
+              <div className={`absolute left-0 mt-0 w-48 bg-background border border-secondary transition-all duration-200 z-50 ${
                 isClassesOpen ? 'opacity-100 visible' : 'opacity-0 invisible lg:group-hover:opacity-100 lg:group-hover:visible'
               }`}>
                 {classes.map((cls) => (
