@@ -68,7 +68,7 @@ export default function LeconsPage() {
                   {lessons.map((lesson, index) => (
                     <Link
                       key={lesson._id}
-                      to={`/lecons/${encodeURIComponent(lesson._id)}`}
+                      to={`/lecons/${lesson._id}`}
                       className="group cursor-pointer"
                     >
                       <div className="border-t border-primary/10 pt-6 hover:border-primary transition-colors duration-300 h-full flex flex-col">

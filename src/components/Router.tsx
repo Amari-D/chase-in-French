@@ -157,7 +157,7 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "lecons/:slug",
+        path: "lecons/:id",
         element: <LeconDetailPage />,
         routeMetadata: {
           pageIdentifier: 'lecon-detail',

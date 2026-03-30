@@ -8,7 +8,7 @@ import { Leons, Hubs } from '@/entities';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 export default function LeconDetailPage() {
-  const { slug } = useParams<{ slug: string }>();
+  const { id } = useParams<{ id: string }>();
   const [lecon, setLecon] = useState<Leons | null>(null);
   const [hub, setHub] = useState<Hubs | null>(null);
   const [relatedLessons, setRelatedLessons] = useState<Leons[]>([]);
@@ -17,9 +17,8 @@ export default function LeconDetailPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const decodedSlug = slug ? decodeURIComponent(slug) : '';
         const { items: allLecons } = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 100 });
-        const foundLecon = allLecons.find(l => l._id === decodedSlug);
+        const foundLecon = allLecons.find(l => l._id === id);
         
         if (foundLecon) {
           setLecon(foundLecon);
@@ -302,7 +301,7 @@ export default function LeconDetailPage() {
                   {relatedLessons.map((relatedLesson) => (
                     <Link
                       key={relatedLesson._id}
-                      to={`/lecons/${encodeURIComponent(relatedLesson._id)}`}
+                      to={`/lecons/${relatedLesson._id}`}
                       className="group cursor-pointer"
                     >
                       <div className="bg-background border border-primary/10 p-6 hover:border-primary transition-colors duration-300 h-full flex flex-col rounded">
