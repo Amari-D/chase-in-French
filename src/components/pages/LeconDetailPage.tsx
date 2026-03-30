@@ -110,7 +110,7 @@ export default function LeconDetailPage() {
     };
 
     fetchData();
-  }, [slug]);
+  }, [id]);
 
   if (loading) {
     return (
