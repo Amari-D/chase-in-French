@@ -58,6 +58,29 @@ export interface Leons {
 
 
 /**
+ * Collection ID: links
+ * Interface for Links
+ */
+export interface Links {
+  _id: string;
+  _createdDate?: Date;
+  _updatedDate?: Date;
+  /** @wixFieldType text */
+  linkTitle?: string;
+  /** @wixFieldType url */
+  linkUrl?: string;
+  /** @wixFieldType text */
+  description?: string;
+  /** @wixFieldType number */
+  displayOrder?: number;
+  /** @wixFieldType image - Contains image URL, render with <Image> component, NOT as text */
+  linkIcon?: string;
+  /** @wixFieldType text */
+  backgroundColor?: string;
+}
+
+
+/**
  * Collection ID: podcasts
  * Interface for Podcasts
  */
