@@ -253,7 +253,7 @@ export default function HomePage() {
                           Join Classes
                         </Link>
                         <Link 
-                          to="/podcasts"
+                          to="/podcast"
                           className="px-6 py-3 border-2 border-secondary text-secondary font-heading font-bold rounded-sm hover:bg-secondary/10 transition-colors text-center flex-1 text-sm sm:text-base"
                         >
                           Listen to Podcast
