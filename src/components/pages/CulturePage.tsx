@@ -23,7 +23,7 @@ export default function CulturePage() {
   useEffect(() => {
     const fetchLecons = async () => {
       try {
-        const { items } = await BaseCrudService.getAll<Leons>('lecons');
+        const { items } = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 10 });
         const filtered = items.filter(l => l.hub?.toLowerCase().includes('culture'));
         
         // Sort by numerical order extracted from lesson title

@@ -54,7 +54,7 @@ export default function TopicsSongsPage() {
   useEffect(() => {
     const loadSongs = async () => {
       try {
-        const result = await BaseCrudService.getAll<Songs>('songs');
+        const result = await BaseCrudService.getAll<Songs>('songs', {}, { limit: 10 });
         setSongs(result.items || []);
       } catch (error) {
         console.error('Error loading songs:', error);

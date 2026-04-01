@@ -9,7 +9,7 @@ export default function DiagnosticsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 100 });
+        const result = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 10 });
         setLessons(result.items);
         
         console.log('=== FULL DIAGNOSTICS ===');

@@ -108,40 +108,40 @@ export default function SongsPage() {
               </div>
             ) : (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {songs.map((song, index) => (
-                  <motion.div
-                    key={song._id}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.05 }}
-                  >
-                    <a 
-                      href={song.videoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="block group h-full"
-                    >
-                      <div className="relative bg-primary/10 aspect-video overflow-hidden rounded">
-                        {song.thumbnail ? (
-                          <Image 
-                            src={song.thumbnail}
-                            alt={song.title || 'Song thumbnail'}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            width={400}
-                            height={225}
-                          />
-                        ) : (
-                          <div className="w-full h-full flex items-center justify-center bg-secondary">
-                            <Music className="w-12 h-12 text-primary/30" />
-                          </div>
-                        )}
-                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                          <div className="bg-primary text-primary-foreground rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                            <ArrowRight className="w-6 h-6" />
-                          </div>
-                        </div>
-                      </div>
+                {songs.slice(0, 10).map((song, index) => (
+                   <motion.div
+                     key={song._id}
+                     initial={{ opacity: 0, y: 20 }}
+                     whileInView={{ opacity: 1, y: 0 }}
+                     viewport={{ once: true }}
+                     transition={{ duration: 0.5, delay: index * 0.05 }}
+                   >
+                     <a 
+                       href={song.videoUrl}
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       className="block group h-full"
+                     >
+                       <div className="relative bg-primary/10 aspect-video overflow-hidden rounded">
+                         {song.thumbnail ? (
+                           <Image 
+                             src={song.thumbnail}
+                             alt={song.title || 'Song thumbnail'}
+                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                             width={400}
+                             height={225}
+                           />
+                         ) : (
+                           <div className="w-full h-full flex items-center justify-center bg-secondary">
+                             <Music className="w-12 h-12 text-primary/30" />
+                           </div>
+                         )}
+                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                           <div className="bg-primary text-primary-foreground rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                             <ArrowRight className="w-6 h-6" />
+                           </div>
+                         </div>
+                       </div>
                       
                       {/* Content Below Thumbnail */}
                       <div className="pt-4">

@@ -23,7 +23,7 @@ export default function GrammarPage() {
   useEffect(() => {
     const fetchLecons = async () => {
       try {
-        const { items } = await BaseCrudService.getAll<Leons>('lecons');
+        const { items } = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 10 });
         
         // Debug: Log all lessons and their hubs
         console.log('All lessons:', items.map(l => ({ title: l.lessonTitle, hub: l.hub })));

@@ -17,14 +17,14 @@ export default function LeconDetailPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { items: allLecons } = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 100 });
+        const { items: allLecons } = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 10 });
         const foundLecon = allLecons.find(l => l._id === id);
         
         if (foundLecon) {
           setLecon(foundLecon);
           
           if (foundLecon.hub) {
-            const { items: allHubs } = await BaseCrudService.getAll<Hubs>('hubs', {}, { limit: 100 });
+            const { items: allHubs } = await BaseCrudService.getAll<Hubs>('hubs', {}, { limit: 10 });
             const foundHub = allHubs.find(h => h.name === foundLecon.hub);
             if (foundHub) {
               setHub(foundHub);

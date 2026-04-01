@@ -15,7 +15,7 @@ export default function LeconsPage() {
   useEffect(() => {
     const fetchLessons = async () => {
       try {
-        const result = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 12, skip });
+        const result = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 10, skip });
         setLessons(prev => skip === 0 ? result.items : [...prev, ...result.items]);
         setHasNext(result.hasNext);
       } catch (error) {
@@ -29,7 +29,7 @@ export default function LeconsPage() {
   }, [skip]);
 
   const handleLoadMore = () => {
-    setSkip(prev => prev + 12);
+    setSkip(prev => prev + 10);
   };
 
   return (
@@ -51,40 +51,36 @@ export default function LeconsPage() {
           <div className="min-h-[400px]">
             {isLoading && skip === 0 ? (
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <div key={i} className="animate-pulse">
-                    <div className="border-t border-primary/10 pt-6">
-                      <div className="h-4 bg-primary/10 rounded w-20 mb-4"></div>
-                      <div className="h-8 bg-primary/10 rounded w-3/4 mb-4"></div>
-                      <div className="h-4 bg-primary/10 rounded w-full mb-2"></div>
-                      <div className="h-4 bg-primary/10 rounded w-5/6"></div>
-                    </div>
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <div key={i} className="animate-pulse border-t border-primary/10 pt-6">
+                    <div className="h-4 bg-primary/10 rounded w-20 mb-4"></div>
+                    <div className="h-8 bg-primary/10 rounded w-3/4 mb-4"></div>
+                    <div className="h-4 bg-primary/10 rounded w-full mb-2"></div>
+                    <div className="h-4 bg-primary/10 rounded w-5/6"></div>
                   </div>
                 ))}
               </div>
             ) : lessons.length > 0 ? (
               <>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {lessons.map((lesson, index) => (
+                  {lessons.slice(0, 10).map((lesson, index) => (
                     <Link
                       key={lesson._id}
                       to={`/lecons/${lesson._id}`}
-                      className="group cursor-pointer"
+                      className="group cursor-pointer border-t border-primary/10 pt-6 hover:border-primary transition-colors duration-300 h-full flex flex-col"
                     >
-                      <div className="border-t border-primary/10 pt-6 hover:border-primary transition-colors duration-300 h-full flex flex-col">
-                        <span className="font-paragraph text-xs font-bold tracking-widest text-primary/50 mb-3 block">
-                          LESSON {String(index + 1).padStart(2, '0')}
-                        </span>
-                        <h3 className="font-heading text-2xl font-medium mb-4 group-hover:underline decoration-1 underline-offset-4 text-primary">
-                          {lesson.lessonTitle || "Untitled Lesson"}
-                        </h3>
-                        <p className="font-paragraph text-primary/60 text-sm leading-relaxed mb-6 flex-grow">
-                          {lesson.shortDescription || "An in-depth analysis of essential phonetic mechanisms for natural speech."}
-                        </p>
-                        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary/40 group-hover:text-primary transition-colors">
-                          <Play className="w-3 h-3 fill-current" />
-                          <span>Start</span>
-                        </div>
+                      <span className="font-paragraph text-xs font-bold tracking-widest text-primary/50 mb-3 block">
+                        LESSON {String(index + 1).padStart(2, '0')}
+                      </span>
+                      <h3 className="font-heading text-2xl font-medium mb-4 group-hover:underline decoration-1 underline-offset-4 text-primary">
+                        {lesson.lessonTitle || "Untitled Lesson"}
+                      </h3>
+                      <p className="font-paragraph text-primary/60 text-sm leading-relaxed mb-6 flex-grow">
+                        {lesson.shortDescription || "An in-depth analysis of essential phonetic mechanisms for natural speech."}
+                      </p>
+                      <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary/40 group-hover:text-primary transition-colors">
+                        <Play className="w-3 h-3 fill-current" />
+                        <span>Start</span>
                       </div>
                     </Link>
                   ))}

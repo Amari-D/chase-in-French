@@ -12,7 +12,7 @@ export default function DebugLessonsPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const result = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 100 });
+        const result = await BaseCrudService.getAll<Leons>('lecons', {}, { limit: 10 });
         setLessons(result.items);
         
         // Log all data to console

@@ -453,7 +453,7 @@ export default function HomePage() {
            <div className="relative w-full py-12 border-t border-secondary/10 bg-primary/50 backdrop-blur-sm">
               <div className="flex whitespace-nowrap overflow-hidden">
                 <div className="animate-marquee flex gap-16 items-center">
-                    {[...Array(4)].map((_, i) => (
+                    {[...Array(2)].map((_, i) => (
                         <React.Fragment key={i}>
                             <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">PRONUNCIATION</span>
                             <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">CULTURE</span>
@@ -463,7 +463,7 @@ export default function HomePage() {
                     ))}
                 </div>
                 <div className="animate-marquee flex gap-16 items-center ml-16" aria-hidden="true">
-                    {[...Array(4)].map((_, i) => (
+                    {[...Array(2)].map((_, i) => (
                         <React.Fragment key={i}>
                             <span className="text-6xl lg:text-8xl font-heading font-bold text-stroke-light opacity-30">PRONUNCIATION</span>
                             <span className="text-6xl lg:text-8xl font-heading font-bold text-secondary opacity-80">CULTURE</span>
