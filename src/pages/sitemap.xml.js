@@ -91,6 +91,10 @@ export async function GET() {
     <loc>https://www.chaseinfrench.com/debug-lessons</loc>
     <lastmod>2026-03-29</lastmod>
   </url>
+  <url>
+    <loc>https://www.chaseinfrench.com/links</loc>
+    <lastmod>2026-04-01</lastmod>
+  </url>
 </urlset>`;
 
   return new Response(sitemap, {
