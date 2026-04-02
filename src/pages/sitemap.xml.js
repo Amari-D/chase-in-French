@@ -1,4 +1,4 @@
-export const prerender = true;
+export const prerender = false;
 
 export async function GET() {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
