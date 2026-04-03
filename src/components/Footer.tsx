@@ -81,6 +81,9 @@ function Footer() {
               <Link to="/privacy-policy" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
                 Privacy Policy
               </Link>
+              <Link to="/sitemap" className="font-paragraph text-sm opacity-90 hover:opacity-100 transition-opacity">
+                Sitemap
+              </Link>
             </nav>
           </div>
         </div>
