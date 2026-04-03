@@ -1,8 +1,29 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { BaseCrudService } from '@/integrations';
+import { Hubs } from '@/entities';
 
 function SitemapPage() {
+  const [hubs, setHubs] = useState<Hubs[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const loadHubs = async () => {
+      try {
+        const { items } = await BaseCrudService.getAll<Hubs>('hubs', {}, { limit: 50 });
+        setHubs(items);
+      } catch (error) {
+        console.error('Failed to load hubs:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadHubs();
+  }, []);
+
   const sitemapStructure = [
     {
       category: 'Main Pages',
@@ -25,6 +46,13 @@ function SitemapPage() {
         { label: 'French Culture', path: '/culture' },
       ],
     },
+    ...(hubs.length > 0 ? [{
+      category: 'Hubs',
+      links: hubs.map(hub => ({
+        label: hub.name || 'Untitled Hub',
+        path: `/topics#${hub.slug || hub._id}`,
+      })),
+    }] : []),
     {
       category: 'Content',
       links: [
