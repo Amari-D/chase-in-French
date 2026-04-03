@@ -1,157 +1,33 @@
-export const prerender = false;
-
-export async function GET() {
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.chaseinfrench.com/</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/start</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/topics</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/topics/songs</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/classes</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/classes/group</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/classes/private</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/pronunciation</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/slang</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/grammar</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/culture</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/podcast</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/songs</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/songs/french-songs-lab-11</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/lecons</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/a-propos</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/about</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/contact</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/politique-confidentialite</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/privacy-policy</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/diagnostics</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/debug-lessons</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/links</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.chaseinfrench.com/sitemap</loc>
-    <lastmod>2026-04-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-</urlset>`;
 
-  return new Response(sitemap, {
-    headers: {
-      'Content-Type': 'application/xml',
-    },
-  });
-}
+  <!-- Core -->
+  <url><loc>https://www.chaseinfrench.com/</loc></url>
+  <url><loc>https://www.chaseinfrench.com/about</loc></url>
+  <url><loc>https://www.chaseinfrench.com/contact</loc></url>
+
+  <!-- Services -->
+  <url><loc>https://www.chaseinfrench.com/french-classes</loc></url>
+  <url><loc>https://www.chaseinfrench.com/online-french-lessons</loc></url>
+  <url><loc>https://www.chaseinfrench.com/private-french-tutor</loc></url>
+
+  <!-- Courses -->
+  <url><loc>https://www.chaseinfrench.com/french-course-for-beginners</loc></url>
+  <url><loc>https://www.chaseinfrench.com/intermediate-french-course</loc></url>
+
+  <!-- Niche SEO Pages -->
+  <url><loc>https://www.chaseinfrench.com/french-for-actors</loc></url>
+  <url><loc>https://www.chaseinfrench.com/french-pronunciation-coach</loc></url>
+  <url><loc>https://www.chaseinfrench.com/learn-french-fast</loc></url>
+
+  <!-- Content / Blog -->
+  <url><loc>https://www.chaseinfrench.com/blog</loc></url>
+  <url><loc>https://www.chaseinfrench.com/blog/how-to-learn-french-fast</loc></url>
+  <url><loc>https://www.chaseinfrench.com/blog/french-pronunciation-tips</loc></url>
+  <url><loc>https://www.chaseinfrench.com/blog/common-french-mistakes</loc></url>
+
+  <!-- Podcast -->
+  <url><loc>https://www.chaseinfrench.com/podcast</loc></url>
+  <url><loc>https://www.chaseinfrench.com/podcast/episode-1</loc></url>
+
+</urlset>
